@@ -1,0 +1,357 @@
+.typed-cursor {
+  color: #0d6efd;
+}
+
+
+
+/* === Global Navbar Styling === */
+
+
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #0d6efd !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offcanvas-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #0d6efd;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #333 !important;
+  letter-spacing: 0.5px;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  color: #0d6efd !important;
+}
+
+/* Reset any stretched underline behavior */
+.navbar-nav .nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #333 !important;
+  position: relative;
+  display: inline-block;
+  /* Required for text-width underline */
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+
+/* Hover underline effect — match text width */
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  background-color: #0d6efd;
+  transform: translateX(-50%);
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+
+
+/* Underline for active link (like Home) */
+.navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background-color: #0d6efd;
+}
+
+
+.navbar-nav .nav-link {
+  padding: 0 !important;
+}
+
+
+/* Sticky nav underline color white */
+.sticky .navbar-nav .nav-link::after,
+.sticky .navbar-nav .nav-link.active::after {
+  background-color: white !important;
+}
+
+
+/* about */
+.color1 {
+  animation: colorShift 5s infinite;
+
+}
+
+@keyframes colorShift {
+  0% {
+    color: #ff0000;
+  }
+
+  50% {
+    color: #00ff00;
+  }
+
+  100% {
+    color: #0000ff;
+  }
+}
+
+
+
+section .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+section .title span {
+  /* color: blue; */
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+section .title span::before,
+section .title span::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: blue;
+}
+
+section .title span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* home */
+
+
+
+
+
+/* services */
+.service-card {
+  border: 3px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+
+}
+
+.service-icon {
+  background: #e0f0ff;
+  color: #3b82f6;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.service-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1f2937;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #4b5563;
+  /* subtle gray */
+  font-family: 'Poppins', sans-serif;
+  text-transform: none;
+  line-height: 1.6;
+  text-transform: capitalize;
+
+}
+
+
+
+/* skills */
+.custom-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* footer section */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-icon:hover {
+  background-color: #fff;
+  color: #0d6efd;
+  /* Bootstrap primary */
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* MY Skills Section styling start */
+.card.h-100.shadow.p-3 {
+  width: 100%;
+  min-height: 230px;
+  /* increase height */
+}
+
+.skill-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.skill-list li {
+  list-style: none;
+  padding: 4px 0;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* equal shadow all sides */
+}
+
+.skill-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* equal horizontal spacing between list items */
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  flex: 1;
+  list-style: none;
+  padding: 4px 0;
+}
+
+.skill-list li:nth-child(2) {
+  text-align: end;
+}
+
+.card {
+  transition: background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+  color: inherit;
+}
+
+/* Card hover background and text color change */
+.card:hover {
+  background-color: #0d6efd;
+  /* example blue */
+  color: white;
+  font-weight: 700;
+  /* bold all text */
+}
+
+/* Make svg icons background transparent */
+.card svg {
+  background-color: transparent !important;
+  transition: fill 0.3s ease;
+  fill: currentColor;
+}
+
+/* On card hover, svg fill color changes to white */
+.card:hover svg {
+  fill: white;
+}
+
+/* Also ensure skill-title and list items inherit color and weight */
+
+.card:hover .skill-list li {
+  color: inherit;
+  font-weight: inherit;
+}
+
+/* If you have <a> inside list, bold on hover */
+ul.skill-list li a {
+  font-weight: normal;
+  transition: font-weight 0.3s ease, color 0.3s ease;
+  color: inherit;
+  text-decoration: none;
+}
+
+ul.skill-list li a:hover {
+  font-weight: 700;
+}
+
+
+.scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  height: 0px;
+}
+
+@media (min-width: 768px) {
+  .scroll-wrapper .row {
+    flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .scroll-wrapper .row {
+    flex-wrap: nowrap !important;
+  }
+}
