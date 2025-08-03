@@ -29,7 +29,7 @@ const countersData = [
   },
 ];
 
-// Counter component with IntersectionObserver scroll trigger
+// Counter component
 const Counter = ({ target }: { target: number }) => {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -80,24 +80,25 @@ const Counter = ({ target }: { target: number }) => {
 export default function CounterSection() {
   return (
     <section
-      className="py-5"
+      className="d-flex align-items-center"
       style={{
         backgroundImage:
           "linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('/banner.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        minHeight: "60vh", // ensures image is visible on mobile
       }}
     >
       <div className="container py-5">
         <div className="row text-center">
           {countersData.map(({ id, title, count, icon }) => (
-            <div key={id} className="col-12 col-md-3 mb-4">
+            <div key={id} className="col-6 col-md-3 mb-4">
               <div
                 className="p-4 rounded h-100 d-flex flex-column justify-content-center align-items-center"
                 style={{ minHeight: "120px" }}
               >
-                {/* Icon block */}
+                {/* Icon */}
                 <div
                   className="rounded-circle border d-flex align-items-center justify-content-center mb-3"
                   style={{
@@ -115,8 +116,8 @@ export default function CounterSection() {
 
                 <Counter target={count} />
                 <p
-                  className="mt-2 fw-semibold text-uppercase"
-                  style={{ color: "#e0e7ff" }}
+                  className="mt-2 fw-semibold text-uppercase text-white"
+                  style={{ fontSize: "0.9rem" }}
                 >
                   {title}
                 </p>

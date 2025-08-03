@@ -86,7 +86,7 @@ export default function HomeSection() {
               }}
             >
               👋 Hi, I'm a passionate Frontend & MERN Stack Developer from
-              Salyan, Nepal — I craft responsive, high-performance web
+              Dang, Mourighat, Nepal — I craft responsive, high-performance web
               applications that are both functional and beautifully designed.
               With a strong foundation in MongoDB, Express.js, React, and
               Node.js, I bring ideas to life with clean code, seamless user

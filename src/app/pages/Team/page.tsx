@@ -18,9 +18,9 @@ const teamData = [
     role: "MERN - Stack Developer",
     image: "/profile.jpg",
     icons: [
-      { href: "#", icon: "bi-github" },
-      { href: "#", icon: "bi-twitter" },
-      { href: "#", icon: "bi-linkedin" },
+      { href: "https://github.com/sushimchaudhary", icon: "bi-github" },
+      { href: "https://www.facebook.com/sushim.ch", icon: "bi-facebook" },
+      { href: "https://www.linkedin.com/in/sushim-chaudhary-458930349/", icon: "bi-linkedin" },
     ],
   },
   {
@@ -29,7 +29,7 @@ const teamData = [
     image: "/Home.jpg",
     icons: [
       { href: "#", icon: "bi-github" },
-      { href: "#", icon: "bi-twitter" },
+      { href: "https://www.facebook.com/samir.chhetri.986942", icon: "bi-facebook" },
       { href: "#", icon: "bi-linkedin" },
     ],
   },
@@ -39,7 +39,7 @@ const teamData = [
     image: "/rohit.jpg",
     icons: [
       { href: "#", icon: "bi-github" },
-      { href: "#", icon: "bi-twitter" },
+      { href: "https://www.facebook.com/lalpuriha.rohit", icon: "bi-facebook" },
       { href: "#", icon: "bi-linkedin" },
     ],
   },
@@ -51,7 +51,7 @@ const teamData = [
     image: "/Rabin.jpg",
     icons: [
       { href: "#", icon: "bi-github" },
-      { href: "#", icon: "bi-twitter" },
+      { href: "https://www.facebook.com/derr.comrade.3597", icon: "bi-facebook" },
       { href: "#", icon: "bi-linkedin" },
     ],
   },
