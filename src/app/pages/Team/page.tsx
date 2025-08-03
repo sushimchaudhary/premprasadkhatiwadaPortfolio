@@ -16,7 +16,7 @@ const teamData = [
    {
     name: "Sushim Chaudhary",
     role: "MERN - Stack Developer",
-    image: "/Sushim.jpg",
+    image: "/profile.jpg",
     icons: [
       { href: "#", icon: "bi-github" },
       { href: "#", icon: "bi-twitter" },
@@ -36,7 +36,7 @@ const teamData = [
   {
     name: "Rohit Pd Tharu",
     role: "Front - End Developer",
-    image: "/Rohit.jpg",
+    image: "/rohit.jpg",
     icons: [
       { href: "#", icon: "bi-github" },
       { href: "#", icon: "bi-twitter" },
@@ -44,16 +44,7 @@ const teamData = [
     ],
   },
  
-  {
-    name: "Girajan Chaudhary",
-    role: "Front - End Developer",
-    image: "/Girajan.jpg",
-    icons: [
-      { href: "#", icon: "bi-github" },
-      { href: "#", icon: "bi-twitter" },
-      { href: "#", icon: "bi-linkedin" },
-    ],
-  },
+
   {
     name: "Rabin Chaudhary",
     role: "Front - End Developer",

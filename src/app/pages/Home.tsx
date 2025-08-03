@@ -193,7 +193,7 @@ export default function HomeSection() {
                 }}
               >
                 <img
-                  src="/sushim.jpg"
+                  src="/profile.jpg"
                   alt="sushim chaudhary"
                   width={400}
                   height={800}

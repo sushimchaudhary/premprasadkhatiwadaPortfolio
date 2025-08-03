@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const images = [
-  "/sushim.jpg",
+  "/profile.jpg",
   "/sushim1.jpg",
   "/sushim2.jpg",
   "/sushim3.jpg",
