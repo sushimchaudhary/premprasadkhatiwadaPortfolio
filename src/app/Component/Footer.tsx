@@ -39,14 +39,23 @@ const Footer = () => {
             <div className="col-md-4 mb-4">
               <h4 className="fw-bold mb-3">Sushim Chaudhary</h4>
               <p className="small text-light">
-                Full Stack Developer blending intuitive design with robust backend logic to deliver seamless, high-performance web applications.
+                Full Stack Developer blending intuitive design with robust
+                backend logic to deliver seamless, high-performance web
+                applications.
               </p>
               <div className="d-flex gap-3 mt-3">
                 {[
-                  { icon: <FaFacebookF />, bg: "#3b5998", link: "#" },
-                  { icon: <FaInstagram />, bg: "#E1306C", link: "#" },
-                  { icon: <FaTiktok />, bg: "#000", link: "#" },
-                  { icon: <FaWhatsapp />, bg: "#25D366", link: "https://wa.me/9809508957" },
+                  {
+                    icon: <FaFacebookF />,
+                    bg: "#3b5998",
+                    link: "https://www.facebook.com/sushim.ch",
+                  },
+                  { icon: <FaTiktok />, bg: "#000", link: "https://www.tiktok.com/@su___shi__m" },
+                  {
+                    icon: <FaWhatsapp />,
+                    bg: "#25D366",
+                    link: "https://wa.me/9809508957",
+                  },
                 ].map(({ icon, bg, link }, i) => (
                   <a
                     key={i}
@@ -62,8 +71,12 @@ const Footer = () => {
                       fontSize: "1rem",
                       transition: "all 0.3s",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.1)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.transform = "scale(1)")
+                    }
                   >
                     {icon}
                   </a>
@@ -89,8 +102,12 @@ const Footer = () => {
                       href={href}
                       className="d-block text-light text-decoration-none py-1"
                       style={{ transition: "color 0.3s" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "#ffc107")}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = "#f8f9fa")}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = "#ffc107")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = "#f8f9fa")
+                      }
                     >
                       {label}
                     </a>
@@ -109,7 +126,9 @@ const Footer = () => {
                     href="mailto:sushimchaudhary1@gmail.com"
                     className="text-white text-decoration-none"
                     style={{ transition: "color 0.3s" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#ffc107")}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#ffc107")
+                    }
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
                   >
                     sushimchaudhary1@gmail.com
@@ -121,10 +140,12 @@ const Footer = () => {
                     href="tel:9809508957"
                     className="text-white text-decoration-none"
                     style={{ transition: "color 0.3s" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#ffc107")}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#ffc107")
+                    }
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#fff")}
                   >
-                   9809508957
+                    9809508957
                   </a>
                 </li>
               </ul>
@@ -133,12 +154,11 @@ const Footer = () => {
 
           <hr className="border-light opacity-35" />
 
-<div className="text-center pb-4 small text-light">
-  &copy; {new Date().getFullYear()}{" "}
-  <span className="fw-bold text-danger p-1">Sushim Chaudhary</span> &mdash; All rights reserved.
-</div>
-
-
+          <div className="text-center pb-4 small text-light">
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="fw-bold text-danger p-1">Sushim Chaudhary</span>{" "}
+            &mdash; All rights reserved.
+          </div>
         </div>
       </footer>
 
