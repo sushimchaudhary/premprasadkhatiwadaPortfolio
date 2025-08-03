@@ -5,14 +5,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 1200 }, items: 4 },
   desktop: { breakpoint: { max: 1200, min: 992 }, items: 3 },
   tablet: { breakpoint: { max: 992, min: 768 }, items: 2 },
   mobile: { breakpoint: { max: 768, min: 0 }, items: 1 },
 };
+
 const teamData = [
+   {
+    name: "Sushim Chaudhary",
+    role: "MERN - Stack Developer",
+    image: "/Sushim.jpg",
+    icons: [
+      { href: "#", icon: "bi-github" },
+      { href: "#", icon: "bi-twitter" },
+      { href: "#", icon: "bi-linkedin" },
+    ],
+  },
   {
     name: "Samir Chhetri",
     role: "Front - End Developer",
@@ -23,7 +33,6 @@ const teamData = [
       { href: "#", icon: "bi-linkedin" },
     ],
   },
-  
   {
     name: "Rohit Pd Tharu",
     role: "Front - End Developer",
@@ -34,16 +43,7 @@ const teamData = [
       { href: "#", icon: "bi-linkedin" },
     ],
   },
-  {
-    name: "Sushim Chaudhary",
-    role: "MERN - Stack Developer",
-    image: "/Sushim.jpg",
-    icons: [
-      { href: "#", icon: "bi-github" },
-      { href: "#", icon: "bi-twitter" },
-      { href: "#", icon: "bi-linkedin" },
-    ],
-  },
+ 
   {
     name: "Girajan Chaudhary",
     role: "Front - End Developer",
@@ -70,10 +70,8 @@ export default function TeamsSection() {
   return (
     <section className="teams py-5" id="Teams">
       <div className="container" style={{ paddingLeft: "6px", paddingRight: "6px" }}>
-        <h2 className="title">
-          <span> 
-            My Team
-          </span>
+        <h2 className=" title text-center fw-bold mb-4" style={{ fontSize: "2.5rem", color: "#0d3b66" }}>
+          My <span style={{ color: "#ee1035ff" }}>Team</span>
         </h2>
 
         <Carousel
@@ -93,7 +91,7 @@ export default function TeamsSection() {
                 style={{
                   backgroundColor: "#fff",
                   border: "1px solid #ddd",
-                  boxShadow: "none",
+                  boxShadow: "0 0 10px rgba(0, 0, 0, 0.05)",
                   maxWidth: "100%",
                   width: "100%",
                   maxHeight: "100%",
@@ -101,9 +99,10 @@ export default function TeamsSection() {
                 }}
               >
                 <div className="boxs text-center">
+                  {/* Profile Image with red outer ring */}
                   <div
                     style={{
-                      background: "blue", // outer red ring
+                      background: "#ee1035ff",
                       borderRadius: "50%",
                       padding: "5px",
                       display: "inline-block",
@@ -111,7 +110,7 @@ export default function TeamsSection() {
                   >
                     <div
                       style={{
-                        background: "#fff", // inner white ring
+                        background: "#fff",
                         borderRadius: "50%",
                         padding: "4px",
                       }}
@@ -124,16 +123,18 @@ export default function TeamsSection() {
                           width: "150px",
                           height: "150px",
                           objectFit: "cover",
-                          display: "block",
                         }}
                       />
                     </div>
                   </div>
 
-                  <div className="text h5 fw-bold mb-1">{member.name}</div>
+                  <div className="text h5 fw-bold mb-1 mt-3" style={{ color: "#0d3b66" }}>
+                    {member.name}
+                  </div>
                   <p className="text-muted mb-3" style={{ fontSize: "1rem" }}>
                     {member.role}
                   </p>
+
                   <ul className="Teams__social__media__icons list-inline mb-0">
                     {member.icons.map((icon, i) => (
                       <li className="list-inline-item mx-2" key={i}>
@@ -146,7 +147,7 @@ export default function TeamsSection() {
                             fontSize: "1.4rem",
                             transition: "color 0.3s",
                           }}
-                          onMouseEnter={(e) => (e.currentTarget.style.color = "#0d8ddb")}
+                          onMouseEnter={(e) => (e.currentTarget.style.color = "#e50914")}
                           onMouseLeave={(e) => (e.currentTarget.style.color = "#1Da1F2")}
                           aria-label={icon.icon.replace("bi-", "")}
                         >
@@ -161,31 +162,29 @@ export default function TeamsSection() {
           ))}
         </Carousel>
       </div>
+
+      {/* Global styles */}
       <style jsx global>{`
-  /* Hide left and right arrows */
-  .react-multiple-carousel__arrow--right,
-  .react-multiple-carousel__arrow--left {
-    display: none !important;
-  }
+        /* Hide left and right arrows */
+        .react-multiple-carousel__arrow--right,
+        .react-multiple-carousel__arrow--left {
+          display: none !important;
+        }
 
-  /* Bigger blue dots */
-  .react-multi-carousel-dot-list li button {
-    width: 16px !important;
-    height: 16px !important;
-    background: crime !important;
-    border-radius: 50% !important;
-    opacity: 1 !important;
-    transition: background-color 0.3s ease;
-  }
-  .react-multi-carousel-dot-list li.react-multi-carousel-dot--active button {
-    background: blue !important;
-  }
-`}</style>
+        /* Carousel dots - red themed */
+        .react-multi-carousel-dot-list li button {
+          width: 16px !important;
+          height: 16px !important;
+          background: #ddd !important;
+          border-radius: 50% !important;
+          opacity: 1 !important;
+          transition: background-color 0.3s ease;
+        }
 
-
+        .react-multi-carousel-dot-list li.react-multi-carousel-dot--active button {
+          background: #e50914 !important; /* Active red dot */
+        }
+      `}</style>
     </section>
-
-
-
   );
 }

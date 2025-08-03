@@ -1,112 +1,205 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
+
 export default function AboutMeSection() {
+  const typing1Ref = useRef<HTMLSpanElement>(null);
 
+  useEffect(() => {
+    const typed1 = new Typed(typing1Ref.current!, {
+      strings: [
+        "MERN-STACK Developer",
+        "Graphic Designer",
+        "Programmer",
+        "Student",
+      ],
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true,
+      showCursor: true,
+      cursorChar: "|",
+    });
 
-    const typing1Ref = useRef(null);
+    return () => {
+      typed1.destroy();
+    };
+  }, []);
 
-    useEffect(() => {
+  return (
+    <section
+      className="about-section"
+      style={{
+        background: "linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%)",
+        padding: "60px 20px",
+        fontFamily: "'Poppins', sans-serif",
+      }}
+    >
+      <div
+        className="container"
+        style={{ maxWidth: "1100px", margin: "0 auto" }}
+      >
+        <h2
+          className="title section-title"
+          style={{
+            textAlign: "center",
+            fontWeight: 700,
+            fontSize: "2.8rem",
+            color: "#0c449a",
+            marginBottom: "50px",
+            textTransform: "uppercase",
+            letterSpacing: "3px",
+            textShadow: "0 2px 5px rgba(12, 68, 154, 0.4)",
+          }}
+        >
+          About <span style={{ color: "#ee1035ff" }}>Me</span>
+        </h2>
 
+        <div
+          className="about-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gap: "40px",
+            alignItems: "center",
+          }}
+        >
+          {/* Image */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "400px",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="/sushim1.jpg"
+              alt="Sushim Chaudhary"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center center",
+                display: "block",
+                borderRadius: "20px",
+              }}
+            />
+          </div>
 
-        const typed1 = new Typed(typing1Ref.current, {
-            strings: ["Front-End Developer", "Graphic Designer", "Programmer", "Student"],
-            typeSpeed: 100,
-            backSpeed: 60,
-            loop: true,
-        });
-
-        // Cleanup on unmount
-        return () => {
-            typed1.destroy();
-        };
-    }, []);
-
-
-
-    return (
-        <section className="bg-white px-3 px-md-5 py-5">
-            <div
-                className="container py-5 shadow rounded"
+          {/* Text */}
+          <div
+            className="about-text"
+            style={{
+              animation: "fadeInUp 1.2s ease forwards",
+              opacity: 0,
+              transform: "translateY(30px)",
+              color: "#222",
+              fontSize: "1.125rem",
+              lineHeight: "1.8",
+            }}
+          >
+            <p
+              className="intro"
+              style={{
+                fontWeight: "700",
+                textTransform: "uppercase",
+                color: "#0c449a",
+                letterSpacing: "1.5px",
+                fontSize: "1.75rem",
+                marginBottom: "15px",
+              }}
+            >
+              I'm a{" "}
+              <span
+                ref={typing1Ref}
                 style={{
-                    boxShadow: '0 0 35px rgba(0, 0, 0, 0.1)', // 👈 यो custom shadow
-                    borderRadius: '12px', // optional: rounded effect enhance
+                  color: "#ee1035ff",
+                  fontWeight: 650,
+                  textShadow: "4 1 2px #ee1035ff",
+                  fontSize: "1.85rem",
                 }}
-            >                <h2 className="title d-lg-none text-center">
-                    <span className="text-dark">
-                        About <b className="color1">Me</b>
-                    </span>
-                </h2>
+              ></span>
+            </p>
 
-                <div className="row align-items-center justify-content-between gx-lg-4 gy-4 gy-lg-0">
-                    {/* Left Side: Image */}
-                    <div className="col-lg-4">
-                        <img
-                            src="/About.jpg"
-                            alt="Samir Chhetri"
-                            width={400}
-                            height={400}
-                            className="img-fluid w-100 rounded shadow"
-                            style={{
-                                maxHeight: '500px', // ⬅️ height बढाइएको
-                                objectFit: 'cover',
-                                objectPosition: 'top center'
-                            }}
-                        />
-                    </div>
+            <p
+              style={{
+                marginBottom: "30px",
+                fontSize: "1.1rem",
+                lineHeight: "1.7",
+              }}
+            >
+              I'm a passionate <strong>MERN Stack Developer</strong> driven by a
+              mission to build sleek, high-performance web applications. I
+              specialize in crafting interactive, scalable user experiences
+              using <strong>MongoDB</strong>, <strong>Express.js</strong>,{" "}
+              <strong>React.js</strong>, and <strong>Node.js</strong>.
+              Proficient in modern tools and libraries including{" "}
+              <strong>Next.js</strong>, <strong>Tailwind CSS</strong>,{" "}
+              <strong>Bootstrap</strong>, <strong>Sass/SCSS</strong>,{" "}
+              <strong>JavaScript</strong>, and <strong>Git/GitHub</strong>. I’m
+              a fast learner, collaborative team player, and deeply focused on
+              writing clean, maintainable code that delivers real-world impact.
+            </p>
 
+            <a
+              href="/sushim-CV.pdf"
+              download
+              className="btn btn-danger"
+              style={{
+                background: "linear-gradient(153deg, #113F67, #58A0C8)",
+                border: "none",
+                padding: "12px 30px",
+                fontWeight: "600",
+                fontSize: "1.1rem",
+                borderRadius: "10px",
+                color: "#fff",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                position: "relative",
+                overflow: "hidden",
+                boxShadow: "0 0 20px #115693ff",
+                transition: "all 0.4s ease",
+                animation: "pulse 2s infinite ease-in-out",
+              }}
+              onMouseEnter={(e) => {
+                const btn = e.currentTarget;
+                btn.style.transform = "scale(1.05)";
+                btn.style.boxShadow = "0 0 30px #113F67)";
+              }}
+              onMouseLeave={(e) => {
+                const btn = e.currentTarget;
+                btn.style.transform = "scale(1)";
+                btn.style.boxShadow = "0 0 20px #113F67";
+              }}
+            >
+              Download CV
+            </a>
+          </div>
+        </div>
+      </div>
 
-                    {/* Right Side: Text & CV */}
-                    <div className="col-lg-8 text-start mt-4 mt-lg-0">
-                        <p className="d-none d-lg-block fw-bold text-uppercase text-primary mb-3 fs-2" style={{ letterSpacing: '1px' }}>
-                            About Me
-                        </p>
+      {/* ✅ Merged styles into one <style jsx> */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-                        <div
-                            className="fs-5 fw-medium mb-2"
-                            style={{
-                                fontFamily: 'Poppins, sans-serif',
-                                color: '#222', // consistent dark
-                            }}
-                        >
-                            I'm a{' '}
-                            <span
-                                className="typing-1 text-capitalize fw-semibold"
-                                style={{ color: '#0d6efd' }}
-                                ref={typing1Ref}
-                            ></span>
-                        </div>
-                        <p
-                            className="text-muted"
-                            style={{
-                                fontSize: '1.05rem',
-                                lineHeight: '1.8',
-                                fontFamily: 'Poppins, sans-serif',
-                                textAlign: 'justify' // 👈 यो थपिएको
-                            }}
-                        >
-                            I am a <strong>Frontend Developer</strong> with a passion for creating <strong>interactive</strong> and
-                            <strong> responsive</strong> web applications. I have experience working with <strong>HTML</strong>, <strong>CSS</strong>,
-                            <strong> Bootstrap</strong>, <strong>Tailwind CSS</strong>, <strong>Sass/SCSS</strong>, <strong>JavaScript</strong>,
-                            <strong> React Js</strong>, <strong>Next Js</strong>, <strong>Git</strong>, and <strong>GitHub</strong>.
-                            I am a <strong>quick learner</strong> and always eager to expand my knowledge and skill set. I am a
-                            <strong> team player</strong> and excited to collaborate on creating amazing applications.
-                        </p>
-
-
-                        <a
-                            href="/Samir-CV.pdf"
-                            download
-                            className="btn btn-primary text-uppercase fw-bold rounded px-4 py-2 mt-3 shadow-sm"
-                        >
-                            Download CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-    );
+        @keyframes pulse {
+          0% {
+            box-shadow: 1 0 20px #113f67;
+          }
+          50% {
+            box-shadow: 0 0 20px #113f67;
+          }
+          100% {
+            box-shadow: 0 0 20px #113f67;
+          }
+        }
+      `}</style>
+    </section>
+  );
 }

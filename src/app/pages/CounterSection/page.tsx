@@ -33,7 +33,7 @@ const countersData = [
 const Counter = ({ target }: { target: number }) => {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
-  const ref = useRef<HTMLHeadingElement | null>(null); // ✅ Fixed Type
+  const ref = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,9 +45,7 @@ const Counter = ({ target }: { target: number }) => {
       { threshold: 0.5 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    if (ref.current) observer.observe(ref.current);
     return () => {
       if (ref.current) observer.unobserve(ref.current);
     };
@@ -73,8 +71,8 @@ const Counter = ({ target }: { target: number }) => {
   }, [hasStarted, target]);
 
   return (
-    <h2 ref={ref} className="fw-bold" style={{ color: "#00ffc3" }}>
-      {count}
+    <h2 ref={ref} className="fw-bold" style={{ color: "#ee1035ff" }}>
+      {count}+
     </h2>
   );
 };
@@ -85,7 +83,7 @@ export default function CounterSection() {
       className="py-5"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0, 0, 139, 0.6), rgba(0, 0, 139, 0.6)), url('/Home.jpg')",
+          "linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('/banner.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -96,7 +94,7 @@ export default function CounterSection() {
           {countersData.map(({ id, title, count, icon }) => (
             <div key={id} className="col-12 col-md-3 mb-4">
               <div
-                className="p-4 rounded h-100 d-flex flex-column justify-content-center align-items-center text-white"
+                className="p-4 rounded h-100 d-flex flex-column justify-content-center align-items-center"
                 style={{ minHeight: "120px" }}
               >
                 {/* Icon block */}
@@ -105,18 +103,23 @@ export default function CounterSection() {
                   style={{
                     width: "50px",
                     height: "50px",
-                    backgroundColor: "#f1f1f1",
+                    backgroundColor: "#0c449aff",
                     borderColor: "#ddd",
                   }}
                 >
                   <i
                     className={`bi ${icon}`}
-                    style={{ fontSize: "1.5rem", color: "#333" }}
+                    style={{ fontSize: "1.5rem", color: "#fff" }}
                   ></i>
                 </div>
 
                 <Counter target={count} />
-                <p className="mt-2 fw-semibold text-uppercase">{title}</p>
+                <p
+                  className="mt-2 fw-semibold text-uppercase"
+                  style={{ color: "#e0e7ff" }}
+                >
+                  {title}
+                </p>
               </div>
             </div>
           ))}

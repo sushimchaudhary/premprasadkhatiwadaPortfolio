@@ -24,10 +24,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_8sxcetl",        // ✅ Your EmailJS Service ID
-        "template_ji78dps",       // ✅ Updated Template ID
+        "service_eag2w6n",
+        "template_wwwi88e",
         formRef.current,
-        "u7ylTiBGnr3rzj1Az"       // ✅ Your EmailJS Public Key
+        "0hMkyRs62bH2eLeUe"
       )
       .then(() => {
         setMessageStatus("Message sent successfully!");
@@ -42,307 +42,382 @@ const Contact = () => {
 
   return (
     <>
-      <section className="contact py-5" id="Contact" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <section
+        className="contact py-5"
+        id="Contact"
+        style={{
+          fontFamily: "'Poppins', sans-serif",
+          backgroundColor: "#f9fbfd",
+        }}
+      >
         <div className="container">
-
-          <h2 className="title text-center mb-4">
-            <span>
-              Contact
-            </span>
+          <h2
+            className="title text-center mb-5"
+            style={{ fontWeight: "700", fontSize: "2.5rem", color: "#1a3e72" }}
+          >
+            Contact <span style={{ color: "#ee1035ff" }}>Me</span>
           </h2>
 
-          <div className="row g-4 align-items-start">
+          <div className="row g-5 align-items-start">
             {/* Left Contact Info */}
             <div className="col-12 col-lg-6">
-              <div className="p-4 shadow rounded-4 bg-white h-100 border border-light">
-                <h3 className="fw-semibold fs-4 text-dark mb-2" style={{ textTransform: "capitalize" }}>
+              <div
+                className="p-4 shadow-sm rounded-4 bg-white h-100 border border-0"
+                style={{
+                  boxShadow: "0 8px 24px rgba(49, 120, 244, 0.12)",
+                  transition: "transform 0.3s ease",
+                }}
+              >
+                <h3
+                  className="fw-semibold fs-4 text-dark mb-4"
+                  style={{
+                    textTransform: "capitalize",
+                    letterSpacing: "0.05em",
+                  }}
+                >
                   Let's Get In Touch
                 </h3>
-                <p className="mb-4 text-secondary" style={{ fontSize: "1rem", fontWeight: "400" }}>
-                  We're here for any suggestion or just to have a chat.
+                <p
+                  className="mb-5 text-secondary"
+                  style={{
+                    fontSize: "1.1rem",
+                    fontWeight: "400",
+                    lineHeight: "1.6",
+                  }}
+                >
+                  Whether you want to say hello, discuss a project, or have a
+                  suggestion, I am here to connect.
                 </p>
 
-                {/* Contact Block Wrapper */}
-                <div className="d-flex flex-wrap align-items-center mb-4 border-bottom pb-3 gap-3">
-                  {/* Icon Box */}
-                  <div
-                    className="text-primary flex-shrink-0"
-                    style={{
-                      backgroundColor: "#e6f2ff",
-                      borderRadius: "50%",
-                      width: "40px",
-                      height: "40px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#1Da1F2";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#e6f2ff";
-                      e.currentTarget.style.color = "#1Da1F2";
-                    }}
-                  >
-                    <BiLogoGithub size={22} />
-                  </div>
-                  {/* Text Content */}
-                  <div>
-                    <p className="mb-1 fw-semibold text-dark fs-6 fs-md-5" style={{ textTransform: "capitalize" }}>GitHub</p>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-medium" style={{ color: "#0d6efd", fontSize: "1rem" }}>
-                      Samir2061
-                    </a>
-                  </div>
-                </div>
+                {/* Contact Info Blocks */}
+                {[
+                  {
+                    icon: <BiLogoGithub size={24} />,
+                    label: "GitHub",
+                    link: "#",
+                    value: "sushimchaudhary",
+                    color: "#171515",
+                    hoverBg: "#24292e",
+                    hrefBlank: true,
+                  },
+                  {
+                    icon: <BiEnvelope size={24} />,
+                    label: "Email",
+                    link: "mailto:sushimchaudhary1@gmail.com",
+                    value: "sushimchaudhary1@gmail.com",
+                    color: "#0072c6",
+                    hoverBg: "#004a85",
+                    hrefBlank: true,
+                  },
+                  {
+                    icon: <BiLogoLinkedinSquare size={24} />,
+                    label: "LinkedIn",
+                    link: "#",
+                    value: "Sushim Chaudhary",
+                    color: "#0a66c2",
+                    hoverBg: "#004182",
+                    hrefBlank: true,
+                  },
+                  {
+                    icon: <BsTelephone size={22} />,
+                    label: "Phone",
+                    link: "tel:9809508957",
+                    value: "9809508957",
+                    color: "#0a66c2",
+                    hoverBg: "#004182",
+                    hrefBlank: false,
+                  },
+                ].map(
+                  (
+                    { icon, label, link, value, color, hoverBg, hrefBlank },
+                    idx
+                  ) => (
+                    <div
+                      key={idx}
+                      className="d-flex flex-wrap align-items-center mb-4 border-bottom pb-3 gap-3"
+                      style={{ cursor: "default" }}
+                    >
+                      <div
+                        className="flex-shrink-0 d-flex align-items-center justify-content-center"
+                        style={{
+                          backgroundColor: color + "22",
+                          borderRadius: "50%",
+                          width: "44px",
+                          height: "44px",
+                          color: color,
+                          transition: "all 0.3s ease",
+                          userSelect: "none",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = hoverBg;
+                          e.currentTarget.style.color = "#fff";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = color + "22";
+                          e.currentTarget.style.color = color;
+                        }}
+                      >
+                        {icon}
+                      </div>
+                      <div>
+                        <p
+                          className="mb-1 fw-semibold text-dark fs-6"
+                          style={{ textTransform: "capitalize" }}
+                        >
+                          {label}
+                        </p>
+                        <a
+                          href={link}
+                          target={hrefBlank ? "_blank" : "_self"}
+                          rel="noopener noreferrer"
+                          className="text-decoration-none fw-medium"
+                          style={{
+                            color: "#0c449aff",
+                            fontSize: "1.05rem",
+                            userSelect: "text",
+                          }}
+                        >
+                          {value}
+                        </a>
+                      </div>
+                    </div>
+                  )
+                )}
 
-                {/* Email */}
-                <div className="d-flex flex-wrap align-items-center mb-4 border-bottom pb-3 gap-3">
-                  <div
-                    className="text-primary flex-shrink-0"
-                    style={{
-                      backgroundColor: "#e6f2ff",
-                      borderRadius: "50%",
-                      width: "40px",
-                      height: "40px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#1Da1F2";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#e6f2ff";
-                      e.currentTarget.style.color = "#1Da1F2";
-                    }}
-                  >
-                    <BiEnvelope size={22} />
-                  </div>
-                  <div>
-                    <p className="mb-1 fw-semibold text-dark fs-6 fs-md-5" style={{ textTransform: "capitalize" }}>Email</p>
-                    <a href="mailto:sameerchhetri494@gmail.com" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-medium" style={{ color: "#0d6efd", fontSize: "1rem" }}>
-                      sameerchhetri494@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                {/* LinkedIn */}
-                <div className="d-flex flex-wrap align-items-center mb-4 border-bottom pb-3 gap-3">
-                  <div
-                    className="text-primary flex-shrink-0"
-                    style={{
-                      backgroundColor: "#e6f2ff",
-                      borderRadius: "50%",
-                      width: "40px",
-                      height: "40px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#1Da1F2";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#e6f2ff";
-                      e.currentTarget.style.color = "#1Da1F2";
-                    }}
-                  >
-                    <BiLogoLinkedinSquare size={22} />
-                  </div>
-                  <div>
-                    <p className="mb-1 fw-semibold text-dark fs-6 fs-md-5" style={{ textTransform: "capitalize" }}>LinkedIn</p>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-medium" style={{ color: "#0d6efd", fontSize: "1rem" }}>
-                      Samir Oli
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="d-flex align-items-center mb-4 border-bottom pb-3 gap-3">
-                  <div
-                    className="text-primary flex-shrink-0"
-                    style={{
-                      backgroundColor: "#e6f2ff",
-                      borderRadius: "50%",
-                      width: "40px",
-                      height: "40px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#1Da1F2";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#e6f2ff";
-                      e.currentTarget.style.color = "#1Da1F2";
-                    }}
-                  >
-                    <BsTelephone size={20} />
-                  </div>
-                  <div>
-                    <p className="mb-1 fw-semibold text-dark fs-6 fs-md-5" style={{ textTransform: "capitalize" }}>Phone</p>
-                    <a href="tel:9813493115" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-medium" style={{ color: "#0d6efd", fontSize: "1rem" }}>
-                      9813493115
-                    </a>
-                  </div>
-                </div>
-
-                {/* 👉 Social Icons Row */}
+                {/* Social Icons Row */}
                 <div className="d-flex gap-3 mt-4">
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white bg-primary d-flex align-items-center justify-content-center rounded-circle"
-                    style={{ width: "40px", height: "40px", transition: "all 0.3s" }}
-                  >
-                    <FaFacebookF size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white bg-info d-flex align-items-center justify-content-center rounded-circle"
-                    style={{ width: "40px", height: "40px", transition: "all 0.3s" }}
-                  >
-                    <FaTwitter size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white bg-dark d-flex align-items-center justify-content-center rounded-circle"
-                    style={{ width: "40px", height: "40px", transition: "all 0.3s" }}
-                  >
-                    <FaTiktok size={18} />
-                  </a>
-                  <a
-                    href="https://wa.me/9813493115"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white bg-success d-flex align-items-center justify-content-center rounded-circle"
-                    style={{ width: "40px", height: "40px", transition: "all 0.3s" }}
-                  >
-                    <FaWhatsapp size={18} />
-                  </a>
+                  {[
+                    {
+                      href: "#",
+                      icon: <FaFacebookF size={18} />,
+                      bgColor: "#4267B2",
+                      hoverBg: "#314e86",
+                    },
+                    {
+                      href: "#",
+                      icon: <FaTwitter size={18} />,
+                      bgColor: "#1DA1F2",
+                      hoverBg: "#0d8ddb",
+                    },
+                    {
+                      href: "#",
+                      icon: <FaTiktok size={18} />,
+                      bgColor: "#000",
+                      hoverBg: "#222",
+                    },
+                    {
+                      href: "https://wa.me/9809508957",
+                      icon: <FaWhatsapp size={18} />,
+                      bgColor: "#25D366",
+                      hoverBg: "#1fa851",
+                    },
+                  ].map(({ href, icon, bgColor, hoverBg }, idx) => (
+                    <a
+                      key={idx}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="d-flex align-items-center justify-content-center rounded-circle"
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        backgroundColor: bgColor,
+                        color: "white",
+                        transition: "all 0.3s ease",
+                        userSelect: "none",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.backgroundColor =
+                          hoverBg;
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.backgroundColor =
+                          bgColor;
+                      }}
+                      aria-label={`Social icon ${idx}`}
+                    >
+                      {icon}
+                    </a>
+                  ))}
                 </div>
-
               </div>
             </div>
 
-
-
             {/* Right Contact Form */}
             <div className="col-12 col-lg-6">
-              <div className="p-4 shadow rounded-4 bg-white border border-light">
-                <h3 className="fw-bold fs-4 text-dark mb-3 text-capitalize">
-                  Message <span className="text-primary">Me!</span>
+              <div
+                className="p-3 shadow-sm rounded-4 bg-white border border-0"
+                style={{
+                  boxShadow: "0 8px 24px rgba(49, 120, 244, 0.12)",
+                }}
+              >
+                <h3
+                  className="fw-bold fs-4 text-dark mb-0 text-capitalize"
+                  style={{ letterSpacing: "0.03em" }}
+                >
+                  Message <span style={{ color: "#ee1035ff" }}>Me!</span>
                 </h3>
 
-                <form ref={formRef} onSubmit={sendEmail} className="text-start">
-                  <div className="mb-3">
-                    <label htmlFor="fullName" className="form-label fw-semibold text-capitalize" style={{ fontSize: "1rem" }}>
-                      Full Name <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="name"
-                      className="form-control form-control-lg"
-                      placeholder="Your full name"
-                      required
-                      style={{ fontSize: "1rem", fontWeight: "400" }}
-                    />
-                  </div>
+                <form
+                  ref={formRef}
+                  onSubmit={sendEmail}
+                  className="px-2 py-5 glass-form rounded-4 "
+                >
+                  {[
+                    {
+                      id: "fullName",
+                      name: "name",
+                      label: "Full Name",
+                      type: "text",
+                      placeholder: "Your full name",
+                      required: true,
+                    },
+                    {
+                      id: "emailAddress",
+                      name: "email",
+                      label: "Email",
+                      type: "email",
+                      placeholder: "yourname@example.com",
+                      required: true,
+                    },
+                    {
+                      id: "phoneNumber",
+                      name: "phoneNumber",
+                      label: "Phone Number",
+                      type: "text",
+                      placeholder: "e.g. 98XXXXXXXX",
+                      value: phone,
+                      pattern: "^(98|97)[0-9]{8}$",
+                      title:
+                        "Phone number must start with 98 or 97 and be 10 digits long",
+                      required: true,
+                      onChange: handlePhoneChange,
+                    },
+                    {
+                      id: "subject",
+                      name: "title",
+                      label: "Subject",
+                      type: "text",
+                      placeholder: "What is this about?",
+                      required: true,
+                    },
+                  ].map(
+                    (
+                      {
+                        id,
+                        name,
+                        label,
+                        type,
+                        placeholder,
+                        required,
+                        value,
+                        pattern,
+                        title,
+                        onChange,
+                      },
+                      idx
+                    ) => (
+                      <div className="form-floating mb-4" key={idx}>
+                        <input
+                          type={type}
+                          id={id}
+                          name={name}
+                          className="form-control styled-input"
+                          placeholder={placeholder}
+                          required={required}
+                          value={value}
+                          pattern={pattern}
+                          title={title}
+                          onChange={onChange}
+                        />
+                        <label htmlFor={id}>
+                          {label}
+                          {required && <span className="text-danger">*</span>}
+                        </label>
+                      </div>
+                    )
+                  )}
 
-                  <div className="mb-3">
-                    <label htmlFor="emailAddress" className="form-label fw-semibold text-capitalize" style={{ fontSize: "1rem" }}>
-                      Email <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="emailAddress"
-                      name="email"
-                      className="form-control form-control-lg"
-                      placeholder="yourname@example.com"
-                      required
-                      style={{ fontSize: "1rem", fontWeight: "400" }}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="phoneNumber" className="form-label fw-semibold text-capitalize" style={{ fontSize: "1rem" }}>
-                      Phone Number <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="phoneNumber"
-                      name="phoneNumber"
-                      className="form-control form-control-lg"
-                      placeholder="e.g. 98XXXXXXXX"
-                      value={phone}
-                      onChange={handlePhoneChange}
-                      required
-                      pattern="^(98|97)[0-9]{8}$"
-                      title="Phone number must start with 98 or 97 and be 10 digits long"
-                      style={{ fontSize: "1rem", fontWeight: "400" }}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="subject" className="form-label fw-semibold text-capitalize" style={{ fontSize: "1rem" }}>
-                      Subject <span className="text-danger">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="title"
-                      className="form-control form-control-lg"
-                      placeholder="What is this about?"
-                      required
-                      style={{ fontSize: "1rem", fontWeight: "400" }}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="projectDetails" className="form-label fw-semibold text-capitalize" style={{ fontSize: "1rem" }}>
-                      Project Details <span className="text-danger">*</span>
-                    </label>
+                  <div className="form-floating mb-4">
                     <textarea
                       id="projectDetails"
                       name="message"
-                      className="form-control"
+                      className="form-control styled-input"
+                      placeholder="Your project description"
                       rows={6}
-                      placeholder="Please describe your project requirements in detail"
                       required
-                      style={{ fontSize: "1rem", fontWeight: "400" }}
                     ></textarea>
+                    <label htmlFor="projectDetails">
+                      Project Details <span className="text-danger">*</span>
+                    </label>
                   </div>
 
-                  <div className="text-center mb-2">
-                    <button type="submit" className="btn btn-primary px-5 py-2 rounded fw-semibold fs-6 shadow">
+                  <div className="text-center mb-3">
+                    <button type="submit" className="btn submit-btn px-5 py-2">
                       Send Me
                     </button>
                   </div>
 
                   {messageStatus && (
-                    <p className={`text-center fw-semibold ${messageStatus.includes("successfully") ? "text-success" : "text-danger"}`}>
+                    <p
+                      className={`text-center fw-semibold ${
+                        messageStatus.includes("successfully")
+                          ? "text-success"
+                          : "text-danger"
+                      }`}
+                      style={{ fontSize: "1rem" }}
+                    >
                       {messageStatus}
                     </p>
                   )}
+
+                  <style jsx>{`
+                    .glass-form {
+                      background: rgba(255, 255, 255, 0.7);
+                      backdrop-filter: blur(10px);
+                      border: 1px solid rgba(255, 255, 255, 0.25);
+                    }
+                    .styled-input {
+                      font-size: 1rem;
+                      border-radius: 10px;
+                      border: 1px solid #d1d9e6;
+                      transition: all 0.3s ease;
+                      background-color: #f9fbfd;
+                    }
+                    .styled-input:focus {
+                      border-color: #3178f4;
+                      box-shadow: 0 0 10px rgba(49, 120, 244, 0.3);
+                    }
+                    .form-floating > label {
+                      font-size: 0.95rem;
+                      color: #666;
+                    }
+                    .submit-btn {
+                      background: linear-gradient(to right, #113f67, #58a0c8);
+                      color: white;
+                      font-weight: 600;
+                      font-size: 1.1rem;
+                      border-radius: 10px;
+                      border: none;
+                      transition: transform 0.3s ease, box-shadow 0.3s ease;
+                      box-shadow: 0 0 15px rgba(88, 160, 200, 0.5);
+                      animation: pulse 2s infinite ease-in-out;
+                      text-transform: uppercase;
+                    }
+                    .submit-btn:hover {
+                      transform: scale(1.05);
+                      box-shadow: 0 0 25px rgba(17, 63, 103, 0.4);
+                    }
+                    @keyframes pulse {
+                      0%,
+                      100% {
+                        box-shadow: 0 0 15px rgba(88, 160, 200, 0.5);
+                      }
+                      50% {
+                        box-shadow: 0 0 25px rgba(17, 63, 103, 0.6);
+                      }
+                    }
+                  `}</style>
                 </form>
               </div>
             </div>
@@ -350,10 +425,15 @@ const Contact = () => {
 
           <div className="row justify-content-center mt-5">
             <div className="col-12">
-              <div className="shadow rounded-4 overflow-hidden p-3">
+              <div
+                className="shadow rounded-4 overflow-hidden p-3"
+                style={{
+                  boxShadow: "0 12px 30px rgba(49, 120, 244, 0.15)",
+                }}
+              >
                 <iframe
                   className="w-100 rounded"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.697266116633!2d82.167308!3d28.378684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997a3b407db6603%3A0xb6d486f10ad016fb!2z4KS44KS-4KSo4KSq4KWAIOCkquCkuOCkguCkv-CkqCDgpKrgpYvgpLAg4KS44KSw4KSv4KWN4KSwIOCkvuCkguCkquClgOCkviDgpLngpK_gpYfgpJw!5e0!3m2!1sen!2snp!4v1719741212345!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d556.6704630128265!2d82.6910100399936!3d27.846242622605537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997a5007cb4c56b%3A0x953d9eef8d9576cd!2sSushim%20Developer!5e1!3m2!1sen!2snp!4v1753958779113!5m2!1sen!2snp"
                   height="450"
                   style={{
                     border: 0,
@@ -369,12 +449,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-
-
-
     </>
-
   );
 };
 

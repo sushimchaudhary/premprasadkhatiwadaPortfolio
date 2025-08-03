@@ -4,29 +4,31 @@ import React from "react";
 import { BsPlusCircle } from "react-icons/bs";
 
 const Certificates = () => {
-    const certificates = [
-        {
-            title: "DIT (Diploma in Information Technology)",
-            institute: "Adarsha Model Secondary School, Rapti-2, Dang Nepal",
-            duration: "23 November, 2021 / 18 November, 2024",
-        },
-        {
-            title: "Web Design / Front End",
-            institute: "Broadway Infosys, Kathmandu, Nepal",
-            duration: "3 December, 2024 / 17 February, 2025",
-        },
-        {
-            title: "Computer Basic & Diploma",
-            institute: "Good Vision Computer Training Center Rapti Rural Municipality-4 Dang Nepal",
-            duration: "1 August, 2023 / 28 April, 2024",
-        },
-    ];
+  const certificates = [
+    {
+      title: "DIT (Diploma in Information Technology)",
+      institute: "Adarsha Model Secondary School, Rapti-2, Dang Nepal",
+      duration: "23 November, 2021 / 18 November, 2024",
+    },
+    {
+      title: "Web Design / Mern-Stack",
+      institute: "Broadway Infosys, Kathmandu, Nepal",
+      duration: "17 November, 2024 / 17 April, 2025",
+    },
+    {
+      title: "Computer Basic & Diploma",
+      institute: "Good Vision Computer Training Center Rapti Rural Municipality-4 Dang Nepal",
+      duration: "1 August, 2023 / 28 April, 2024",
+    },
+  ];
 
-    return (
+  return (
     <section className="certificates py-5" style={{ fontFamily: "'Poppins', sans-serif" }}>
       <div className="container">
         <div className="title mb-4 text-center">
-          <span className="h4 fw-bold text-uppercase text-dark">Certificates</span>
+          <span className="h4 fw-bold text-uppercase" style={{ color: "#0c449aff" }}>
+            Certificates
+          </span>
         </div>
 
         <div className="row certificates__box g-4">
@@ -50,7 +52,7 @@ const Certificates = () => {
                   style={{
                     fontSize: "1.05rem",
                     fontWeight: "600",
-                    color: "#333",
+                    color: "#0c449aff",
                     textTransform: "uppercase",
                   }}
                 >
@@ -77,8 +79,8 @@ const Certificates = () => {
                     </p>
                   </div>
                   <div
-                    className="certificates_icons fs-4 text-primary icon-hover transition"
-                    style={{ cursor: "pointer" }}
+                    className="certificates_icons fs-4 text-danger icon-hover transition"
+                    style={{ cursor: "pointer", color: "#e50914" }}
                   >
                     <BsPlusCircle />
                   </div>
@@ -92,11 +94,11 @@ const Certificates = () => {
       {/* Inline hover effect */}
       <style jsx>{`
         .icon-hover:hover {
-          color: #0a58ca !important;
+          color: #0c449a !important;
         }
         .certificate-card:hover {
-          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1),
-            0 3px 12px rgba(0, 0, 0, 0.06) !important;
+          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12),
+            0 3px 12px rgba(0, 0, 0, 0.08) !important;
           transform: translateY(-4px);
           transition: all 0.3s ease;
         }
@@ -105,9 +107,7 @@ const Certificates = () => {
         }
       `}</style>
     </section>
-
-
-    );
+  );
 };
 
 export default Certificates;

@@ -1,6 +1,7 @@
 .typed-cursor {
-  color: #0d6efd;
+  color: #0c449a !important; ;
 }
+
 
 
 
@@ -11,15 +12,15 @@
 .navbar-brand {
   font-weight: 700;
   font-size: 1.75rem;
-  color: #0d6efd !important;
-  text-transform: uppercase;
+  color: #0c449a !important; 
+    text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .offcanvas-title {
   font-weight: 600;
   font-size: 1.3rem;
-  color: #0d6efd;
+  color: #0c449a;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -32,7 +33,7 @@
 
 .nav-link.active {
   font-weight: 600;
-  color: #0d6efd !important;
+  color: #0c449a !important;
 }
 
 /* Reset any stretched underline behavior */
@@ -49,7 +50,7 @@
 
 /* Active link */
 .navbar-nav .nav-link.active {
-  color: #0d6efd !important;
+  color: #0c449a !important;
   font-weight: 600;
 }
 
@@ -61,7 +62,7 @@
   bottom: -3px;
   height: 2px;
   width: 0;
-  background-color: #0d6efd;
+  background-color: #0c449a;
   transform: translateX(-50%);
   transition: width 0.3s ease, transform 0.3s ease;
 }
@@ -80,7 +81,7 @@
   bottom: -3px;
   height: 2px;
   width: 100%;
-  background-color: #0d6efd;
+  background-color: #0c449a;
 }
 
 
@@ -108,7 +109,7 @@
   }
 
   50% {
-    color: #00ff00;
+    color: #0000ff;
   }
 
   100% {
@@ -140,7 +141,7 @@ section .title span::after {
   width: 100%;
   left: 0;
   bottom: 0;
-  background: blue;
+  background: #0c4d8b;
 }
 
 section .title span::after {
@@ -234,7 +235,7 @@ section .title span::after {
 
 .social-icon:hover {
   background-color: #fff;
-  color: #0d6efd;
+  color: #0c449a;
   /* Bootstrap primary */
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -296,7 +297,7 @@ section .title span::after {
 
 /* Card hover background and text color change */
 .card:hover {
-  background-color: #0d6efd;
+  background-color: #0c449a;
   /* example blue */
   color: white;
   font-weight: 700;
