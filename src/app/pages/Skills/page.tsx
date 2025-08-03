@@ -49,16 +49,21 @@ export default function SkillsCarouselSection() {
         >
           {skillsData.map((category, index) => (
             <div key={index}>
-              <div
-                className="card p-4 h-100 shadow rounded-4"
-                style={{
-                  backgroundColor: "#ffffffcc",
-                  border: "1px solid #ddd",
-                  maxWidth: "100%",
-                  height: "100%",
-                  textAlign: "center",
-                }}
-              >
+            <div
+  className="card p-4 shadow rounded-4"
+  style={{
+    backgroundColor: "#ffffffcc",
+    border: "1px solid #ddd",
+    maxWidth: "100%",
+    minHeight: "320px", // 👈 Fixed height
+    height: "100%",
+    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  }}
+>
+
                 <h5 className="fw-semibold mb-4" style={{ color: "#0c449a" }}>
                   {category.title}
                 </h5>
