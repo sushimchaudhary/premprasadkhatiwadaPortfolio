@@ -8,8 +8,16 @@ const skillsData = [
   {
     title: "Frontend",
     skills: [
-      "HTML", "CSS", "JavaScript", "React", "Next.js",
-      "Bootstrap", "SCSS", "SASS", "Tailwind", "Responsive Design",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Bootstrap",
+      "SCSS",
+      "SASS",
+      "Tailwind",
+      "Responsive Design",
     ],
   },
   {
@@ -33,7 +41,10 @@ export default function SkillsCarouselSection() {
   return (
     <section className="skills py-5" id="Skills">
       <div className="container px-2">
-        <h2 className="text-center fw-bold mb-5" style={{ fontSize: "2.5rem", color: "#0d3b66" }}>
+        <h2
+          className=" title text-center fw-bold mb-5"
+          style={{ fontSize: "2.5rem", color: "#0d3b66" }}
+        >
           My <span style={{ color: "#ee1035ff" }}>Skills</span>
         </h2>
 
@@ -49,21 +60,20 @@ export default function SkillsCarouselSection() {
         >
           {skillsData.map((category, index) => (
             <div key={index}>
-            <div
-  className="card p-4 shadow rounded-4"
-  style={{
-    backgroundColor: "#ffffffcc",
-    border: "1px solid #ddd",
-    maxWidth: "100%",
-    minHeight: "320px", // 👈 Fixed height
-    height: "100%",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  }}
->
-
+              <div
+                className="card p-4 shadow rounded-4"
+                style={{
+                  backgroundColor: "#ffffffcc",
+                  border: "1px solid #ddd",
+                  maxWidth: "100%",
+                  minHeight: "320px", // 👈 Fixed height
+                  height: "100%",
+                  textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
                 <h5 className="fw-semibold mb-4" style={{ color: "#0c449a" }}>
                   {category.title}
                 </h5>
@@ -99,7 +109,9 @@ export default function SkillsCarouselSection() {
           transition: background-color 0.3s ease;
         }
 
-        .react-multi-carousel-dot-list li.react-multi-carousel-dot--active button {
+        .react-multi-carousel-dot-list
+          li.react-multi-carousel-dot--active
+          button {
           background: #ee1035ff !important;
         }
       `}</style>
