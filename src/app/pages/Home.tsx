@@ -129,13 +129,13 @@ export default function HomeSection() {
               </a>
 
               <div className="d-flex gap-3 fs-4 social-icons">
-                <a href="#" title="Facebook">
+                <a href="https://www.facebook.com/sushim.ch" title="Facebook">
                   <i className="bi bi-facebook"></i>
                 </a>
-                <a href="#" title="GitHub">
+                <a href="https://github.com/sushimchaudhary" title="GitHub">
                   <i className="bi bi-github"></i>
                 </a>
-                <a href="#" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/sushim-chaudhary-458930349/ " title="LinkedIn">
                   <i className="bi bi-linkedin"></i>
                 </a>
 

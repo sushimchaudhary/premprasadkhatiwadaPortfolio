@@ -94,7 +94,7 @@ const Contact = () => {
                   {
                     icon: <BiLogoGithub size={24} />,
                     label: "GitHub",
-                    link: "#",
+                    link: "https://github.com/sushimchaudhary",
                     value: "sushimchaudhary",
                     color: "#171515",
                     hoverBg: "#24292e",
@@ -112,7 +112,7 @@ const Contact = () => {
                   {
                     icon: <BiLogoLinkedinSquare size={24} />,
                     label: "LinkedIn",
-                    link: "#",
+                    link: "https://www.linkedin.com/in/sushim-chaudhary-458930349/",
                     value: "Sushim Chaudhary",
                     color: "#0a66c2",
                     hoverBg: "#004182",
@@ -188,19 +188,13 @@ const Contact = () => {
                 <div className="d-flex gap-3 mt-4">
                   {[
                     {
-                      href: "#",
+                      href: "https://www.facebook.com/sushim.ch",
                       icon: <FaFacebookF size={18} />,
                       bgColor: "#4267B2",
                       hoverBg: "#314e86",
                     },
                     {
-                      href: "#",
-                      icon: <FaTwitter size={18} />,
-                      bgColor: "#1DA1F2",
-                      hoverBg: "#0d8ddb",
-                    },
-                    {
-                      href: "#",
+                      href: "https://www.tiktok.com/@su___shi__m",
                       icon: <FaTiktok size={18} />,
                       bgColor: "#000",
                       hoverBg: "#222",
