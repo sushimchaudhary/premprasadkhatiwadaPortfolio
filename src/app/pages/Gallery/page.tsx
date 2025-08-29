@@ -7,6 +7,7 @@ import type { NavigationOptions } from "swiper/types";
 import "swiper/css";
 import "swiper/css/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { motion, Variants, easeOut } from "framer-motion";
 
 const images = [
   "/profile.jpg",
@@ -20,22 +21,42 @@ const images = [
 ];
 
 const Gallery = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
   const [swiperReady, setSwiperReady] = useState(false);
 
   useEffect(() => {
     setSwiperReady(true);
   }, []);
 
+  // Framer Motion variants
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: easeOut },
+    },
+  };
+
   return (
     <section
       className="gallery py-5"
       id="Gallery"
-      
+      style={{
+        background: "linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%)",
+      }}
     >
       <div className="container position-relative">
-        <h2 className="title text-center mb-4" style={{ color: "#0c449a" }}>
+        <h2
+          className="title text-center mb-4"
+          style={{
+            color: "#0c449a",
+            fontSize: "2.5rem",
+            textTransform: "uppercase",
+          }}
+        >
           <span style={{ color: "#0c449aff" }}>Gallery</span>
         </h2>
 
@@ -62,28 +83,31 @@ const Gallery = () => {
           >
             {images.map((src, index) => (
               <SwiperSlide key={index}>
-                <div
+                <motion.div
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
                   className="shadow-sm rounded overflow-hidden p-3 bg-white"
                   style={{
-                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+                    transition: "all 0.3s ease",
                   }}
                 >
                   <img
                     src={src}
                     alt={`Gallery image ${index + 1}`}
                     className="img-fluid w-100 rounded"
-                    style={{
-                      maxHeight: "100%",
-                      objectFit: "contain",
-                    }}
+                    style={{ maxHeight: "100%", objectFit: "cover" }}
                   />
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
         )}
 
-        {/* Custom Arrows */}
+        {/* Custom navigation arrows */}
         <button
           ref={prevRef}
           className="btn position-absolute top-50 start-0 translate-middle-y custom-arrow"
@@ -115,8 +139,7 @@ const Gallery = () => {
           }
           .custom-arrow:hover {
             background: linear-gradient(45deg, #0c449a, #e50914);
-            color: white;
-            transform: scale(1.1);
+            transform: scale(1.15);
           }
         `}</style>
       </div>

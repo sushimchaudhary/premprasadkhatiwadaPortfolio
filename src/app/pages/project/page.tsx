@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const projects = [
   {
@@ -34,6 +36,10 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+  }, []);
+
   return (
     <div className="container py-5">
       <h2
@@ -54,7 +60,12 @@ export default function ProjectsPage() {
 
       <div className="row g-4">
         {projects.map((project, index) => (
-          <div className="col-md-6 col-lg-6" key={index}>
+          <div
+            className="col-md-6 col-lg-6"
+            key={index}
+            data-aos="fade-up"
+            data-aos-delay={index * 150} // Staggered animation
+          >
             <div className="card project-card border-0 shadow-lg rounded-4 overflow-hidden h-100">
               <div className="img-wrapper">
                 <img
