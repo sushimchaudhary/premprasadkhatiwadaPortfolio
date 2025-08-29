@@ -8,82 +8,86 @@ export default function HomeSection() {
   const typing1Ref = useRef(null);
   const heroRef = useRef(null);
 
-  useEffect(() => {
-    const typed1 = new Typed(typing1Ref.current, {
-      strings: ["MERN-Stack Developer", "Student", ],
-      typeSpeed: 80,
-      backSpeed: 50,
-      loop: true,
-      cursorChar: '|',
-      smartBackspace: true
-    });
+useEffect(() => {
+  const typed1 = new Typed(typing1Ref.current, {
+    strings: ["MERN-Stack Developer", "Student"],
+    typeSpeed: 80,
+    backSpeed: 50,
+    loop: true,
+    cursorChar: '|',
+    smartBackspace: true
+  });
 
-    // Add floating particles effect
-    const particles = [];
-    const particleCount = 30;
-    const colors = ['rgba(88, 160, 200, 0.6)', 'rgba(17, 63, 103, 0.6)', 'rgba(238, 16, 53, 0.6)'];
+  // Ensure heroRef exists
+  if (!heroRef.current) return;
 
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.style.position = 'absolute';
-      particle.style.width = `${Math.random() * 10 + 5}px`;
-      particle.style.height = particle.style.width;
-      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.borderRadius = '50%';
-      // particle.style.opacity = Math.random() * 0.5 + 0.1;
-      particle.style.filter = 'blur(1px)';
-      
-      // Position randomly in the hero section
-      const heroRect = heroRef.current.getBoundingClientRect();
-      particle.style.left = `${Math.random() * heroRect.width}px`;
-      particle.style.top = `${Math.random() * heroRect.height}px`;
-      
-      heroRef.current.appendChild(particle);
-      particles.push({
-        element: particle,
-        x: parseFloat(particle.style.left),
-        y: parseFloat(particle.style.top),
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-        radius: parseFloat(particle.style.width) / 2
-      });
-    }
+  const particles = [];
+  const particleCount = 30;
+  const colors = ['rgba(88, 160, 200, 0.6)', 'rgba(17, 63, 103, 0.6)', 'rgba(238, 16, 53, 0.6)'];
 
-    let animationId;
-    const animateParticles = () => {
-      const heroRect = heroRef.current.getBoundingClientRect();
-      
-      particles.forEach(particle => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-        
-        // Bounce off edges
-        if (particle.x < particle.radius || particle.x > heroRect.width - particle.radius) {
-          particle.speedX *= -1;
-        }
-        if (particle.y < particle.radius || particle.y > heroRect.height - particle.radius) {
-          particle.speedY *= -1;
-        }
-        
-        particle.element.style.left = `${particle.x}px`;
-        particle.element.style.top = `${particle.y}px`;
-      });
-      
-      animationId = requestAnimationFrame(animateParticles);
-    };
+  const heroRect = heroRef.current.getBoundingClientRect();
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = `${Math.random() * 10 + 5}px`;
+    particle.style.height = particle.style.width;
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.borderRadius = '50%';
+    particle.style.filter = 'blur(1px)';
     
-    animateParticles();
+    // Position randomly in the hero section
+    particle.style.left = `${Math.random() * heroRect.width}px`;
+    particle.style.top = `${Math.random() * heroRect.height}px`;
+    
+    heroRef.current.appendChild(particle);
+    particles.push({
+      element: particle,
+      x: parseFloat(particle.style.left),
+      y: parseFloat(particle.style.top),
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5,
+      radius: parseFloat(particle.style.width) / 2
+    });
+  }
 
-    return () => {
-      typed1.destroy();
-      cancelAnimationFrame(animationId);
-      particles.forEach(particle => {
-        if (particle.element.parentNode === heroRef.current) {
-          heroRef.current.removeChild(particle.element);
-        }
-      });
-    };
-  }, []);
+  let animationId;
+  const animateParticles = () => {
+    if (!heroRef.current) return;
+    const heroRect = heroRef.current.getBoundingClientRect();
+    
+    particles.forEach(particle => {
+      particle.x += particle.speedX;
+      particle.y += particle.speedY;
+      
+      // Bounce off edges
+      if (particle.x < particle.radius || particle.x > heroRect.width - particle.radius) {
+        particle.speedX *= -1;
+      }
+      if (particle.y < particle.radius || particle.y > heroRect.height - particle.radius) {
+        particle.speedY *= -1;
+      }
+      
+      particle.element.style.left = `${particle.x}px`;
+      particle.element.style.top = `${particle.y}px`;
+    });
+    
+    animationId = requestAnimationFrame(animateParticles);
+  };
+  
+  animateParticles();
+
+  return () => {
+    typed1.destroy();
+    cancelAnimationFrame(animationId);
+    particles.forEach(particle => {
+      if (particle.element.parentNode === heroRef.current) {
+        heroRef.current.removeChild(particle.element);
+      }
+    });
+  };
+}, []);
+
 
   return (
     <section 
