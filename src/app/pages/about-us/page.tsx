@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import { motion } from "framer-motion";
 
 export default function AboutMeSection() {
   const typing1Ref = useRef<HTMLSpanElement>(null);
@@ -13,10 +14,9 @@ export default function AboutMeSection() {
         "Programmer",
         "Student",
       ],
-      typeSpeed: 100,
-      backSpeed: 60,
+      typeSpeed: 90,
+      backSpeed: 50,
       loop: true,
-      showCursor: true,
       cursorChar: "|",
     });
 
@@ -30,16 +30,18 @@ export default function AboutMeSection() {
       className="about-section"
       style={{
         background: "linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%)",
-        padding: "60px 20px",
+        padding: "80px 20px",
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <div
-        className="container"
-        style={{ maxWidth: "1100px", margin: "0 auto" }}
-      >
-        <h2
+      <div className="container" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        {/* Title */}
+        <motion.h2
           className="title section-title"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          viewport={{ once: true }}
           style={{
             textAlign: "center",
             fontWeight: 700,
@@ -52,7 +54,7 @@ export default function AboutMeSection() {
           }}
         >
           About <span style={{ color: "#ee1035ff" }}>Me</span>
-        </h2>
+        </motion.h2>
 
         <div
           className="about-grid"
@@ -63,8 +65,12 @@ export default function AboutMeSection() {
             alignItems: "center",
           }}
         >
-          {/* Image */}
-          <div
+          {/* Left: Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -81,26 +87,25 @@ export default function AboutMeSection() {
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: "center center",
-                display: "block",
                 borderRadius: "20px",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
               }}
             />
-          </div>
+          </motion.div>
 
-          {/* Text */}
-          <div
-            className="about-text"
+          {/* Right: Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
             style={{
-              animation: "fadeInUp 1.2s ease forwards",
-              opacity: 0,
-              transform: "translateY(30px)",
               color: "#222",
               fontSize: "1.125rem",
               lineHeight: "1.8",
             }}
           >
             <p
-              className="intro"
               style={{
                 fontWeight: "700",
                 textTransform: "uppercase",
@@ -116,7 +121,7 @@ export default function AboutMeSection() {
                 style={{
                   color: "#ee1035ff",
                   fontWeight: 650,
-                  textShadow: "4 1 2px #ee1035ff",
+                  textShadow: "0 1px 2px rgba(238,16,53,0.5)",
                   fontSize: "1.85rem",
                 }}
               ></span>
@@ -133,19 +138,20 @@ export default function AboutMeSection() {
               mission to build sleek, high-performance web applications. I
               specialize in crafting interactive, scalable user experiences
               using <strong>MongoDB</strong>, <strong>Express.js</strong>,{" "}
-              <strong>React.js</strong>, and <strong>Node.js</strong>.
-              Proficient in modern tools and libraries including{" "}
-              <strong>Next.js</strong>, <strong>Tailwind CSS</strong>,{" "}
-              <strong>Bootstrap</strong>, <strong>Sass/SCSS</strong>,{" "}
-              <strong>JavaScript</strong>, and <strong>Git/GitHub</strong>. I’m
-              a fast learner, collaborative team player, and deeply focused on
-              writing clean, maintainable code that delivers real-world impact.
+              <strong>React.js</strong>, and <strong>Node.js</strong>. Proficient
+              in modern tools like <strong>Next.js</strong>,{" "}
+              <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong>,{" "}
+              <strong>Sass/SCSS</strong>, and <strong>Git/GitHub</strong>. I’m a
+              fast learner, collaborative team player, and deeply focused on
+              writing clean, maintainable code.
             </p>
 
-            <a
-              href="/sushim-CV.pdf"
+            <motion.a
+              href="/sushim-cv.pdf"
               download
               className="btn btn-danger"
+              whileHover={{ scale: 1.08, boxShadow: "0 0 30px #113F67" }}
+              whileTap={{ scale: 0.95 }}
               style={{
                 background: "linear-gradient(153deg, #113F67, #58A0C8)",
                 border: "none",
@@ -156,50 +162,16 @@ export default function AboutMeSection() {
                 color: "#fff",
                 textTransform: "uppercase",
                 letterSpacing: "1px",
-                position: "relative",
-                overflow: "hidden",
                 boxShadow: "0 0 20px #115693ff",
                 transition: "all 0.4s ease",
-                animation: "pulse 2s infinite ease-in-out",
-              }}
-              onMouseEnter={(e) => {
-                const btn = e.currentTarget;
-                btn.style.transform = "scale(1.05)";
-                btn.style.boxShadow = "0 0 30px #113F67)";
-              }}
-              onMouseLeave={(e) => {
-                const btn = e.currentTarget;
-                btn.style.transform = "scale(1)";
-                btn.style.boxShadow = "0 0 20px #113F67";
+                display: "inline-block",
               }}
             >
               Download CV
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
       </div>
-
-      {/* ✅ Merged styles into one <style jsx> */}
-      <style jsx>{`
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes pulse {
-          0% {
-            box-shadow: 1 0 20px #113f67;
-          }
-          50% {
-            box-shadow: 0 0 20px #113f67;
-          }
-          100% {
-            box-shadow: 0 0 20px #113f67;
-          }
-        }
-      `}</style>
     </section>
   );
 }

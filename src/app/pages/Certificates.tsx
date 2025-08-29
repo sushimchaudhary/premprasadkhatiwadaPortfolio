@@ -1,113 +1,139 @@
 "use client";
+import React, { useEffect } from "react";
+import Head from "next/head";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-import React from "react";
-import { BsPlusCircle } from "react-icons/bs";
+const certificates = [
+  {
+    title: "DIT (Diploma in Information Technology)",
+    institute: "Adarsha Model Secondary School, Rapti-2, Dang Nepal",
+    duration: "23 November, 2021 / 18 November, 2024",
+    icon: "bi bi-award",
+  },
+  {
+    title: "Web Design / Mern-Stack",
+    institute: "Broadway Infosys, Kathmandu, Nepal",
+    duration: "17 November, 2024 / 17 April, 2025",
+    icon: "bi bi-brush",
+  },
+  {
+    title: "Computer Basic & Diploma",
+    institute:
+      "Good Vision Computer Training Center Rapti Rural Municipality-4 Dang Nepal",
+    duration: "1 August, 2023 / 28 April, 2024",
+    icon: "bi bi-laptop",
+  },
+];
 
-const Certificates = () => {
-  const certificates = [
-    {
-      title: "DIT (Diploma in Information Technology)",
-      institute: "Adarsha Model Secondary School, Rapti-2, Dang Nepal",
-      duration: "23 November, 2021 / 18 November, 2024",
-    },
-    {
-      title: "Web Design / Mern-Stack",
-      institute: "Broadway Infosys, Kathmandu, Nepal",
-      duration: "17 November, 2024 / 17 April, 2025",
-    },
-    {
-      title: "Computer Basic & Diploma",
-      institute: "Good Vision Computer Training Center Rapti Rural Municipality-4 Dang Nepal",
-      duration: "1 August, 2023 / 28 April, 2024",
-    },
-  ];
+export default function Certificates() {
+  useEffect(() => {
+    AOS.init({ duration: 1200, once: true });
+  }, []);
 
   return (
-    <section className="certificates py-5" style={{ fontFamily: "'Poppins', sans-serif" }}>
-      <div className="container">
-        <div className="title mb-4 text-center">
-          <span className="h4 fw-bold text-uppercase" style={{ color: "#0c449aff" }}>
-            Certificates
-          </span>
-        </div>
+    <>
+      <Head>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+          rel="stylesheet"
+        />
+      </Head>
 
-        <div className="row certificates__box g-4">
-          {certificates.map(({ title, institute, duration }, idx) => (
-            <div key={idx} className="col-12 col-md-6 col-lg-4">
+      <section
+        className="py-5"
+        style={{
+          background: "linear-gradient(135deg, #f9fafaff 0%, #edf0f4ff 100%)",
+          fontFamily: "Poppins, sans-serif",
+        }}
+        id="Certificates"
+      >
+        <div className="container">
+          <h2
+            className="title text-center fw-bold mb-5"
+            style={{
+              fontSize: "2.5rem",
+              color: "#0c449a",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+            }}
+            data-aos="fade-down"
+          >
+            My <span style={{ color: "#ee1035ff" }}>Certificates</span>
+          </h2>
+
+          <div className="row g-4">
+            {certificates.map((cert, index) => (
               <div
-                className="box p-3 rounded h-100 certificate-card transition"
-                style={{
-                  minHeight: 130,
-                  backgroundColor: "#fff",
-                  borderRadius: 12,
-                  boxShadow:
-                    "0 4px 20px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.05)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
+                className="col-md-4"
+                key={index}
+                data-aos="zoom-in"
+                data-aos-delay={index * 150}
               >
-                <h2
-                  className="text-center pt-2"
+                <div
+                  className="card h-100 text-center border-0 shadow"
                   style={{
-                    fontSize: "1.05rem",
-                    fontWeight: "600",
-                    color: "#0c449aff",
-                    textTransform: "uppercase",
+                    borderRadius: "20px",
+                    background: "rgba(255, 255, 255, 0.7)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
+                    boxShadow: "0 10px 35px rgba(0, 0, 0, 0.1)",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-10px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 20px 40px rgba(12, 68, 154, 0.25)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow =
+                      "0 10px 35px rgba(0, 0, 0, 0.1)";
                   }}
                 >
-                  {title}
-                </h2>
-
-                <div className="d-flex align-items-center justify-content-between mt-3">
-                  <div className="certificates_d text-start">
-                    <p
-                      className="mb-1"
+                  <div className="card-body py-5 px-4">
+                    <div
+                      className="mb-4 d-flex justify-content-center align-items-center mx-auto"
                       style={{
-                        color: "#555",
-                        fontSize: "0.95rem",
-                        textTransform: "capitalize",
+                        width: "90px",
+                        height: "90px",
+                        borderRadius: "50%",
+                        background: "#e6f0ff",
+                        boxShadow: "0 0 15px rgba(12, 68, 154, 0.2)",
                       }}
                     >
-                      {institute}
-                    </p>
-                    <p
-                      className="mb-0 text-muted"
-                      style={{ fontSize: "0.85rem", fontWeight: "400" }}
+                      <i
+                        className={cert.icon}
+                        style={{ fontSize: "2rem", color: "#0c449a" }}
+                      ></i>
+                    </div>
+                    <h5
+                      className="fw-bold mb-2"
+                      style={{ color: "#0c449a", fontSize: "1.3rem" }}
                     >
-                      {duration}
-                    </p>
-                  </div>
-                  <div
-                    className="certificates_icons fs-4 text-danger icon-hover transition"
-                    style={{ cursor: "pointer", color: "#e50914" }}
-                  >
-                    <BsPlusCircle />
+                      {cert.title}
+                    </h5>
+                    <p className="text-muted mb-1">{cert.institute}</p>
+                    <small
+                      style={{
+                        color: "#ee1035ff",
+                        fontWeight: "600",
+                        fontSize: "0.9rem",
+                      }}
+                    >
+                      {cert.duration}
+                    </small>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* Inline hover effect */}
-      <style jsx>{`
-        .icon-hover:hover {
-          color: #0c449a !important;
-        }
-        .certificate-card:hover {
-          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12),
-            0 3px 12px rgba(0, 0, 0, 0.08) !important;
-          transform: translateY(-4px);
-          transition: all 0.3s ease;
-        }
-        .transition {
-          transition: all 0.3s ease;
-        }
-      `}</style>
-    </section>
+      </section>
+    </>
   );
-};
-
-export default Certificates;
+}

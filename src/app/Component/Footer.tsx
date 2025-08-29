@@ -90,12 +90,12 @@ const Footer = () => {
               <ul className="list-unstyled small">
                 {[
                   { label: "Home", href: "/" },
-                  { label: "About", href: "/pages/AboutUS" },
-                  { label: "Services", href: "/pages/Services" },
-                  { label: "Skills", href: "/pages/Skills" },
-                  { label: "Team", href: "/pages/Team" },
-                  { label: "Gallery", href: "/pages/Gallery" },
-                  { label: "Contact", href: "/pages/Contact" },
+                  { label: "About", href: "/pages/about-us" },
+                  { label: "Services", href: "/pages/services" },
+                  { label: "Skills", href: "/pages/skills" },
+                  { label: "Team", href: "/pages/team" },
+                  { label: "Gallery", href: "/pages/gallery" },
+                  { label: "Contact", href: "/pages/contact" },
                 ].map(({ label, href }, index) => (
                   <li key={index}>
                     <a

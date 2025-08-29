@@ -5,6 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+// ✅ AOS import
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 1200 }, items: 4 },
   desktop: { breakpoint: { max: 1200, min: 992 }, items: 3 },
@@ -13,7 +18,7 @@ const responsive = {
 };
 
 const teamData = [
-   {
+  {
     name: "Sushim Chaudhary",
     role: "MERN - Stack Developer",
     image: "/profile.jpg",
@@ -43,8 +48,6 @@ const teamData = [
       { href: "#", icon: "bi-linkedin" },
     ],
   },
- 
-
   {
     name: "Rabin Chaudhary",
     role: "Front - End Developer",
@@ -58,10 +61,22 @@ const teamData = [
 ];
 
 export default function TeamsSection() {
+  // ✅ Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation speed
+      once: true, // animate only once
+    });
+  }, []);
+
   return (
     <section className="teams py-5" id="Teams">
       <div className="container" style={{ paddingLeft: "6px", paddingRight: "6px" }}>
-        <h2 className=" title text-center fw-bold mb-4" style={{ fontSize: "2.5rem", color: "#0d3b66" }}>
+        <h2
+          className="title text-center fw-bold mb-4"
+          style={{ fontSize: "2.5rem", color: "#0d3b66" }}
+          data-aos="fade-up"
+        >
           My <span style={{ color: "#ee1035ff" }}>Team</span>
         </h2>
 
@@ -76,7 +91,7 @@ export default function TeamsSection() {
           itemClass="px-2"
         >
           {teamData.map((member, index) => (
-            <div key={index}>
+            <div key={index} data-aos="zoom-in" data-aos-delay={index * 200}>
               <div
                 className="cards rounded p-3 h-100"
                 style={{
