@@ -1,14 +1,12 @@
 "use client";
-import AboutMeSection from "./Component/about-us/page";
-import Certificates from "./Component/certificates";
-import Contact from "./Component/contact/page";
-import CounterSection from "./Component/counter-section/page";
+
 import HomeSection from "./Component/home";
-
-import Services from "./Component/services/page";
-import TeamsSection from "./Component/team/page";
-
- // ✅ Add this line at the very top
+import AboutMeSection from "./pages/about-us/page";
+import Certificates from "./pages/certificates";
+import Contact from "./pages/contact/page";
+import CounterSection from "./pages/counter-section/page";
+import Services from "./pages/services/page";
+import TeamsSection from "./pages/team/page";
 
 
 function page() {
