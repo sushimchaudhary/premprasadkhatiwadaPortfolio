@@ -16,7 +16,7 @@ function page() {
       <AboutMeSection />
       <Services />
       <CounterSection />
-      <TeamsSection />
+      {/* <TeamsSection /> */}
       <Certificates />
       <Contact />
     </>

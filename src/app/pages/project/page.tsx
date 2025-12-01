@@ -17,7 +17,7 @@ const projects = [
     description:
       "Clinic appointment booking system with admin and doctor management.",
     image: "/project2.png",
-    link: "https://bistahealthpolyclinic.com/",
+    link: "https://bistahealthpolyclinic.vercel.app/",
   },
   {
     title: "Teach Space IT Company",

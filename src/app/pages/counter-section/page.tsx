@@ -12,7 +12,7 @@ const countersData = [
   {
     id: 2,
     title: "YEARS OF EXPERIENCE",
-    count: 2,
+    count: 1,
     icon: "bi-clock-history",
   },
   {
