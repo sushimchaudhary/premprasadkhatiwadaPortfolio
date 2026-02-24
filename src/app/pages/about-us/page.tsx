@@ -8,12 +8,7 @@ export default function AboutMeSection() {
 
   useEffect(() => {
     const typed1 = new Typed(typing1Ref.current!, {
-      strings: [
-        "MERN-STACK Developer",
-        "Graphic Designer",
-        "Programmer",
-        "Student",
-      ],
+      strings: ["MERN-STACK Developer"],
       typeSpeed: 90,
       backSpeed: 50,
       loop: true,
@@ -30,11 +25,13 @@ export default function AboutMeSection() {
       className="about-section"
       style={{
         background: "linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%)",
-        padding: "80px 20px",
-        fontFamily: "'Poppins', sans-serif",
+        padding: "70px 2px",
       }}
     >
-      <div className="container" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div
+        className="container"
+        style={{ maxWidth: "1100px", margin: "0 auto" }}
+      >
         {/* Title */}
         <motion.h2
           className="title section-title"
@@ -46,7 +43,7 @@ export default function AboutMeSection() {
             textAlign: "center",
             fontWeight: 700,
             fontSize: "2.8rem",
-            color: "#0c449a",
+            color: "#0f95ff",
             marginBottom: "50px",
             textTransform: "uppercase",
             letterSpacing: "3px",
@@ -87,7 +84,7 @@ export default function AboutMeSection() {
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: "center center",
-                borderRadius: "20px",
+                borderRadius: "10px",
                 boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
               }}
             />
@@ -106,23 +103,17 @@ export default function AboutMeSection() {
             }}
           >
             <p
+              className="font-bold uppercase tracking-[1.5px] mb-[15px] text-[#0f95ff] text-xl md:text-[1.75rem]"
               style={{
-                fontWeight: "700",
-                textTransform: "uppercase",
-                color: "#0c449a",
-                letterSpacing: "1.5px",
-                fontSize: "1.75rem",
-                marginBottom: "15px",
+                lineHeight: "1.2",
               }}
             >
               I'm a{" "}
               <span
                 ref={typing1Ref}
+                className="text-[#ee1035ff] font-[650] text-2xl md:text-[1.85rem]"
                 style={{
-                  color: "#ee1035ff",
-                  fontWeight: 650,
                   textShadow: "0 1px 2px rgba(238,16,53,0.5)",
-                  fontSize: "1.85rem",
                 }}
               ></span>
             </p>
@@ -138,22 +129,22 @@ export default function AboutMeSection() {
               mission to build sleek, high-performance web applications. I
               specialize in crafting interactive, scalable user experiences
               using <strong>MongoDB</strong>, <strong>Express.js</strong>,{" "}
-              <strong>React.js</strong>, and <strong>Node.js</strong>. Proficient
-              in modern tools like <strong>Next.js</strong>,{" "}
-              <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong>,{" "}
-              <strong>Sass/SCSS</strong>, and <strong>Git/GitHub</strong>. I’m a
-              fast learner, collaborative team player, and deeply focused on
-              writing clean, maintainable code.
+              <strong>React.js</strong>, and <strong>Node.js</strong>.
+              Proficient in modern tools like <strong>Next.js</strong>,{" "}
+              <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong>, and{" "}
+              <strong>Git/GitHub</strong>. I’m a fast learner, collaborative
+              team player, and deeply focused on writing clean, maintainable
+              code.
             </p>
 
             <motion.a
               href="/sushim-cv.pdf"
               download
               className="btn btn-danger"
-              whileHover={{ scale: 1.08, boxShadow: "0 0 30px #113F67" }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{
-                background: "linear-gradient(153deg, #113F67, #58A0C8)",
+                background: "linear-gradient(153deg, #0f95ff, #0f95ff)",
                 border: "none",
                 padding: "12px 30px",
                 fontWeight: "600",
@@ -162,7 +153,7 @@ export default function AboutMeSection() {
                 color: "#fff",
                 textTransform: "uppercase",
                 letterSpacing: "1px",
-                boxShadow: "0 0 20px #115693ff",
+                boxShadow: "0 0 6px #0f95ff",
                 transition: "all 0.4s ease",
                 display: "inline-block",
               }}

@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+
+* {
+  font-family: 'Mukta', sans-serif !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Purai site ko horizontal scroll banda garna */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scrollbar lai purai hide garna (yadi chahiyeko ho bhane) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Image 702c1b jastai smooth background ko lagi */
+body {
+  background: #f8fafc;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 .typed-cursor {
   color: #0c449a !important; ;
 }

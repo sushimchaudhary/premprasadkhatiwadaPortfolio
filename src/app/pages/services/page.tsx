@@ -6,28 +6,28 @@ import "aos/dist/aos.css";
 
 const servicesData = [
   {
+    
     icon: "bi bi-code-slash",
     title: "Web Development",
     description:
-      "Web development is like building and maintaining websites. It involves creating web pages using HTML, CSS, and JavaScript.",
+      "Web development is the craft of building powerful, responsive websites from the ground up. I work with modern technologies like HTML, CSS, JavaScript, and React to bring digital ideas to life. Every project is approached with a focus on clean code, smooth performance, and intuitive design. Whether it's a personal portfolio or a full-scale web application, I ensure every pixel and interaction feels intentional. My goal is to create websites that not only look great but also deliver real results for users and businesses alike.",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80",
+    reverse: false,
   },
   {
+   
     icon: "bi bi-cart-plus",
     title: "E-Commerce Website",
     description:
-      "Built multiple ecommerce platforms, contributing to both frontend and backend in professional environments.",
-  },
-  {
-    icon: "bi bi-palette",
-    title: "Graphic Design",
-    description:
-      "Graphic design is the art of creating visual content to communicate ideas by combining text, imagery, and layout.",
+      "I specialize in building high-converting e-commerce platforms that make online shopping seamless and enjoyable. From product listings to checkout flows, every detail is crafted to maximize user engagement and drive sales. I've worked on both frontend and backend aspects of multiple commercial platforms in professional environments. My builds are optimized for speed, mobile responsiveness, and secure transactions. I understand that a great e-commerce experience builds trust — and trust turns visitors into loyal customers.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+    reverse: true,
   },
 ];
 
 export default function Services() {
   useEffect(() => {
-    AOS.init({ duration: 1200, once: true });
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
@@ -41,108 +41,167 @@ export default function Services() {
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <section
-        className="py-5"
-        style={{
-           background: "linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%)",
-          fontFamily: "Poppins, sans-serif",
-        }}
         id="Services"
+        style={{
+          background: "#f5f7fa",
+          fontFamily: "Poppins, sans-serif",
+          padding: "90px 0",
+        }}
       >
-        <div className="container ">
-          <h2
-            className=" title text-center fw-bold mb-5"
-            style={{
-              fontSize: "2.5rem",
-              color: "#0c449a",
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-            }}
-            data-aos="fade-down"
-          >
-            My <span style={{ color: "#ee1035ff" }}>Services</span>
-          </h2>
+        <div className="container">
 
-          <div className="row g-4">
-            {servicesData.map((service, index) => (
+          {/* Section Heading */}
+          <div className="text-center mb-5" data-aos="fade-down">
+            <p
+              style={{
+                color: "#ee1035",
+                fontWeight: 600,
+                letterSpacing: "3px",
+                fontSize: "0.8rem",
+                textTransform: "uppercase",
+                marginBottom: "10px",
+              }}
+            >
+              What I Offer
+            </p>
+            <h2
+              style={{
+                fontSize: "2.6rem",
+                fontWeight: 700,
+                color: "#0f95ff",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                marginBottom: "16px",
+              }}
+            >
+              My <span style={{ color: "#ee1035" }}>Services</span>
+            </h2>
+            <div style={{ display: "flex", justifyContent: "center", gap: "8px", alignItems: "center" }}>
+              <div style={{ width: "50px", height: "3px", background: "#ee1035", borderRadius: "2px" }} />
+              <div style={{ width: "10px", height: "3px", background: "#0f95ff", borderRadius: "2px" }} />
+              <div style={{ width: "6px", height: "3px", background: "#ee1035", opacity: 0.35, borderRadius: "2px" }} />
+            </div>
+          </div>
+
+          {/* Service Blocks */}
+          {servicesData.map((service, index) => (
+            <div
+              key={index}
+              className={`row align-items-center g-5 ${index !== servicesData.length - 1 ? "mb-5 pb-4" : ""}`}
+              style={{
+                borderBottom: index !== servicesData.length - 1 ? "1px solid #e2e6ef" : "none",
+                paddingBottom: index !== servicesData.length - 1 ? "60px" : "0",
+              }}
+            >
+              {/* Image Column */}
               <div
-                className="col-md-4"
-                key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 150}
+                className={`col-md-5 ${service.reverse ? "order-md-2" : "order-md-1"}`}
+                data-aos={service.reverse ? "fade-left" : "fade-right"}
               >
                 <div
-                  className="card h-100 text-center border-0 shadow position-relative"
                   style={{
-                    borderRadius: "20px",
-                    background: "rgba(255, 255, 255, 0.7)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                    boxShadow: "0 10px 35px rgba(0, 0, 0, 0.1)",
-                    cursor: "pointer",
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-10px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 20px 40px rgba(238, 16, 53, 0.25)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 35px rgba(0, 0, 0, 0.1)";
+                    position: "relative",
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    boxShadow: "0 20px 50px rgba(12, 68, 154, 0.12)",
                   }}
                 >
-                  {/* Gradient top deshing bar */}
-                  <div
-                    className="position-absolute top-0 start-50 translate-middle-x rounded-bottom-pill"
+                  <img
+                    src={service.image}
+                    alt={service.title}
                     style={{
-                      width: "60%",
-                      height: "8px",
-                      background:"linear-gradient(to right, #ee1035ff, #0c449a)",
-                      boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                      width: "100%",
+                      height: "300px",
+                      objectFit: "cover",
+                      display: "block",
+                      transition: "transform 0.5s ease",
                     }}
-                  ></div>
-
-                  <div className="card-body py-5 px-4">
-                    <div
-                      className="mb-4 d-flex justify-content-center align-items-center mx-auto"
-                      style={{
-                        width: "90px",
-                        height: "90px",
-                        borderRadius: "50%",
-                        background: "#fff0f3",
-                        boxShadow: "0 0 15px rgba(238, 16, 53, 0.2)",
-                      }}
-                    >
-                      <i
-                        className={service.icon}
-                        style={{ fontSize: "2rem", color: "#ee1035ff" }}
-                      ></i>
-                    </div>
-                    <h5
-                      className="fw-bold mb-3"
-                      style={{
-                        color: "#0c449a",
-                        fontSize: "1.4rem",
-                        letterSpacing: "0.5px",
-                      }}
-                    >
-                      {service.title}
-                    </h5>
-                    <p
-                      className="text-muted"
-                    style={{ fontSize: "0.95rem", fontWeight: "400" }}
-                    >
-                      {service.description}
-                    </p>
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.04)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  />
+                  {/* Overlay badge */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: "16px",
+                      left: "16px",
+                      background: "linear-gradient(to right,  #0f95ff)",
+                      color: "#fff",
+                      padding: "6px 16px",
+                      borderRadius: "10px",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {service.title}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Text Column */}
+              <div
+                className={`col-md-7 ${service.reverse ? "order-md-1" : "order-md-2"}`}
+                data-aos={service.reverse ? "fade-right" : "fade-left"}
+                data-aos-delay="100"
+              >
+                
+
+                {/* Icon + Title */}
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                  <i
+                    className={service.icon}
+                    style={{ fontSize: "1.5rem", color: "#ee1035" }}
+                  />
+                  <h4
+                    style={{
+                      fontWeight: 700,
+                      color: "#0f95ff",
+                      fontSize: "1.4rem",
+                      letterSpacing: "0.5px",
+                      textTransform: "uppercase",
+                      margin: 0,
+                    }}
+                  >
+                    {service.title}
+                  </h4>
+                </div>
+
+                {/* Accent line */}
+                <div
+                  style={{
+                    width: "45px",
+                    height: "3px",
+                    background: "linear-gradient(to right, #ee1035, #0f95ff)",
+                    borderRadius: "2px",
+                    marginBottom: "20px",
+                  }}
+                />
+
+                {/* Description */}
+                <p
+                  style={{
+                    color: "#555",
+                    fontSize: "0.96rem",
+                    lineHeight: "1.9",
+                    fontWeight: 400,
+                    margin: 0,
+                  }}
+                >
+                  {service.description}
+                </p>
+              </div>
+            </div>
+          ))}
+
         </div>
       </section>
     </>
