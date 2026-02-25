@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import HomeSection from "./Component/home";
 import AboutMeSection from "./pages/about-us/page";
