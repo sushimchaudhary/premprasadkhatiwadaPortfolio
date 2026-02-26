@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Extend window for Bootstrap
 declare global {
   interface Window {
     bootstrap: any;
@@ -14,16 +13,26 @@ declare global {
 export default function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const links = [
+  const mainLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/pages/about-us" },
-    { name: "Services", href: "/pages/services" },
-    { name: "Skills", href: "/pages/skills" },
-    { name: "Team", href: "/pages/team" },
+
+    {
+      name: "Services",
+      href: "/pages/services",
+    },
+
     { name: "Project", href: "/pages/project" },
-    { name: "Gallery", href: "/pages/gallery" },
-    { name: "Contact", href: "/pages/contact" },
+    {
+      name: "More",
+      href: "#",
+      dropdown: [
+        { name: "About", href: "/pages/about-us" },
+        { name: "Skill", href: "/pages/skills" },
+        { name: "gallery", href: "/#0e96ff/gallery" },
+      ],
+    },
   ];
 
   // Sticky navbar on scroll
@@ -50,14 +59,19 @@ export default function Navbar() {
   const handleLinkClick = () => {
     const offcanvas = document.getElementById("offcanvasNavbar");
     if (offcanvas) {
-      const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(offcanvas);
+      const bsOffcanvas = window.bootstrap?.Offcanvas?.getInstance(offcanvas);
       bsOffcanvas?.hide();
     }
+    setActiveDropdown(null);
+  };
+
+  const toggleDropdown = (name: string) => {
+    setActiveDropdown(activeDropdown === name ? null : name);
   };
 
   return (
     <>
-      {/* 🔵 Top Marquee */}
+      {/* Top Marquee */}
       <div className="bg-light border-bottom py-2">
         <div className="container">
           <div
@@ -75,7 +89,7 @@ export default function Navbar() {
                 animation: "marquee 30s linear infinite",
               }}
             >
-              👋 Welcome to my website! I'm Sushim Chaudhary, a passionate
+              👋 Welcome to my website! I&apos;m Sushim Chaudhary, a passionate
               beginner MERN STACK Developer and Graphic Designer from Dang,
               Mourighat, Nepal, currently based in Kathmandu.
             </div>
@@ -97,9 +111,10 @@ export default function Navbar() {
       {/* Navbar */}
       <nav
         ref={navRef}
-        className="navbar navbar-expand-lg custom-navbar d-flex align-items-center justify-content-between px-3 "
+        className="navbar navbar-expand-lg custom-navbar d-flex align-items-center justify-content-between px-3"
       >
         <div className="container d-flex align-items-center justify-content-between">
+          {/* Logo */}
           <Link href="/" className="navbar-brand d-flex align-items-center">
             <img
               src="/logo.png"
@@ -114,19 +129,93 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Links */}
-          <ul className="navbar-nav d-none d-lg-flex ms-4 flex-row gap-4 ">
-            {links.map((item) => (
-              <li key={item.name} className="nav-item">
-                <Link
-                  href={item.href}
-                  className={`nav-link fw-bold ${
-                    pathname === item.href ? "active" : ""
-                  }`}
+          <ul className="navbar-nav d-none d-lg-flex ms-4 flex-row gap-4 align-items-center">
+            {mainLinks.map((item) =>
+              item.dropdown ? (
+                <li
+                  key={item.name}
+                  className="nav-item dropdown-wrapper"
+                  onMouseEnter={() => setActiveDropdown(item.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
+                  <Link
+                    href={item.href}
+                    className={`nav-link fw-bold d-flex align-items-center gap-1 ${
+                      pathname === item.href ||
+                      pathname.startsWith(item.href + "/")
+                        ? "active"
+                        : ""
+                    }`}
+                  >
+                    {item.name}
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      style={{
+                        transition: "transform 0.2s ease",
+                        transform:
+                          activeDropdown === item.name
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                      }}
+                    >
+                      <path
+                        d="M2 4L6 8L10 4"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  <div
+                    className={`custom-dropdown ${
+                      activeDropdown === item.name ? "show" : ""
+                    }`}
+                  >
+                    {item.dropdown.map((sub) => (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        className={`dropdown-item-link ${
+                          pathname === sub.href ? "active" : ""
+                        }`}
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                </li>
+              ) : (
+                <li key={item.name} className="nav-item">
+                  <Link
+                    href={item.href}
+                    className={`nav-link fw-bold ${
+                      pathname === item.href ? "active" : ""
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ),
+            )}
+
+            {/* Contact CTA Button */}
+            <li className="nav-item ms-2 ">
+              <Link
+                href="/pages/contact"
+                className={`contact-cta-btn ${
+                  pathname === "/pages/contact" ? "cta-active" : ""
+                }`}
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Toggle Button */}
@@ -157,7 +246,6 @@ export default function Navbar() {
                     height: "100%",
                     width: "150px",
                     objectFit: "contain",
-                    transition: "all 0.3s ease",
                   }}
                 />
               </Link>
@@ -169,20 +257,86 @@ export default function Navbar() {
               />
             </div>
 
-            <div className="offcanvas-body d-flex flex-column m-2 py-4 gap-4">
+            <div className="offcanvas-body d-flex flex-column m-2 py-4 gap-2">
               <ul className="navbar-nav w-100 text-start">
-                {links.map((item) => (
-                  <li key={item.name} className="nav-item w-100">
-                    <Link
-                  href={item.href}
-                  className={`nav-link fw-bold ${
-                    pathname === item.href ? "active" : ""
-                  }`}
-                >
-                  {item.name}
-                </Link>
-                  </li>
-                ))}
+                {mainLinks.map((item) =>
+                  item.dropdown ? (
+                    <li key={item.name} className="nav-item w-100">
+                      <button
+                        className={`mobile-dropdown-toggle nav-link fw-bold w-100 text-start d-flex justify-content-between align-items-center ${
+                          pathname === item.href ||
+                          pathname.startsWith(item.href + "/")
+                            ? "active"
+                            : ""
+                        }`}
+                        onClick={() => toggleDropdown(item.name)}
+                      >
+                        {item.name}
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          style={{
+                            transition: "transform 0.2s ease",
+                            transform:
+                              activeDropdown === item.name
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                          }}
+                        >
+                          <path
+                            d="M2 4L6 8L10 4"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                      {activeDropdown === item.name && (
+                        <ul className="mobile-sub-nav ps-3">
+                          {item.dropdown.map((sub) => (
+                            <li key={sub.name}>
+                              <Link
+                                href={sub.href}
+                                className={`nav-link py-1 ${
+                                  pathname === sub.href ? "active" : ""
+                                }`}
+                                onClick={handleLinkClick}
+                              >
+                                {sub.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ) : (
+                    <li key={item.name} className="nav-item w-100">
+                      <Link
+                        href={item.href}
+                        className={`nav-link fw-bold ${
+                          pathname === item.href ? "active" : ""
+                        }`}
+                        onClick={handleLinkClick}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ),
+                )}
+
+                {/* Contact CTA Mobile */}
+                <li className="nav-item w-100 mt-3">
+                  <Link
+                    href="/pages/contact"
+                    className="contact-cta-btn-mobile"
+                    onClick={handleLinkClick}
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -190,20 +344,55 @@ export default function Navbar() {
 
         {/* Global Styles */}
         <style jsx global>{`
-          /* Sticky Navbar with blur */
-          .custom-navbar.sticky {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1030;
-            background-color: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            animation: slideDown 0.3s ease-in-out;
+          /* ── Base Navbar ── */
+          .custom-navbar {
+            background-color: #ffff;
+            transition:
+              background-color 0.3s ease,
+              backdrop-filter 0.3s ease,
+              box-shadow 0.3s ease;
             height: 80px;
-            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+          }
+
+          /* Sticky huda black background banaune setup */
+          .custom-navbar.sticky {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 9999 !important;
+
+            /* Background black banako */
+            background-color: #f5f7fa !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+            height: 70px !important;
+            transition: all 0.3s ease-in-out;
+          }
+
+          /* Sticky huda links lai white banaune */
+          .custom-navbar.sticky .nav-link {
+            color: black !important;
+          }
+
+          /* Sticky huda active link ko color thikai rakhne ya adjust garnu */
+          .custom-navbar.sticky .nav-link.active {
+            color: #0e96fe !important; /* Tapai ko primary blue color */
+          }
+
+          /* Sticky huda Logo ya brand text yadi image hoina vane white banauna */
+          .custom-navbar.sticky .navbar-brand {
+            color: black !important;
+          }
+
+          /* Sticky huda toggler icon (mobile) lai white frame dine */
+          .custom-navbar.sticky .navbar-toggler {
+            filter: invert(1);
+          }
+
+          /* Container lai transparent nai rakhne */
+          .custom-navbar.sticky .container {
+            background: transparent !important;
           }
 
           @keyframes slideDown {
@@ -215,7 +404,133 @@ export default function Navbar() {
             }
           }
 
-          /* Offcanvas style */
+          /* ── Desktop Nav Links ── */
+          .navbar-nav .nav-link {
+            color: #0e96fe;
+            position: relative;
+            text-decoration: none !important;
+            transition: color 0.2s ease;
+            padding-bottom: 4px;
+          }
+
+          /* No underline by default, no hover underline */
+          .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 2px;
+            background-color: #0e96fe;
+            transition: none;
+          }
+
+          /* Only active link gets underline */
+          .navbar-nav .nav-link.active::after {
+            width: 100%;
+          }
+
+          .navbar-nav .nav-link.active {
+            color: #0e96fe;
+          }
+
+          /* Hover: only color change, NO underline */
+          .navbar-nav .nav-link:hover {
+            color: #0c449a;
+          }
+          .navbar-nav .nav-link:hover::after {
+            width: 0% !important;
+          }
+
+          /* ── Dropdown Wrapper ── */
+          .dropdown-wrapper {
+            position: relative;
+          }
+
+          .custom-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(14, 150, 254, 0.15);
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(14, 150, 254, 0.15);
+            min-width: 180px;
+            padding: 8px 0;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-50%) translateY(-8px);
+            transition:
+              opacity 0.2s ease,
+              transform 0.2s ease;
+            z-index: 1000;
+          }
+
+          .custom-dropdown.show {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(-50%) translateY(0);
+          }
+
+          .dropdown-item-link {
+            display: block;
+            padding: 9px 20px;
+            color: #0c449a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none !important;
+            transition:
+              background 0.2s ease,
+              color 0.2s ease;
+            border-left: 3px solid transparent;
+          }
+
+          .dropdown-item-link:hover {
+            background: rgba(14, 150, 254, 0.08);
+            color: #0e96fe;
+            border-left-color: #0e96fe;
+          }
+
+          .dropdown-item-link.active {
+            color: #0e96fe;
+            border-left-color: #0e96fe;
+            background: rgba(14, 150, 254, 0.06);
+          }
+
+          /* ── Contact CTA Button ── */
+          .contact-cta-btn {
+            display: inline-block;
+            padding: 4px 22px;
+            background:#0f95fe;
+            color: white !important;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            text-decoration: none !important;
+            box-shadow: 0 4px 15px rgba(14, 150, 254, 0.3);
+            transition:
+              transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease;
+            letter-spacing: 0.02em;
+          }
+
+          .contact-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14, 150, 254, 0.45);
+            background:#0f95fe
+            color: black !important;
+          }
+
+          .contact-cta-btn.cta-active {
+            background: linear-gradient(135deg, #0c449a, #0e96fe);
+            box-shadow: 0 4px 20px rgba(14, 150, 254, 0.5);
+          }
+
+          /* ── Mobile Offcanvas ── */
           .offcanvas.offcanvas-end {
             width: 60% !important;
             height: 100vh;
@@ -224,58 +539,69 @@ export default function Navbar() {
           }
 
           .offcanvas-body .nav-link {
-            font-size: 1.2rem;
-            color: #124fb8ff;
-            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            color: #0f95fe;
+            transition: color 0.2s ease;
+            text-decoration: none !important;
+            padding: 8px 8px;
           }
 
+          
+
           .offcanvas-body .nav-link:hover {
-            color: #0d3accff;
+            color: #0c449a;
           }
 
           .offcanvas-header {
-            border-bottom: 1px solid #043a81ff;
+            border-bottom: 1px solid rgba(14, 150, 254, 0.2);
           }
 
           .offcanvas-body .navbar-nav .nav-item {
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
           }
 
           .offcanvas-backdrop.show {
             background: rgba(0, 0, 0, 0.3);
           }
 
-          /* Desktop nav link default */
-          .navbar-nav .nav-link {
-            color: #0c449a;
-            position: relative;
-            text-decoration: none !important; /* 🚫 disable browser underline */
-            transition: color 0.3s ease;
+          /* Mobile dropdown toggle button */
+          .mobile-dropdown-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
           }
 
-          /* Underline with ::after (blue only) */
-          .navbar-nav .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 5;
-            bottom: -2px;
-            width: 0%;
-            height: 2px;
-            background-color: #0d46ccff; /* blue underline */
-            transition: width 0.3s ease;
+          .mobile-sub-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px 12px;
+            border-left: 2px solid rgba(14, 150, 254, 0.3);
           }
 
-          /* Hover state */
-          .navbar-nav .nav-link:hover {
-            color: #ee1035ff; /* red text on hover */
-          }
-          .navbar-nav .nav-link:hover::after {
-            width: 100%; /* expand underline */
+          .mobile-sub-nav .nav-link {
+            font-size: 0.95rem !important;
+            color: #0c449a !important;
           }
 
-          /* Sticky navbar override (force blue underline even sticky) */
-          .custom-navbar.sticky .navbar-nav .nav-link::after {
-            background-color: #0d46ccff !important;
+          /* Contact CTA Mobile */
+          .contact-cta-btn-mobile {
+            
+            display: inline-block;
+            padding: 4px 22px;
+            background:#0f95fe;
+            color: white !important;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            text-decoration: none !important;
+            box-shadow: 0 4px 15px rgba(14, 150, 254, 0.3);
+            transition:
+              transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease;
+            letter-spacing: 0.02em;
+          
+           
           }
         `}</style>
       </nav>

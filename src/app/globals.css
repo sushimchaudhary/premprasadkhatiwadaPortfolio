@@ -10,10 +10,26 @@
 @tailwind utilities;
 
 /* Purai site ko horizontal scroll banda garna */
+/* Global CSS ma yo update garnu */
+/* globals.css ma thapnu */
 html, body {
+  /* Kahile kahi body ko overflow le filter render huna rokcha */
+  overflow-x: hidden; 
+}
+
+/* Ensure backdrop support */
+@supports not (backdrop-filter: blur(20px)) {
+  .custom-navbar.sticky {
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Fallback for old browsers */
+  }
+}
+
+body {
   max-width: 100vw;
   overflow-x: hidden;
   position: relative;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 /* Scrollbar lai purai hide garna (yadi chahiyeko ho bhane) */
@@ -25,11 +41,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Image 702c1b jastai smooth background ko lagi */
-body {
-  background: #f8fafc;
-  color: #333;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -37,11 +49,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .typed-cursor {
-  color: #0c449a !important; ;
+  color: #0e96ff !important; ;
 }
 
 
+/* Placeholder lai explicit color ra opacity dine */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important; 
+    opacity: 1 !important; 
+}
 
+
+input::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.5) !important; }
+input::-moz-placeholder { color: rgba(255, 255, 255, 0.5) !important; }
+input:-ms-input-placeholder { color: rgba(255, 255, 255, 0.5) !important; }
 
 /* === Global Navbar Styling === */
 
@@ -50,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-brand {
   font-weight: 700;
   font-size: 1.75rem;
-  color: #0c449a !important; 
+  color: #0e96ff !important; 
     text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -58,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 .offcanvas-title {
   font-weight: 600;
   font-size: 1.3rem;
-  color: #0c449a;
+  color: #0e96ff;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -69,9 +90,17 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.5px;
 }
 
-.nav-link.active {
-  font-weight: 600;
-  color: #0c449a !important;
+/* Color lai #0e96ff ma update garnu */
+.nav-link.active, 
+.navbar-nav .nav-link.active {
+  color: #0e96ff !important; 
+  font-weight: 700;
+}
+
+/* Underline ko color pani update garnu */
+.navbar-nav .nav-link.active::after {
+  background-color: #0e96ff !important;
+  width: 100% !important;
 }
 
 /* Reset any stretched underline behavior */
@@ -88,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Active link */
 .navbar-nav .nav-link.active {
-  color: #0c449a !important;
+  color: #0e96ff !important;
   font-weight: 600;
 }
 
@@ -100,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: -3px;
   height: 2px;
   width: 0;
-  background-color: #0c449a;
+  background-color: #0e96ff;
   transform: translateX(-50%);
   transition: width 0.3s ease, transform 0.3s ease;
 }
@@ -119,7 +148,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: -3px;
   height: 2px;
   width: 100%;
-  background-color: #0c449a;
+  background-color: #0e96ff;
 }
 
 
@@ -179,7 +208,7 @@ section .title span::after {
   width: 100%;
   left: 0;
   bottom: 0;
-  background: #0c4d8b;
+  background: #0e96ff;
 }
 
 section .title span::after {
@@ -273,7 +302,7 @@ section .title span::after {
 
 .social-icon:hover {
   background-color: #fff;
-  color: #0c449a;
+  color: #0e96ff;
   /* Bootstrap primary */
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -335,7 +364,7 @@ section .title span::after {
 
 /* Card hover background and text color change */
 .card:hover {
-  background-color: #0c449a;
+  background-color: #0e96ff;
   /* example blue */
   color: white;
   font-weight: 700;
@@ -393,4 +422,51 @@ ul.skill-list li a:hover {
   .scroll-wrapper .row {
     flex-wrap: nowrap !important;
   }
+}
+
+
+
+/* Sticky Navbar logic with forced blur */
+.custom-navbar.sticky {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important; /* Saba bhanda mathi rakhna */
+  
+  /* Background ali dherai transparent bhayesi matra muni ko content blurred dekhincha */
+  background-color: rgba(255, 255, 255, 0.4) !important; 
+  
+  /* Blur effect logic */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Navbar bhitra ko container lai transparent banaune */
+.custom-navbar.sticky .container, 
+.custom-navbar.sticky .container-fluid {
+  background: transparent !important;
+}
+
+/* Active Link Color logic */
+.navbar-nav .nav-link.active {
+  color: #0e96ff !important; /* Tapaile khojnu bhayeko exact color */
+}
+
+.navbar-nav .nav-link.active::after {
+  background-color: #0e96ff !important;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Marquee container ko lagi safety style */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
 }

@@ -53,7 +53,7 @@ const Contact = () => {
         <div className="container">
           <h2
             className="title text-center mb-5"
-            style={{ fontWeight: "700", fontSize: "2.5rem", color: "#1a3e72" }}
+            style={{ fontWeight: "700", fontSize: "2.5rem", color: "#0e96fe" }}
           >
             Contact <span style={{ color: "#ee1035ff" }}>Me</span>
           </h2>
@@ -62,7 +62,7 @@ const Contact = () => {
             {/* Left Contact Info */}
             <div className="col-12 col-lg-6">
               <div
-                className="p-4 shadow-sm rounded-4 bg-white h-100 border border-0"
+                className="p-4 shadow-sm rounded-2 bg-white h-100 border border-0"
                 style={{
                   boxShadow: "0 8px 24px rgba(49, 120, 244, 0.12)",
                   transition: "transform 0.3s ease",
@@ -106,7 +106,7 @@ const Contact = () => {
                     link: "mailto:sushimchaudhary1@gmail.com",
                     value: "sushimchaudhary1@gmail.com",
                     color: "#0072c6",
-                    hoverBg: "#004a85",
+                    hoverBg: "#0e96fe",
                     hrefBlank: true,
                   },
                   {
@@ -115,7 +115,7 @@ const Contact = () => {
                     link: "https://www.linkedin.com/in/sushim-chaudhary-458930349/",
                     value: "Sushim Chaudhary",
                     color: "#0a66c2",
-                    hoverBg: "#004182",
+                    hoverBg: "#0e96fe",
                     hrefBlank: true,
                   },
                   {
@@ -124,7 +124,7 @@ const Contact = () => {
                     link: "tel:9809508957",
                     value: "9809508957",
                     color: "#0a66c2",
-                    hoverBg: "#004182",
+                    hoverBg: "#0e96fe",
                     hrefBlank: false,
                   },
                 ].map(
@@ -172,7 +172,7 @@ const Contact = () => {
                           rel="noopener noreferrer"
                           className="text-decoration-none fw-medium"
                           style={{
-                            color: "#0c449aff",
+                            color: "#0e96fe",
                             fontSize: "1.05rem",
                             userSelect: "text",
                           }}
@@ -240,7 +240,7 @@ const Contact = () => {
             {/* Right Contact Form */}
             <div className="col-12 col-lg-6">
               <div
-                className="p-3 shadow-sm rounded-4 bg-white border border-0"
+                className="p-3 shadow-sm rounded-2 bg-white border border-0"
                 style={{
                   boxShadow: "0 8px 24px rgba(49, 120, 244, 0.12)",
                 }}
@@ -255,7 +255,7 @@ const Contact = () => {
                 <form
                   ref={formRef}
                   onSubmit={sendEmail}
-                  className="px-2 py-5 glass-form rounded-4 "
+                  className="px-2 py-5 glass-form rounded-2 "
                 >
                   {[
                     {
@@ -373,7 +373,7 @@ const Contact = () => {
                     }
                     .styled-input {
                       font-size: 1rem;
-                      border-radius: 10px;
+                      border-radius: 3px;
                       border: 1px solid #d1d9e6;
                       transition: all 0.3s ease;
                       background-color: #f9fbfd;
@@ -387,11 +387,12 @@ const Contact = () => {
                       color: #666;
                     }
                     .submit-btn {
-                      background: linear-gradient(to right, #113f67, #58a0c8);
+                   
+                      background: #0e96fe;
                       color: white;
                       font-weight: 600;
                       font-size: 1.1rem;
-                      border-radius: 10px;
+                      border-radius: 4px;
                       border: none;
                       transition: transform 0.3s ease, box-shadow 0.3s ease;
                       box-shadow: 0 0 15px rgba(88, 160, 200, 0.5);
@@ -420,7 +421,7 @@ const Contact = () => {
           <div className="row justify-content-center mt-5">
             <div className="col-12">
               <div
-                className="shadow rounded-4 overflow-hidden p-3"
+                className="shadow rounded-2 overflow-hidden p-3"
                 style={{
                   boxShadow: "0 12px 30px rgba(49, 120, 244, 0.15)",
                 }}
