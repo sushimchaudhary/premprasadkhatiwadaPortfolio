@@ -59,18 +59,7 @@ export default function Services() {
 
           {/* Section Heading */}
           <div className="text-center mb-5" data-aos="fade-down">
-            <p
-              style={{
-                color: "#ee1035",
-                fontWeight: 600,
-                letterSpacing: "3px",
-                fontSize: "0.8rem",
-                textTransform: "uppercase",
-                marginBottom: "10px",
-              }}
-            >
-              What I Offer
-            </p>
+            
             <h2
               style={{
                 fontSize: "2.6rem",
@@ -134,8 +123,8 @@ export default function Services() {
                       left: "16px",
                       background: "linear-gradient(to right,  #0f95ff)",
                       color: "#fff",
-                      padding: "6px 16px",
-                      borderRadius: "10px",
+                      padding: "3px 12px",
+                      borderRadius: "4px",
                       fontSize: "0.75rem",
                       fontWeight: 600,
                       letterSpacing: "1px",

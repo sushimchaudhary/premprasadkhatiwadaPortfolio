@@ -9,6 +9,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light Mode (Default) */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Dark Mode - यो क्लास next-themes ले थप्छ */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
 /* Purai site ko horizontal scroll banda garna */
 /* Global CSS ma yo update garnu */
 /* globals.css ma thapnu */
@@ -218,9 +235,11 @@ section .title span::after {
   transform: translateX(-50%);
 }
 
-/* home */
+/* dark mode */
 
-
+.dark-mode-section {
+   background: var(--bg-color); /* Dark theme ko color */
+}
 
 
 

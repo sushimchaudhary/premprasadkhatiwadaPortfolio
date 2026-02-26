@@ -4,6 +4,7 @@ import Header from "./Component/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "./Component/Footer";
+import { ThemeProvider } from "./Component/ThemeProvider";
 
 // Mukta font configuration
 const mukta = Mukta({
@@ -29,9 +30,11 @@ export default function RootLayout({ children }) {
         className={`${mukta.variable} ${geistMono.variable} antialiased`}
         style={{ fontFamily: "var(--font-mukta), sans-serif" }} // Default font Mukta banayeko
       >
-        <Header />
-        {children}
-        <Footer/>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

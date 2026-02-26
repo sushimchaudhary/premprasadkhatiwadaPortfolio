@@ -7,31 +7,27 @@ import "aos/dist/aos.css";
 
 const projects = [
   {
-    title: "Personal Portfolio",
-    description: "A modern personal portfolio showcasing skills and projects.",
-    image: "/project1.png",
-    link: "https://sushimchaudhary.vercel.app/",
+    title: "Sempa Tech",
+    category: "IT Company",
+    description:
+      "A professional software solutions and premium IT services platform.",
+    image: "/project/sempa.png",
+    link: "http://sempatech.com/",
   },
   {
-    title: "Bista Health Polyclinic",
+    title: "Edify Nepal",
+    category: "Blog & Portal",
     description:
-      "Clinic appointment booking system with admin and doctor management.",
-    image: "/project2.png",
-    link: "https://bistahealthpolyclinic.vercel.app/",
+      "An interactive blog portal focused on education and digital insights.",
+    image: "/project/edifynepal.png",
+    link: "https://edifynepal.com/",
   },
   {
-    title: "Teach Space IT Company",
-    description:
-      "Software company website with services, courses and inquiry system.",
-    image: "https://via.placeholder.com/400x200",
-    link: "#",
-  },
-  {
-    title: "Channo Cottage",
-    description:
-      "A restaurant management system with ordering and booking features.",
-    image: "https://via.placeholder.com/400x200",
-    link: "#",
+    title: "Nepal Chunab",
+    category: "Election Portal",
+    description: "Real-time election tracking system with data visualization.",
+    image: "/project/nepalchunab.png",
+    link: "http://nepalchunab.vercel.app/",
   },
 ];
 
@@ -41,52 +37,125 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div className="container py-5">
-      <h2
-        className="title section-title"
-        style={{
-          textAlign: "center",
-          fontWeight: 700,
-          fontSize: "2.8rem",
-          color: "#0c449a",
-          marginBottom: "50px",
-          textTransform: "uppercase",
-          letterSpacing: "3px",
-          textShadow: "0 2px 5px rgba(12, 68, 154, 0.4)",
-        }}
-      >
-        Pro<span style={{ color: "#ee1035ff" }}>ject</span>
-      </h2>
+    <section className="about-section">
+      <div className="text-center mb-5" data-aos="fade-down">
+        <div className="text-center mb-5" data-aos="fade-down">
+          <h2
+            style={{
+              fontSize: "2.6rem",
+              fontWeight: 700,
+              color: "#0f95ff",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+              marginBottom: "16px",
+            }}
+          >
+            Pro <span style={{ color: "#ee1035" }}>ject</span>
+          </h2>
 
-      <div className="row g-4">
+          {/* Modern Decorative Underline */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "8px",
+              alignItems: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <div
+              style={{
+                width: "50px",
+                height: "3px",
+                background: "#ee1035",
+                borderRadius: "2px",
+              }}
+            />
+            <div
+              style={{
+                width: "10px",
+                height: "3px",
+                background: "#0f95ff",
+                borderRadius: "2px",
+              }}
+            />
+            <div
+              style={{
+                width: "6px",
+                height: "3px",
+                background: "#ee1035",
+                opacity: 0.35,
+                borderRadius: "2px",
+              }}
+            />
+          </div>
+
+          {/* Short & Sweet Description */}
+          <p
+            className="text-muted mx-auto"
+            style={{
+              maxWidth: "600px",
+              fontSize: "1.1rem",
+              lineHeight: "1.6",
+              fontWeight: "400",
+            }}
+          >
+            A showcase of my recent works, blending{" "}
+            <span style={{ color: "#0f95ff", fontWeight: "600" }}>
+              creative design
+            </span>{" "}
+            with
+            <span style={{ color: "#ee1035", fontWeight: "600" }}>
+              {" "}
+              modern technology
+            </span>{" "}
+            to build impactful digital experiences.
+          </p>
+        </div>
+      </div>
+
+      <div className="row g-4 justify-content-center px-lg-4">
         {projects.map((project, index) => (
           <div
-            className="col-md-6 col-lg-6"
+            className="col-md-6 col-lg-4"
             key={index}
             data-aos="fade-up"
-            data-aos-delay={index * 150} // Staggered animation
+            data-aos-delay={index * 150}
           >
-            <div className="card project-card border-0 shadow-lg rounded-4 overflow-hidden h-100">
-              <div className="img-wrapper">
+            <div className="card project-card border-0 shadow-sm overflow-hidden h-100">
+              <div className="img-wrapper position-relative">
                 <img
                   src={project.image}
                   className="card-img-top"
                   alt={project.title}
                 />
               </div>
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title fw-bold project-title">
-                  {project.title}
-                </h5>
-                <p className="card-text text-muted flex-grow-1">
+
+              <div className="card-body p-3 d-flex flex-column border-top">
+                <div className="d-flex align-items-center justify-content-between mb-3">
+                  <h4
+                    className="fw-bold m-0 text-dark"
+                    style={{ fontSize: "1.2rem" }}
+                  >
+                    {project.title}
+                  </h4>
+                  <span className="category-badge-inline">
+                    {project.category}
+                  </span>
+                </div>
+                <p
+                  className="text-muted small flex-grow-1 mb-3 text-start"
+                  style={{ lineHeight: "1.6" }}
+                >
                   {project.description}
                 </p>
                 <a
                   href={project.link}
-                  className="btn custom-btn mt-3 align-self-start"
+                  className="btn custom-btn py-1.5 w-100"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  View Project
+                  Visit Website
                 </a>
               </div>
             </div>
@@ -95,74 +164,73 @@ export default function ProjectsPage() {
       </div>
 
       <style jsx>{`
-        /* Equal height cards */
+        .about-section {
+          background: linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%);
+          /* Default Mobile Padding */
+          padding: 70px 20px;
+        }
+
+        /* Desktop (Large devices) ko lagi padding adjustment */
+        @media (min-width: 992px) {
+          .about-section {
+            padding: 70px 50px; /* 20 bata 50 garidiyeko chha */
+          }
+        }
+
         .project-card {
-          min-height: 200px; 
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          cursor: pointer;
-          background-color: #fff;
+          background: #ffffff;
+          border-radius: 4px !important;
+          transition: box-shadow 0.3s ease;
+          border: 1px solid #f0f0f0 !important;
         }
 
         .project-card:hover {
-          transform: translateY(-12px);
-          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* Image scale on hover */
         .img-wrapper {
+          height: 200px;
           overflow: hidden;
         }
 
         .img-wrapper img {
-          height: 220px;
           width: 100%;
+          height: 100%;
           object-fit: cover;
-          transition: transform 0.5s ease;
         }
 
-        .project-card:hover .img-wrapper img {
-          transform: scale(1.05);
+        .category-badge-inline {
+          background: #f8f9fa;
+          color: #6c757d;
+          padding: 3px 10px;
+          font-size: 0.6rem;
+          font-weight: 700;
+          border-radius: 4px;
+          text-transform: uppercase;
+          border: 1px solid #dee2e6;
+          white-space: nowrap;
         }
 
-        /* Button gradient */
         .custom-btn {
-          background: linear-gradient(90deg, #0d1b75, #ff0000);
+          background: #0f95fe;
+          color: white !important;
           border: none;
-          color: #fff;
-          font-weight: 500;
-          transition: transform 0.3s;
-          outline: none !important;
-          box-shadow: none !important;
+          font-weight: 600;
+          border-radius: 4px !important;
+          transition: 0.3s ease;
         }
 
-        .custom-btn:hover,
-        .custom-btn:focus,
-        .custom-btn:active {
-          transform: translateY(-2px);
+        .custom-btn:hover {
+          background: #1380d4;
+          filter: brightness(1.1);
         }
 
-        /* Title no hover */
-        .project-title {
-          color: #000;
-          transition: none;
-        }
-
-        .project-title:hover,
-        .project-title:focus {
-          color: #000;
-          text-decoration: none;
-        }
-
-        /* Remove default link/hover styles */
-        .project-card,
-        .project-card * {
-          outline: none !important;
-          text-decoration: none;
+        @media (max-width: 768px) {
+          .section-title {
+            font-size: 2.2rem;
+          }
         }
       `}</style>
-    </div>
+    </section>
   );
 }

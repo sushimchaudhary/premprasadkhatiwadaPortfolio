@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
 declare global {
   interface Window {
@@ -11,9 +13,11 @@ declare global {
 }
 
 export default function Navbar() {
-  const pathname = usePathname();
+ const pathname = usePathname();
   const navRef = useRef<HTMLDivElement | null>(null);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const { theme, setTheme, resolvedTheme } = useTheme(); 
+  const [mounted, setMounted] = useState(false);
 
   const mainLinks = [
     { name: "Home", href: "/" },
@@ -30,7 +34,7 @@ export default function Navbar() {
       dropdown: [
         { name: "About", href: "/pages/about-us" },
         { name: "Skill", href: "/pages/skills" },
-        { name: "gallery", href: "/#0e96ff/gallery" },
+        { name: "gallery", href: "/pages/gallery" },
       ],
     },
   ];
@@ -49,6 +53,10 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+  setMounted(true);
+}, []);
 
   // Import Bootstrap JS dynamically
   useEffect(() => {
@@ -216,7 +224,24 @@ export default function Navbar() {
                 Contact
               </Link>
             </li>
+
+             {/* <button
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              className="theme-toggle-btn"
+              aria-label="Toggle Dark Mode"
+            >
+              {mounted && (resolvedTheme === "dark" ? (
+                <Sun size={20} color="#ffbd44" />
+              ) : (
+                <Moon size={20} color="#0c449a" />
+              ))}
+            </button> */}
           </ul>
+
+
+         
+
+
 
           {/* Mobile Toggle Button */}
           <button
@@ -344,6 +369,50 @@ export default function Navbar() {
 
         {/* Global Styles */}
         <style jsx global>{`
+
+
+/* Theme Toggle Button Style */
+          .theme-toggle-btn {
+            background: rgba(14, 150, 254, 0.1);
+            border: 1px solid rgba(14, 150, 254, 0.2);
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+
+          .theme-toggle-btn:hover {
+            background: rgba(14, 150, 254, 0.2);
+            transform: scale(1.1);
+          }
+
+          /* Dark Mode support for navbar */
+          [data-theme='dark'] .custom-navbar {
+            background-color: #121212 !important;
+            border-bottom: 1px solid #333;
+          }
+
+          [data-theme='dark'] .custom-navbar.sticky {
+            background-color: #1a1a1a !important;
+          }
+
+          [data-theme='dark'] .nav-link {
+            color: #ffffff !important;
+          }
+
+          [data-theme='dark'] .custom-dropdown {
+            background: #1e1e1e;
+            border-color: #333;
+          }
+
+          [data-theme='dark'] .dropdown-item-link {
+            color: #ddd;
+          }
+
+
           /* ── Base Navbar ── */
           .custom-navbar {
             background-color: #ffff;

@@ -49,13 +49,24 @@ export default function Certificates() {
       <div className="container py-4">
         {/* Section Header */}
         <div className="text-center mb-5" data-aos="fade-up">
-          <h2 className="fw-bold mb-3" style={{ fontSize: "2.8rem", color: "#0c449a", letterSpacing: "1px" }}>
+          
+        </div>
+
+
+        <div className="text-center mb-5" data-aos="fade-down">
+            
+           <h2 className="fw-bold mb-3" style={{ fontSize: "2.8rem", color: "#0c449a", letterSpacing: "1px" }}>
             Academic <span style={{ color: "#ee1035" }}>Milestones</span>
           </h2>
           <p className="mx-auto text-muted" style={{ maxWidth: "600px", fontSize: "1.1rem", lineHeight: "1.6" }}>
             A journey of continuous learning and skill acquisition.
           </p>
-        </div>
+            <div style={{ display: "flex", justifyContent: "center", gap: "8px", alignItems: "center" }}>
+              <div style={{ width: "50px", height: "3px", background: "#ee1035", borderRadius: "2px" }} />
+              <div style={{ width: "10px", height: "3px", background: "#0f95ff", borderRadius: "2px" }} />
+              <div style={{ width: "6px", height: "3px", background: "#ee1035", opacity: 0.35, borderRadius: "2px" }} />
+            </div>
+          </div>
 
         {/* Certificate Grid */}
         <div className="row g-4 justify-content-center">

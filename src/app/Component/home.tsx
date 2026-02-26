@@ -10,7 +10,7 @@ export default function HomeSection() {
 
   useEffect(() => {
     const typed1 = new Typed(typing1Ref.current, {
-      strings: ["MERN-Stack Developer", "Student"],
+      strings: ["MERN-Stack Developer"],
       typeSpeed: 80,
       backSpeed: 50,
       loop: true,
@@ -136,9 +136,9 @@ export default function HomeSection() {
             <div
               className="text-uppercase fw-semibold mb-3"
               style={{
-                fontFamily: "'Poppins', sans-serif",
+               
                 letterSpacing: "2px",
-                color: "#58A0C8",
+                color: "#0f95fe",
                 fontSize: "1.1rem",
               }}
             >
@@ -150,7 +150,7 @@ export default function HomeSection() {
             <h1
               className="fw-bold mb-3 display-4"
               style={{
-                fontFamily: "'Poppins', sans-serif",
+               
                 color: "#fff",
                 lineHeight: "1.2",
                 textShadow: "0 0 10px rgba(255, 255, 255, 0.2)",
@@ -161,7 +161,7 @@ export default function HomeSection() {
               </span>{" "}
               <span
                 className="d-inline-block animate__animated animate__fadeIn"
-                style={{ color: "#58A0C8" }}
+                style={{ color: "#0f95fe" }}
               >
                 Chaudhary
               </span>
@@ -205,11 +205,11 @@ export default function HomeSection() {
                 href="pages/contact"
                 className="btn btn-primary fw-semibold position-relative overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, #58A0C8, #0c449a)",
+                  background: "#0f95fe",
                   border: "none",
-                  padding: "14px 32px",
+                  padding: "5px 30px",
                   fontSize: "1.1rem",
-                  borderRadius: "8px",
+                  borderRadius: "4px",
                   color: "#fff",
                   letterSpacing: "1px",
                   fontFamily: "'Poppins', sans-serif",
@@ -232,12 +232,12 @@ export default function HomeSection() {
                 <span className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-0 hover-opacity-10 transition-all"></span>
               </a>
 
-              <div className="d-flex gap-3 fs-4 social-icons">
+              <div className="d-flex gap-3 fs-3 social-icons">
                 {[
                   {
                     icon: "bi-facebook",
                     url: "https://www.facebook.com/sushim.ch",
-                    color: "#1877f2",
+                    color: "#0f95fe",
                   },
                   {
                     icon: "bi-github",
@@ -247,7 +247,7 @@ export default function HomeSection() {
                   {
                     icon: "bi-linkedin",
                     url: "https://www.linkedin.com/in/sushim-chaudhary-458930349/",
-                    color: "#0a66c2",
+                    color: "#0f95fe",
                   },
                 ].map((social, index) => (
                   <a

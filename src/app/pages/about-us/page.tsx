@@ -33,25 +33,26 @@ export default function AboutMeSection() {
         style={{ maxWidth: "1100px", margin: "0 auto" }}
       >
         {/* Title */}
-        <motion.h2
-          className="title section-title"
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          viewport={{ once: true }}
-          style={{
-            textAlign: "center",
-            fontWeight: 700,
-            fontSize: "2.8rem",
-            color: "#0f95ff",
-            marginBottom: "50px",
-            textTransform: "uppercase",
-            letterSpacing: "3px",
-            textShadow: "0 2px 5px rgba(12, 68, 154, 0.4)",
-          }}
-        >
-          About <span style={{ color: "#ee1035ff" }}>Me</span>
-        </motion.h2>
+         <div className="text-center mb-5" data-aos="fade-down">
+            
+            <h2
+              style={{
+                fontSize: "2.6rem",
+                fontWeight: 700,
+                color: "#0f95ff",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                marginBottom: "16px",
+              }}
+            >
+              About <span style={{ color: "#ee1035" }}>Me</span>
+            </h2>
+            <div style={{ display: "flex", justifyContent: "center", gap: "8px", alignItems: "center" }}>
+              <div style={{ width: "50px", height: "3px", background: "#ee1035", borderRadius: "2px" }} />
+              <div style={{ width: "10px", height: "3px", background: "#0f95ff", borderRadius: "2px" }} />
+              <div style={{ width: "6px", height: "3px", background: "#ee1035", opacity: 0.35, borderRadius: "2px" }} />
+            </div>
+          </div>
 
         <div
           className="about-grid"
@@ -140,16 +141,16 @@ export default function AboutMeSection() {
             <motion.a
               href="/sushim-cv.pdf"
               download
-              className="btn btn-danger"
-              whileHover={{ scale: 1.05 }}
+              className="btn submit-btn"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
               style={{
                 background: "linear-gradient(153deg, #0f95ff, #0f95ff)",
                 border: "none",
-                padding: "12px 30px",
+                padding: "5px 30px",
                 fontWeight: "600",
-                fontSize: "1.1rem",
-                borderRadius: "10px",
+                fontSize: "1rem",
+                borderRadius: "4px",
                 color: "#fff",
                 textTransform: "uppercase",
                 letterSpacing: "1px",
@@ -163,6 +164,28 @@ export default function AboutMeSection() {
           </motion.div>
         </div>
       </div>
+
+      <style jsx> {` 
+      .submit-btn {
+                   
+                      background: #0e96fe;
+                      color: white;
+                      font-weight: 600;
+                      font-size: 1.1rem;
+                      border-radius: 4px;
+                      border: none;
+                      transition: transform 0.3s ease, box-shadow 0.3s ease;
+                      box-shadow: 0 0 15px rgba(88, 160, 200, 0.5);
+                      animation: pulse 2s infinite ease-in-out;
+                      text-transform: uppercase;
+                    }
+                    .submit-btn:hover {
+                      transform: scale(1.05);
+                      box-shadow: 0 0 25px rgba(17, 63, 103, 0.4);
+                    }
+      `}
+
+      </style>
     </section>
   );
 }

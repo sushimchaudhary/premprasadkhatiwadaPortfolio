@@ -51,12 +51,26 @@ const Contact = () => {
         }}
       >
         <div className="container">
-          <h2
-            className="title text-center mb-5"
-            style={{ fontWeight: "700", fontSize: "2.5rem", color: "#0e96fe" }}
-          >
-            Contact <span style={{ color: "#ee1035ff" }}>Me</span>
-          </h2>
+          <div className="text-center mb-5" data-aos="fade-down">
+            
+            <h2
+              style={{
+                fontSize: "2.6rem",
+                fontWeight: 700,
+                color: "#0f95ff",
+                textTransform: "uppercase",
+                letterSpacing: "1.5px",
+                marginBottom: "16px",
+              }}
+            >
+              Contact <span style={{ color: "#ee1035" }}>Me</span>
+            </h2>
+            <div style={{ display: "flex", justifyContent: "center", gap: "8px", alignItems: "center" }}>
+              <div style={{ width: "50px", height: "3px", background: "#ee1035", borderRadius: "2px" }} />
+              <div style={{ width: "10px", height: "3px", background: "#0f95ff", borderRadius: "2px" }} />
+              <div style={{ width: "6px", height: "3px", background: "#ee1035", opacity: 0.35, borderRadius: "2px" }} />
+            </div>
+          </div>
 
           <div className="row g-5 align-items-start">
             {/* Left Contact Info */}
@@ -213,8 +227,8 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       className="d-flex align-items-center justify-content-center rounded-circle"
                       style={{
-                        width: "44px",
-                        height: "44px",
+                        width: "30px",
+                        height: "30px",
                         backgroundColor: bgColor,
                         color: "white",
                         transition: "all 0.3s ease",
@@ -347,7 +361,7 @@ const Contact = () => {
                   </div>
 
                   <div className="text-center mb-3">
-                    <button type="submit" className="btn submit-btn px-5 py-2">
+                    <button type="submit" className="btn submit-btn px-5 py-1.5">
                       Send Me
                     </button>
                   </div>
@@ -400,7 +414,7 @@ const Contact = () => {
                       text-transform: uppercase;
                     }
                     .submit-btn:hover {
-                      transform: scale(1.05);
+                      transform: scale(1.02);
                       box-shadow: 0 0 25px rgba(17, 63, 103, 0.4);
                     }
                     @keyframes pulse {
