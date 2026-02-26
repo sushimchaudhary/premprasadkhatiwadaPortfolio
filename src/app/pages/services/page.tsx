@@ -52,7 +52,7 @@ export default function Services() {
         style={{
           background: "#f5f7fa",
           fontFamily: "Poppins, sans-serif",
-          padding: "90px 0",
+          padding: "70px 0",
         }}
       >
         <div className="container">

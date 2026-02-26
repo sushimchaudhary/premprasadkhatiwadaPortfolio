@@ -24,13 +24,14 @@ export default function AboutMeSection() {
     <section
       className="about-section"
       style={{
-        background: "linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%)",
-        padding: "70px 2px",
-      }}
+          background: "#f5f7fa",
+          fontFamily: "Poppins, sans-serif",
+          padding: "60px 0",
+        }}
     >
       <div
         className="container"
-        style={{ maxWidth: "1100px", margin: "0 auto" }}
+        style={{ maxWidth: "1300px", margin: "0 auto" }}
       >
         {/* Title */}
          <div className="text-center mb-5" data-aos="fade-down">
