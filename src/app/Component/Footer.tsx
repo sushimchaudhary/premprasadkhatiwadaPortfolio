@@ -13,7 +13,7 @@ const Footer = () => {
   const [showScroll, setShowScroll] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
-  const [error, setError] = useState(""); // एरर म्यासेजको लागि
+  const [error, setError] = useState(""); 
 
   const logoColor = "#30a3fe";
   const textColor = "#0e95fe";
@@ -33,13 +33,12 @@ const Footer = () => {
   const handleSubscribe = (e) => {
     e.preventDefault();
 
-    // भ्यालिडेशन चेक
+   
     if (!email) {
-      setError("Email is required!"); // खाली हुँदा एरर देखाउने
+      setError("Email is required!"); 
       return;
     }
 
-    // सफल हुँदा
     setError("");
     setStatus("Thank you for subscribing!");
     setEmail("");
@@ -127,7 +126,7 @@ const Footer = () => {
             {/* Links Grid Section */}
             <div className="col-lg-6">
               <div className="row">
-                <div className="col-4">
+                <div className="col-6 col-sm-4">
                   <h6
                     className="fw-bold mb-4 small text-uppercase"
                     style={{ color: textColor }}
@@ -161,7 +160,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="col-4">
+                <div className="col-6 col-sm-4">
                   <h6
                     className="fw-bold mb-4 small text-uppercase"
                     style={{ color: textColor }}
@@ -187,7 +186,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="col-4">
+               <div className="col-12 col-sm-4 mt-4 mt-sm-0">
                   <h6
                     className="fw-bold mb-4 small text-uppercase"
                     style={{ color: textColor }}
