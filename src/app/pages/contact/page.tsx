@@ -360,7 +360,7 @@ const Contact = () => {
                     </label>
                   </div>
 
-                  <div className="text-center mb-3">
+                  <div className="text-center mb-1">
                     <button type="submit" className="btn submit-btn px-5 py-1.5">
                       Send Me
                     </button>
