@@ -87,7 +87,7 @@ export default function CounterSection() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "60vh", // ensures image is visible on mobile
+        minHeight: "60vh",
       }}
     >
       <div className="container py-5">
@@ -104,7 +104,7 @@ export default function CounterSection() {
                   style={{
                     width: "50px",
                     height: "50px",
-                    backgroundColor: "#0c449aff",
+                    backgroundColor: "#0e96fe",
                     borderColor: "#ddd",
                   }}
                 >

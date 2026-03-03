@@ -55,7 +55,7 @@ export default function Certificates() {
 
         <div className="text-center mb-5" data-aos="fade-down">
             
-           <h2 className="fw-bold mb-3" style={{ fontSize: "2.8rem", color: "#0c449a", letterSpacing: "1px" }}>
+           <h2 className="fw-bold mb-3" style={{ fontSize: "2.8rem", color: "#0e96fe", letterSpacing: "1px" }}>
             Academic <span style={{ color: "#ee1035" }}>Milestones</span>
           </h2>
           <p className="mx-auto text-muted" style={{ maxWidth: "600px", fontSize: "1.1rem", lineHeight: "1.6" }}>
