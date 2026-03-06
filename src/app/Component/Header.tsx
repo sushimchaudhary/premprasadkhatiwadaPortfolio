@@ -83,18 +83,11 @@ export default function Navbar() {
       <div className="bg-light border-bottom py-2">
         <div className="container">
           <div
-            style={{
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              boxSizing: "content-box",
-              color: "#ee1035ff",
+            style={{whiteSpace: "nowrap", overflow: "hidden",boxSizing: "content-box",color: "#ee1035ff",
             }}
           >
             <div
-              style={{
-                display: "inline-block",
-                paddingLeft: "100%",
-                animation: "marquee 30s linear infinite",
+              style={{ display: "inline-block",paddingLeft: "100%",animation: "marquee 30s linear infinite",
               }}
             >
               👋 Welcome to my website! I&apos;m Sushim Chaudhary, a passionate
@@ -236,13 +229,7 @@ export default function Navbar() {
                 <Moon size={20} color="#0c449a" />
               ))}
             </button> */}
-          </ul>
-
-
-         
-
-
-
+          </ul>  
           {/* Mobile Toggle Button */}
           <button
             className="navbar-toggler d-lg-none"
