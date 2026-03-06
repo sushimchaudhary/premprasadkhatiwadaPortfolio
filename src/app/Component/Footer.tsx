@@ -15,7 +15,7 @@ const Footer = () => {
   const [status, setStatus] = useState("");
   const [error, setError] = useState(""); 
 
-  const logoColor = "#30a3fe";
+  const logoColor = "#0f95fe";
   const textColor = "#0e95fe";
 
   useEffect(() => {

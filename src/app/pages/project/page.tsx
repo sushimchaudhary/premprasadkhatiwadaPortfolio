@@ -38,6 +38,7 @@ export default function ProjectsPage() {
 
   return (
     <section className="about-section">
+      <div className="container">
       <div className="text-center mb-5" data-aos="fade-down">
         <div className="text-center mb-5" data-aos="fade-down">
           <h2
@@ -231,6 +232,7 @@ export default function ProjectsPage() {
           }
         }
       `}</style>
+      </div>
     </section>
   );
 }

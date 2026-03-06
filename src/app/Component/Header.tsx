@@ -518,17 +518,17 @@ export default function Navbar() {
 
           .custom-dropdown {
             position: absolute;
-            top: calc(100% + 8px);
-            left: 50%;
+            top: calc(100% + 3px);
+            left: 20%;
             transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(14, 150, 254, 0.15);
-            border-radius: 10px;
-            box-shadow: 0 8px 30px rgba(14, 150, 254, 0.15);
-            min-width: 180px;
-            padding: 8px 0;
+            border-radius: 5px;
+            
+            min-width: 150px;
+            padding: 1px 0;
             opacity: 0;
             pointer-events: none;
             transform: translateX(-50%) translateY(-8px);
@@ -547,7 +547,7 @@ export default function Navbar() {
           .dropdown-item-link {
             display: block;
             padding: 9px 20px;
-            color: #0c449a;
+            color: black;
             font-weight: 600;
             font-size: 0.9rem;
             text-decoration: none !important;
