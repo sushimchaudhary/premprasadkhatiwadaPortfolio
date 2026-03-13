@@ -38,6 +38,15 @@ const projects = [
     image: "/project/dashboard.png",
     link: "https://dashboard-red-eight-99.vercel.app/",
   },
+  
+  {
+    title: "Khetala Job Platform",
+    category: "Job",
+    description:
+      "Khetala connects local workers and employers in a simple and accessible way.It helps people find jobs, hire workers, and grow opportunities in their own language.",
+    image: "/project/khetala.png",
+    link: "https://khetala.vercel.app/",
+  },
 ];
 
 export default function ProjectsPage() {
