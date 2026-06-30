@@ -1,10 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { motion } from "framer-motion";
 import { Image } from "antd";
@@ -21,16 +17,13 @@ const images = [
 ];
 
 const Gallery = () => {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
-
   return (
     <section
       className="gallery py-5"
       id="Gallery"
       style={{ background: "#f5f7fa" }}
     >
-      <div className="container position-relative">
+      <div className="container">
         {/* Section Header */}
         <div className="text-center mb-5">
           <h2
@@ -97,92 +90,74 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* Swiper with Ant Design Image Preview Group */}
+        {/* Masonry / Pinterest style grid */}
         <Image.PreviewGroup>
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onInit={(swiper: any) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }}
-            spaceBetween={20}
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              576: { slidesPerView: 2 },
-              768: { slidesPerView: 3 },
-            }}
-            className="mySwiper pb-5"
-          >
+          <div className="masonry-grid">
             {images.map((src, index) => (
-              <SwiperSlide key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="gallery-card shadow-sm bg-white"
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
+                className="masonry-item shadow-sm bg-white"
+              >
+                <Image
+                  src={src}
+                  alt={`Gallery ${index}`}
                   style={{
-                    borderRadius: "4px",
-                    border: "1px solid #eee",
-                    padding: "10px",
+                    width: "100%",
+                    display: "block",
+                    borderRadius: "2px",
                   }}
-                >
-                  <div
-                    className="img-wrapper"
-                    style={{
-                      height: "280px",
-                      overflow: "hidden",
-                      borderRadius: "2px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: "#f0f2f5",
-                    }}
-                  >
-                    <Image
-                      src={src}
-                      alt={`Gallery ${index}`}
-                      style={{
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                        objectFit: "contain", // "cover" ko sato "contain" use gareko image center ma nabhaccine gari basna lai
-                        display: "block",
-                      }}
-                      preview={{
-                        mask: (
-                          <div className="custom-mask">
-                            <i className="bi bi-eye me-2"></i> View
-                          </div>
-                        ),
-                      }}
-                    />
-                  </div>
-                </motion.div>
-              </SwiperSlide>
+                  preview={{
+                    mask: (
+                      <div className="custom-mask">
+                        <i className="bi bi-eye me-2"></i> View
+                      </div>
+                    ),
+                  }}
+                />
+              </motion.div>
             ))}
-          </Swiper>
+          </div>
         </Image.PreviewGroup>
 
-        {/* Custom Navigation Buttons */}
-        <div className="nav-controls d-none d-md-flex">
-          <button ref={prevRef} className="custom-arrow prev">
-            <i className="bi bi-chevron-left"></i>
-          </button>
-          <button ref={nextRef} className="custom-arrow next">
-            <i className="bi bi-chevron-right"></i>
-          </button>
-        </div>
-
         <style jsx global>{`
-          .gallery-card .ant-image {
+          .masonry-grid {
+            column-count: 4;
+            column-gap: 20px;
+          }
+
+          @media (max-width: 992px) {
+            .masonry-grid {
+              column-count: 3;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .masonry-grid {
+              column-count: 2;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .masonry-grid {
+              column-count: 1;
+            }
+          }
+
+          .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            padding: 10px;
+            overflow: hidden;
+          }
+
+          .masonry-item .ant-image {
             width: 100%;
-            height: 100%;
           }
 
           /* Ant Design Mask (Hover Effect) */
@@ -200,47 +175,6 @@ const Gallery = () => {
               255,
               0.4
             ) !important; /* Brand Blue Mask */
-          }
-
-          .custom-arrow {
-            position: absolute;
-            top: 55%;
-            transform: translateY(-50%);
-            width: 45px;
-            height: 45px;
-            background: #ffffff;
-            border: 1px solid #eee;
-            color: #0f95ff;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 100;
-            transition: all 0.3s ease;
-          }
-
-          .custom-arrow.prev {
-            left: -60px;
-          }
-          .custom-arrow.next {
-            right: -60px;
-          }
-
-          .custom-arrow:hover {
-            background: #0f95ff;
-            color: #fff;
-            border-color: #0f95ff;
-          }
-
-          @media (max-width: 1250px) {
-            .custom-arrow.prev {
-              left: 10px;
-            }
-            .custom-arrow.next {
-              right: 10px;
-            }
           }
         `}</style>
       </div>

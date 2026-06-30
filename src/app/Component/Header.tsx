@@ -34,7 +34,7 @@ export default function Navbar() {
       dropdown: [
         { name: "About", href: "/pages/about-us" },
         { name: "Skill", href: "/pages/skills" },
-        { name: "gallery", href: "/pages/gallery" },
+        // { name: "gallery", href: "/pages/gallery" },
       ],
     },
   ];
