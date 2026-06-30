@@ -1,6 +1,8 @@
 "use client";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
 
@@ -201,8 +203,8 @@ export default function HomeSection() {
             </div>
 
             <div className="mt-4 d-flex flex-row flex-wrap align-items-center gap-4">
-              <a
-                href="pages/contact"
+              <Link
+                href="/contact"
                 className="btn btn-primary fw-semibold position-relative overflow-hidden"
                 style={{
                   background: "#0f95fe",
@@ -230,7 +232,7 @@ export default function HomeSection() {
               >
                 <span className="position-relative z-index-1">Hire Me</span>
                 <span className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-0 hover-opacity-10 transition-all"></span>
-              </a>
+              </Link>
 
               <div className="d-flex gap-3 fs-3 social-icons">
                 {[
@@ -319,9 +321,11 @@ export default function HomeSection() {
                     border: "1px solid rgba(255, 255, 255, 0.1)",
                   }}
                 >
-                  <img
+                  <Image
                     src="/profile.jpg"
                     alt="Sushim Chaudhary"
+                    width={100}
+                    height={100}
                     className="img-fluid rounded-circle shadow"
                     style={{
                       width: "100%",
