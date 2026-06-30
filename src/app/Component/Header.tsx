@@ -24,17 +24,17 @@ export default function Navbar() {
 
     {
       name: "Services",
-      href: "/pages/services",
+      href: "/services",
     },
 
-    { name: "Project", href: "/pages/project" },
+    { name: "Project", href: "/project" },
     {
       name: "More",
       href: "#",
       dropdown: [
-        { name: "About", href: "/pages/about-us" },
-        { name: "Skill", href: "/pages/skills" },
-        // { name: "gallery", href: "/pages/gallery" },
+        { name: "About", href: "/about-us" },
+        { name: "Skill", href: "/skills" },
+        // { name: "gallery", href: "/gallery" },
       ],
     },
   ];

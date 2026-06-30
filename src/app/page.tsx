@@ -1,19 +1,17 @@
-"use client"
 
+import AboutMeSection from "./(users)/about-us/page";
+import Certificates from "./(users)/certificates";
+import Contact from "./(users)/contact/page";
+import CounterSection from "./(users)/counter-section/page";
+import ServicesPage from "./(users)/services/page";
 import HomeSection from "./Component/home";
-import AboutMeSection from "./pages/about-us/page";
-import Certificates from "./pages/certificates";
-import Contact from "./pages/contact/page";
-import CounterSection from "./pages/counter-section/page";
-import Services from "./pages/services/page";
-
 
 function page() {
   return (
     <>
       <HomeSection />
       <AboutMeSection />
-      <Services />
+      <ServicesPage />
       <CounterSection />
       
       <Certificates />
