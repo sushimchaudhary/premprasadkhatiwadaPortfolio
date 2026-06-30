@@ -209,9 +209,9 @@ export default function Navbar() {
             {/* Contact CTA Button */}
             <li className="nav-item ms-2 ">
               <Link
-                href="/pages/contact"
+                href="/contact"
                 className={`contact-cta-btn ${
-                  pathname === "/pages/contact" ? "cta-active" : ""
+                  pathname === "/contact" ? "cta-active" : ""
                 }`}
               >
                 Contact
@@ -342,7 +342,7 @@ export default function Navbar() {
                 {/* Contact CTA Mobile */}
                 <li className="nav-item w-100 mt-3">
                   <Link
-                    href="/pages/contact"
+                    href="/contact"
                     className="contact-cta-btn-mobile"
                     onClick={handleLinkClick}
                   >

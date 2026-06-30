@@ -136,15 +136,15 @@ const Footer = () => {
                   <ul className="list-unstyled small text-white">
                     <li className="mb-3">
                       <a
-                        href="/pages/services"
+                        href="/services"
                         className="text-reset text-decoration-none footer-link"
                       >
-                        Services
+                        Services!
                       </a>
                     </li>
                     <li className="mb-3">
                       <a
-                        href="/pages/project"
+                        href="/project"
                         className="text-reset text-decoration-none footer-link"
                       >
                         Projects
@@ -152,7 +152,7 @@ const Footer = () => {
                     </li>
                     <li className="mb-3">
                       <a
-                        href="/pages/skills"
+                        href="/skills"
                         className="text-reset text-decoration-none footer-link"
                       >
                         Skills
@@ -170,7 +170,7 @@ const Footer = () => {
                   <ul className="list-unstyled small text-white">
                     <li className="mb-3">
                       <a
-                        href="/pages/about-us"
+                        href="/about-us"
                         className="text-reset text-decoration-none footer-link"
                       >
                         About Me
@@ -178,7 +178,7 @@ const Footer = () => {
                     </li>
                     <li className="mb-3">
                       <a
-                        href="/pages/gallery"
+                        href="/gallery"
                         className="text-reset text-decoration-none footer-link"
                       >
                         Gallery
@@ -196,7 +196,7 @@ const Footer = () => {
                   <ul className="list-unstyled small text-white">
                     <li className="mb-3">
                       <a
-                        href="/pages/contact"
+                        href="/contact"
                         className="text-reset text-decoration-none footer-link"
                       >
                         Contact
