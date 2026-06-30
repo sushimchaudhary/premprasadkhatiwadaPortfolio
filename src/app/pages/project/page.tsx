@@ -22,6 +22,30 @@ const projects = [
     image: "/project/edifynepal.png",
     link: "https://edifynepal.com/",
   },
+    {
+    title: "Arya Tara PVT. LTD.",
+    category: "Career",
+        image: "/project/aryatara.png",
+
+    description: "Aryatara Private Limited is a Japan-based, multi-sector powerhouse delivering innovative technology, business consultancy, and digital solutions to drive global progress and sustainable growth.",
+    link: "https://thearyatara.info/",
+  },
+    {
+    title: "The Mount Curry Point",
+    category: "Restaurant  ",
+    description:
+      "Experience the authentic flavors of India, Nepal, and beyond—scanned, ordered, and served right at your table with our seamless QR-based ordering system.",
+    image: "/project/mountcurry.png",
+    link: "https://mountcurrypoint.com/",
+  },
+     {
+    title: "School Management System",
+    category: "SMS",
+    description:
+      "Optimizes student enrollment workflows and automates daily attendance tracking, ensuring accurate record-keeping and effortless administrative reporting.",
+    image: "/project/sms.png",
+    link: "https://school.edifynepal.com/",
+  },
   {
     title: "Nepal Chunab",
     category: "Election Portal",
