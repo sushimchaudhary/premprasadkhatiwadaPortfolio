@@ -75,35 +75,26 @@ const Footer = () => {
                 development and modern UI/UX design.
               </p>
 
-              <form onSubmit={handleSubscribe} className="row g-2" noValidate>
-                <div className="col-sm-7 col-9">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      if (e.target.value) setError("");
-                    }}
-                    className={`form-control bg-[#303437] border-0 text-white shadow-none py-1.5 px-3 ${error ? "border border-danger" : ""}`}
-                    placeholder="example@email.com"
-                    style={{ backgroundColor: "#14171A", borderRadius: "4px" }}
-                  />
-                </div>
-                <div className="col-sm-4 col-3">
-                  <button
-                    type="submit"
-                    className="btn w-80 py-1.5 fw-small transition-all"
-                    style={{
-                      backgroundColor: logoColor,
-                      color: "#fff",
-                      border: "none",
-                      borderRadius: "4px",
-                    }}
-                  >
-                    Subscribe
-                  </button>
-                </div>
-              </form>
+             <form onSubmit={handleSubscribe} noValidate className="flex gap-2 max-w-md">
+  <input
+    type="email"
+    value={email}
+    onChange={(e) => {
+      setEmail(e.target.value);
+      if (e.target.value) setError("");
+    }}
+    placeholder="example@email.com"
+    className={`flex-1 min-w-0 bg-[#14171A] text-white text-sm placeholder-gray-500 rounded px-3 py-2 border ${
+      error ? "border-red-500" : "border-transparent"
+    } focus:outline-none focus:ring-1 focus:ring-[#0f95fe] transition-all`}
+  />
+  <button
+    type="submit"
+    className="shrink-0 bg-[#0f95fe] hover:brightness-110 hover:-translate-y-0.5 text-white text-sm font-medium rounded px-4 py-2 transition-all"
+  >
+    Subscribe
+  </button>
+</form>
 
               {/* Error Message */}
               {error && (

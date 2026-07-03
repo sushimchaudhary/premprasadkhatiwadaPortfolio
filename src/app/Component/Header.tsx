@@ -1,32 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
-
-declare global {
-  interface Window {
-    bootstrap: any;
-  }
-}
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
- const pathname = usePathname();
-  const navRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const { theme, setTheme, resolvedTheme } = useTheme(); 
-  const [mounted, setMounted] = useState(false);
 
   const mainLinks = [
     { name: "Home", href: "/" },
-
-    {
-      name: "Services",
-      href: "/services",
-    },
-
+    { name: "Services", href: "/services" },
     { name: "Project", href: "/project" },
     {
       name: "More",
@@ -34,633 +21,292 @@ export default function Navbar() {
       dropdown: [
         { name: "About", href: "/about-us" },
         { name: "Skill", href: "/skills" },
-        // { name: "gallery", href: "/gallery" },
       ],
     },
   ];
 
-  // Sticky navbar on scroll
+  // Sticky/scrolled navbar state
   useEffect(() => {
-    const handleScroll = () => {
-      if (navRef.current) {
-        if (window.scrollY > 50) {
-          navRef.current.classList.add("sticky");
-        } else {
-          navRef.current.classList.remove("sticky");
-        }
-      }
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock body scroll while mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mobileOpen]);
 
+  // Close mobile menu on route change
   useEffect(() => {
-  setMounted(true);
-}, []);
-
-  // Import Bootstrap JS dynamically
-  useEffect(() => {
-    import("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
-
-  // Close offcanvas on link click (mobile)
-  const handleLinkClick = () => {
-    const offcanvas = document.getElementById("offcanvasNavbar");
-    if (offcanvas) {
-      const bsOffcanvas = window.bootstrap?.Offcanvas?.getInstance(offcanvas);
-      bsOffcanvas?.hide();
-    }
+    setMobileOpen(false);
     setActiveDropdown(null);
-  };
+  }, [pathname]);
 
-  const toggleDropdown = (name: string) => {
-    setActiveDropdown(activeDropdown === name ? null : name);
-  };
+  const isActive = (href: string) => pathname === href;
+  const isActiveParent = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   return (
     <>
-      {/* Top Marquee */}
-      <div className="bg-light border-bottom py-2">
-        <div className="container">
-          <div
-            style={{whiteSpace: "nowrap", overflow: "hidden",boxSizing: "content-box",color: "#ee1035ff",
-            }}
-          >
-            <div
-              style={{ display: "inline-block",paddingLeft: "100%",animation: "marquee 30s linear infinite",
-              }}
-            >
-              👋 Welcome to my website! I&apos;m Sushim Chaudhary, a passionate
-              beginner MERN STACK Developer and Graphic Designer from Dang,
-              Mourighat, Nepal, currently based in Kathmandu.
-            </div>
+      {/* Announcement marquee */}
+      <div className="overflow-hidden border-b border-black/5 bg-[#f5f7fa] py-2">
+        <div className="whitespace-nowrap text-sm font-medium text-[#ee1035]">
+          <div className="inline-block animate-[marquee_28s_linear_infinite] pl-[100%]">
+            👋 Welcome to my website! I&apos;m Sushim Chaudhary, a passionate
+            beginner MERN STACK Developer and Graphic Designer from Dang,
+            Mourighat, Nepal, currently based in Kathmandu.
           </div>
         </div>
-
-        <style jsx>{`
-          @keyframes marquee {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(-100%);
-            }
-          }
-        `}</style>
       </div>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-100%); }
+        }
+      `}</style>
 
       {/* Navbar */}
-      <nav
-        ref={navRef}
-        className="navbar navbar-expand-lg custom-navbar d-flex align-items-center justify-content-between px-3"
+      <header
+        className={`z-50 w-full font-[Poppins,sans-serif] transition-all duration-300 ${
+          scrolled
+            ? "fixed inset-x-0 top-0 border-b border-black/5 bg-white/95 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.08)] backdrop-blur-md"
+            : "relative bg-white md:py-3 py-2"
+        }`}
       >
-        <div className="container d-flex align-items-center justify-content-between">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6">
           {/* Logo */}
-          <Link href="/" className="navbar-brand d-flex align-items-center">
+          <Link href="/" className="flex shrink-0 items-center">
             <img
               src="/logo.png"
               alt="Sushim Chaudhary"
-              style={{
-                height: "100%",
-                width: "150px",
-                objectFit: "contain",
-                transition: "all 0.3s ease",
-              }}
+              className="h-12 w-auto max-w-[140px] object-contain transition-all duration-300"
             />
           </Link>
 
-          {/* Desktop Links */}
-          <ul className="navbar-nav d-none d-lg-flex ms-4 flex-row gap-4 align-items-center">
+          {/* Desktop links */}
+          <nav className="ml-6 hidden items-center gap-7 lg:flex">
             {mainLinks.map((item) =>
               item.dropdown ? (
-                <li
+                <div
                   key={item.name}
-                  className="nav-item dropdown-wrapper"
+                  className="relative"
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
                     href={item.href}
-                    className={`nav-link fw-bold d-flex align-items-center gap-1 ${
-                      pathname === item.href ||
-                      pathname.startsWith(item.href + "/")
-                        ? "active"
-                        : ""
+                    className={`flex items-center gap-1 text-lg  font-semibold !no-underline transition-colors ${
+                      isActiveParent(item.href)
+                        ? "text-[#0f95fe]"
+                        : "text-black hover:text-[#0f95fe]"
                     }`}
                   >
                     {item.name}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      style={{
-                        transition: "transform 0.2s ease",
-                        transform:
-                          activeDropdown === item.name
-                            ? "rotate(180deg)"
-                            : "rotate(0deg)",
-                      }}
-                    >
-                      <path
-                        d="M2 4L6 8L10 4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${
+                        activeDropdown === item.name ? "rotate-180" : ""
+                      }`}
+                    />
                   </Link>
 
-                  {/* Dropdown Menu */}
                   <div
-                    className={`custom-dropdown ${
-                      activeDropdown === item.name ? "show" : ""
+                    className={`absolute left-1/2 top-full mt-1 min-w-[110px] -translate-x-1/2 origin-top rounded-lg border border-black/5 bg-white/95 py-1 shadow-sm backdrop-blur-md transition-all duration-200 ${
+                      activeDropdown === item.name
+                        ? "pointer-events-auto scale-100 opacity-100"
+                        : "pointer-events-none scale-95 opacity-0"
                     }`}
                   >
                     {item.dropdown.map((sub) => (
                       <Link
                         key={sub.name}
                         href={sub.href}
-                        className={`dropdown-item-link ${
-                          pathname === sub.href ? "active" : ""
+                        className={`block border-l-2  px-2 py-2 text-lg font-semibold !no-underline transition-colors ${
+                          isActive(sub.href)
+                            ? "border-[#0f95fe] bg-[#0f95fe]/5 text-[#0f95fe]"
+                            : "border-transparent text-black hover:border-[#0f95fe] hover:bg-[#0f95fe]/5 hover:text-[#0f95fe]"
                         }`}
-                        onClick={() => setActiveDropdown(null)}
                       >
                         {sub.name}
                       </Link>
                     ))}
                   </div>
-                </li>
+                </div>
               ) : (
-                <li key={item.name} className="nav-item">
-                  <Link
-                    href={item.href}
-                    className={`nav-link fw-bold ${
-                      pathname === item.href ? "active" : ""
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-lg font-semibold !no-underline transition-colors ${
+                    isActive(item.href)
+                      ? "text-[#0f95fe]"
+                      : "text-black hover:text-[#0f95fe]"
+                  }`}
+                >
+                  {item.name}
+                </Link>
               ),
             )}
 
-            {/* Contact CTA Button */}
-            <li className="nav-item ms-2 ">
-              <Link
-                href="/contact"
-                className={`contact-cta-btn ${
-                  pathname === "/contact" ? "cta-active" : ""
-                }`}
-              >
-                Contact
-              </Link>
-            </li>
-
-             {/* <button
-              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="theme-toggle-btn"
-              aria-label="Toggle Dark Mode"
+            <Link
+              href="/certificates/sushim.cv.pdf"
+              download
+              className="inline-flex items-center rounded-md border-2 border-[#0f95fe] px-4 py-1.5 text-sm font-bold tracking-wide text-[#0f95fe] !no-underline transition-all duration-200 hover:-translate-y-0.5  hover:text-white"
             >
-              {mounted && (resolvedTheme === "dark" ? (
-                <Sun size={20} color="#ffbd44" />
-              ) : (
-                <Moon size={20} color="#0c449a" />
-              ))}
-            </button> */}
-          </ul>  
-          {/* Mobile Toggle Button */}
+              Download CV
+            </Link>
+
+            <Link
+              href="/contact"
+              className={`inline-flex items-center rounded-md px-5 py-2 text-sm font-bold tracking-wide text-white !no-underline shadow-[0_4px_15px_rgba(15,149,254,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(15,149,254,0.5)] ${
+                isActive("/contact")
+                  ? "bg-gradient-to-r from-[#0c449a] to-[#0e96fe]"
+                  : "bg-[#0f95fe]"
+              }`}
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* Mobile toggle */}
           <button
-            className="navbar-toggler d-lg-none"
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+            className="rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 lg:hidden"
           >
-            <span className="navbar-toggler-icon" />
+            <Menu size={24} />
           </button>
+        </div>
+      </header>
 
-          {/* Offcanvas Mobile Menu */}
-          <div
-            className="offcanvas offcanvas-end d-lg-none"
-            tabIndex={-1}
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
-            <div className="offcanvas-header border-bottom">
-              <Link href="/" className="navbar-brand d-flex align-items-center">
-                <img
-                  src="/logo.png"
-                  alt="Sushim Chaudhary"
-                  style={{
-                    height: "100%",
-                    width: "150px",
-                    objectFit: "contain",
-                  }}
-                />
-              </Link>
-              <button
-                type="button"
-                className="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
+      {/* Spacer so fixed navbar doesn't overlap content when scrolled */}
+      {scrolled && <div className="h-[70px]" />}
+
+      {/* Mobile slide-in menu */}
+      <div
+        className={`fixed inset-0 z-[60] lg:hidden ${
+          mobileOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        aria-hidden={!mobileOpen}
+      >
+        <div
+          onClick={() => setMobileOpen(false)}
+          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+            mobileOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
+        <div
+          className={`absolute right-0 top-0 flex h-full w-[80%] max-w-xs flex-col bg-[#f7f8fb] shadow-2xl transition-transform duration-300 ease-out ${
+            mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between border-b border-black/5 px-5 py-3">
+            <Link href="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Sushim Chaudhary"
+                className="h-8 w-auto max-w-[130px] object-contain"
               />
-            </div>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-900"
+            >
+              <X size={22} />
+            </button>
+          </div>
 
-            <div className="offcanvas-body d-flex flex-column m-2 py-4 gap-2">
-              <ul className="navbar-nav w-100 text-start">
-                {mainLinks.map((item) =>
-                  item.dropdown ? (
-                    <li key={item.name} className="nav-item w-100">
-                      <button
-                        className={`mobile-dropdown-toggle nav-link fw-bold w-100 text-start d-flex justify-content-between align-items-center ${
-                          pathname === item.href ||
-                          pathname.startsWith(item.href + "/")
-                            ? "active"
-                            : ""
-                        }`}
-                        onClick={() => toggleDropdown(item.name)}
-                      >
-                        {item.name}
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          style={{
-                            transition: "transform 0.2s ease",
-                            transform:
-                              activeDropdown === item.name
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                          }}
-                        >
-                          <path
-                            d="M2 4L6 8L10 4"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </button>
-                      {activeDropdown === item.name && (
-                        <ul className="mobile-sub-nav ps-3">
-                          {item.dropdown.map((sub) => (
-                            <li key={sub.name}>
-                              <Link
-                                href={sub.href}
-                                className={`nav-link py-1 ${
-                                  pathname === sub.href ? "active" : ""
-                                }`}
-                                onClick={handleLinkClick}
-                              >
-                                {sub.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ) : (
-                    <li key={item.name} className="nav-item w-100">
-                      <Link
-                        href={item.href}
-                        className={`nav-link fw-bold ${
-                          pathname === item.href ? "active" : ""
-                        }`}
-                        onClick={handleLinkClick}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ),
-                )}
-
-                {/* Contact CTA Mobile */}
-                <li className="nav-item w-100 mt-3">
-                  <Link
-                    href="/contact"
-                    className="contact-cta-btn-mobile"
-                    onClick={handleLinkClick}
+          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-1">
+            {mainLinks.map((item) =>
+              item.dropdown ? (
+                <div key={item.name}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveDropdown(
+                        activeDropdown === item.name ? null : item.name,
+                      )
+                    }
+                    className={`flex w-full items-center justify-between rounded-md px-3 py-2.5 text-base font-semibold transition-colors ${
+                      isActiveParent(item.href)
+                        ? "bg-[#0f95fe]/10 text-[#0f95fe]"
+                        : "text-black hover:bg-gray-100"
+                    }`}
                   >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+                    {item.name}
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-200 ${
+                        activeDropdown === item.name ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`ml-3 overflow-hidden border-l-2 border-[#0f95fe]/25 pl-3 transition-all duration-200 ${
+                      activeDropdown === item.name
+                        ? "mt-1 max-h-40 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    {item.dropdown.map((sub) => (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block rounded-md px-3 py-2 text-sm font-medium !no-underline transition-colors ${
+                          isActive(sub.href)
+                            ? "text-[#0f95fe]"
+                            : "text-black hover:text-[#0f95fe]"
+                        }`}
+                      >
+                        {sub.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-md px-3 py-2.5 text-base font-semibold !no-underline transition-colors ${
+                    isActive(item.href)
+                      ? "bg-[#0f95fe]/10 text-[#0f95fe]"
+                      : "text-black hover:bg-gray-100"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ),
+            )}
+          </nav>
+
+          <div className="flex flex-col gap-2 border-t border-black/5 px-5 py-5">
+            <Link
+              href="/certificates/sushim.cv.pdf"
+              download
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex items-center justify-center rounded-md border-2 border-[#0f95fe] px-4 py-2.5 text-sm font-bold text-[#0f95fe] !no-underline transition-colors hover:bg-[#0f95fe] hover:text-white"
+            >
+              Download CV
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex items-center justify-center rounded-md bg-[#0f95fe] px-4 py-2.5 text-sm font-bold text-white !no-underline shadow-[0_4px_15px_rgba(15,149,254,0.35)] transition-colors hover:bg-[#0c449a]"
+            >
+              Contact
+            </Link>
           </div>
         </div>
-
-        {/* Global Styles */}
-        <style jsx global>{`
-
-
-/* Theme Toggle Button Style */
-          .theme-toggle-btn {
-            background: rgba(14, 150, 254, 0.1);
-            border: 1px solid rgba(14, 150, 254, 0.2);
-            padding: 8px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
-
-          .theme-toggle-btn:hover {
-            background: rgba(14, 150, 254, 0.2);
-            transform: scale(1.1);
-          }
-
-          /* Dark Mode support for navbar */
-          [data-theme='dark'] .custom-navbar {
-            background-color: #121212 !important;
-            border-bottom: 1px solid #333;
-          }
-
-          [data-theme='dark'] .custom-navbar.sticky {
-            background-color: #1a1a1a !important;
-          }
-
-          [data-theme='dark'] .nav-link {
-            color: #ffffff !important;
-          }
-
-          [data-theme='dark'] .custom-dropdown {
-            background: #1e1e1e;
-            border-color: #333;
-          }
-
-          [data-theme='dark'] .dropdown-item-link {
-            color: #ddd;
-          }
-
-
-          /* ── Base Navbar ── */
-          .custom-navbar {
-            background-color: #ffff;
-            transition:
-              background-color 0.3s ease,
-              backdrop-filter 0.3s ease,
-              box-shadow 0.3s ease;
-            height: 80px;
-          }
-
-          /* Sticky huda black background banaune setup */
-          .custom-navbar.sticky {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            width: 100% !important;
-            z-index: 9999 !important;
-
-            /* Background black banako */
-            background-color: #f5f7fa !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
-            height: 70px !important;
-            transition: all 0.3s ease-in-out;
-          }
-
-          /* Sticky huda links lai white banaune */
-          .custom-navbar.sticky .nav-link {
-            color: black !important;
-          }
-
-          /* Sticky huda active link ko color thikai rakhne ya adjust garnu */
-          .custom-navbar.sticky .nav-link.active {
-            color: #0e96fe !important; /* Tapai ko primary blue color */
-          }
-
-          /* Sticky huda Logo ya brand text yadi image hoina vane white banauna */
-          .custom-navbar.sticky .navbar-brand {
-            color: black !important;
-          }
-
-          /* Sticky huda toggler icon (mobile) lai white frame dine */
-          .custom-navbar.sticky .navbar-toggler {
-            filter: invert(1);
-          }
-
-          /* Container lai transparent nai rakhne */
-          .custom-navbar.sticky .container {
-            background: transparent !important;
-          }
-
-          @keyframes slideDown {
-            from {
-              transform: translateY(-100%);
-            }
-            to {
-              transform: translateY(0);
-            }
-          }
-
-          /* ── Desktop Nav Links ── */
-          .navbar-nav .nav-link {
-            color: #0e96fe;
-            position: relative;
-            text-decoration: none !important;
-            transition: color 0.2s ease;
-            padding-bottom: 4px;
-          }
-
-          /* No underline by default, no hover underline */
-          .navbar-nav .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0%;
-            height: 2px;
-            background-color: #0e96fe;
-            transition: none;
-          }
-
-          /* Only active link gets underline */
-          .navbar-nav .nav-link.active::after {
-            width: 100%;
-          }
-
-          .navbar-nav .nav-link.active {
-            color: #0e96fe;
-          }
-
-          /* Hover: only color change, NO underline */
-          .navbar-nav .nav-link:hover {
-            color: #0c449a;
-          }
-          .navbar-nav .nav-link:hover::after {
-            width: 0% !important;
-          }
-
-          /* ── Dropdown Wrapper ── */
-          .dropdown-wrapper {
-            position: relative;
-          }
-
-          .custom-dropdown {
-            position: absolute;
-            top: calc(100% + 3px);
-            left: 20%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(14, 150, 254, 0.15);
-            border-radius: 5px;
-            
-            min-width: 150px;
-            padding: 1px 0;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateX(-50%) translateY(-8px);
-            transition:
-              opacity 0.2s ease,
-              transform 0.2s ease;
-            z-index: 1000;
-          }
-
-          .custom-dropdown.show {
-            opacity: 1;
-            pointer-events: all;
-            transform: translateX(-50%) translateY(0);
-          }
-
-          .dropdown-item-link {
-            display: block;
-            padding: 9px 20px;
-            color: black;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none !important;
-            transition:
-              background 0.2s ease,
-              color 0.2s ease;
-            border-left: 3px solid transparent;
-          }
-
-          .dropdown-item-link:hover {
-            background: rgba(14, 150, 254, 0.08);
-            color: #0e96fe;
-            border-left-color: #0e96fe;
-          }
-
-          .dropdown-item-link.active {
-            color: #0e96fe;
-            border-left-color: #0e96fe;
-            background: rgba(14, 150, 254, 0.06);
-          }
-
-          /* ── Contact CTA Button ── */
-          .contact-cta-btn {
-            display: inline-block;
-            padding: 4px 22px;
-            background:#0f95fe;
-            color: white !important;
-            font-weight: 700;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            text-decoration: none !important;
-            box-shadow: 0 4px 15px rgba(14, 150, 254, 0.3);
-            transition:
-              transform 0.2s ease,
-              box-shadow 0.2s ease,
-              background 0.2s ease;
-            letter-spacing: 0.02em;
-          }
-
-          .contact-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(14, 150, 254, 0.45);
-            background:#0f95fe
-            color: black !important;
-          }
-
-          .contact-cta-btn.cta-active {
-            background: linear-gradient(135deg, #0c449a, #0e96fe);
-            box-shadow: 0 4px 20px rgba(14, 150, 254, 0.5);
-          }
-
-          /* ── Mobile Offcanvas ── */
-          .offcanvas.offcanvas-end {
-            width: 60% !important;
-            height: 100vh;
-            background: #eaeaf3ff;
-            color: #0c449a;
-          }
-
-          .offcanvas-body .nav-link {
-            font-size: 1.1rem;
-            color: #0f95fe;
-            transition: color 0.2s ease;
-            text-decoration: none !important;
-            padding: 8px 8px;
-          }
-
-          
-
-          .offcanvas-body .nav-link:hover {
-            color: #0c449a;
-          }
-
-          .offcanvas-header {
-            border-bottom: 1px solid rgba(14, 150, 254, 0.2);
-          }
-
-          .offcanvas-body .navbar-nav .nav-item {
-            margin-bottom: 0.5rem;
-          }
-
-          .offcanvas-backdrop.show {
-            background: rgba(0, 0, 0, 0.3);
-          }
-
-          /* Mobile dropdown toggle button */
-          .mobile-dropdown-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-          }
-
-          .mobile-sub-nav {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 8px 12px;
-            border-left: 2px solid rgba(14, 150, 254, 0.3);
-          }
-
-          .mobile-sub-nav .nav-link {
-            font-size: 0.95rem !important;
-            color: #0c449a !important;
-          }
-
-          /* Contact CTA Mobile */
-          .contact-cta-btn-mobile {
-            
-            display: inline-block;
-            padding: 4px 22px;
-            background:#0f95fe;
-            color: white !important;
-            font-weight: 700;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            text-decoration: none !important;
-            box-shadow: 0 4px 15px rgba(14, 150, 254, 0.3);
-            transition:
-              transform 0.2s ease,
-              box-shadow 0.2s ease,
-              background 0.2s ease;
-            letter-spacing: 0.02em;
-          
-           
-          }
-        `}</style>
-      </nav>
+      </div>
     </>
   );
 }

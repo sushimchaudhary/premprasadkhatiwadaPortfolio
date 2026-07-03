@@ -142,7 +142,7 @@ export default function AboutMeSection() {
             </p>
 
             <motion.a
-              href="/certificates/sushim-cv.pdf"
+              href="/certificates/sushim.cv.pdf"
               download
               className="btn submit-btn"
               whileHover={{ scale: 1.02 }}
