@@ -160,7 +160,7 @@ export default function ProjectsPreview() {
         <div className="text-center mt-5" data-aos="fade-up">
           <Link
             href="/project"
-            className="inline-block py-2 px-10 !no-underline bg-transparent text-[#0f95fe]! font-bold text-base border-2 border-[#0f95fe] rounded-[4px]  uppercase tracking-[0.5px] transition-all duration-300 hover:bg-[#0f95fe]  hover:shadow-[0_8px_20px_rgba(14,150,254,0.3)]"
+            className="inline-block py-1.5 px-4 !no-underline bg-transparent text-[#0f95fe]! font-bold text-base border-2 border-[#0f95fe] rounded-[4px]  uppercase tracking-[0.5px] transition-all duration-300 hover:bg-[#0f95fe]  hover:shadow-[0_8px_20px_rgba(14,150,254,0.3)]"
           >
             View All Projects
           </Link>
