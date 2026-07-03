@@ -143,7 +143,7 @@ export default function ProjectsPreview() {
                   </p>
                   <Link
                     href={project.link}
-                    className="inline-block text-center bg-[#0f95fe] text-white! font-semibold rounded-[4px] py-[6px] w-full transition-all duration-300 hover:bg-[#1380d4] hover:brightness-110"
+                    className="inline-block !no-underline text-center bg-[#0f95fe] text-white! font-semibold rounded-[4px] py-[6px] w-full transition-all duration-300 hover:bg-[#1380d4] hover:brightness-110"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit the website for ${project.title}`}
@@ -160,7 +160,7 @@ export default function ProjectsPreview() {
         <div className="text-center mt-5" data-aos="fade-up">
           <Link
             href="/project"
-            className="inline-block py-2 px-10 bg-transparent text-[#0f95fe]! font-bold text-base border-2 border-[#0f95fe] rounded-[4px]  uppercase tracking-[0.5px] transition-all duration-300 hover:bg-[#0f95fe]  hover:shadow-[0_8px_20px_rgba(14,150,254,0.3)]"
+            className="inline-block py-2 px-10 !no-underline bg-transparent text-[#0f95fe]! font-bold text-base border-2 border-[#0f95fe] rounded-[4px]  uppercase tracking-[0.5px] transition-all duration-300 hover:bg-[#0f95fe]  hover:shadow-[0_8px_20px_rgba(14,150,254,0.3)]"
           >
             View All Projects
           </Link>
