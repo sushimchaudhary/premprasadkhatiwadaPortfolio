@@ -86,7 +86,7 @@ export default function ProjectsPreview() {
     >
       <div className="container mx-auto px-3">
         <div className="text-center mb-5" data-aos="fade-down">
-          <h2 className="text-[2.6rem] font-bold text-[#0f95ff] uppercase tracking-[1.5px] mb-4">
+          <h2 className="!text-[2.6rem]  !font-bold !text-[#0f95ff] uppercase tracking-[1.5px] mb-4">
             Pro <span className="text-[#ee1035]">ject</span>
           </h2>
 
