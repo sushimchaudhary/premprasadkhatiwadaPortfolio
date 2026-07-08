@@ -46,7 +46,7 @@ export default function Certificates() {
         fontFamily: "var(--font-mukta), sans-serif",
       }}
     >
-      <div className="container py-4">
+      <div className=" mx-auto max-w-7xl px-3">
         {/* Section Header */}
         <div className="text-center mb-5" data-aos="fade-up">
           
@@ -58,7 +58,7 @@ export default function Certificates() {
            <h2 className="fw-bold mb-3" style={{ fontSize: "2.8rem", color: "#0e96fe", letterSpacing: "1px" }}>
             Academic <span style={{ color: "#ee1035" }}>Milestones</span>
           </h2>
-          <p className="mx-auto text-muted" style={{ maxWidth: "600px", fontSize: "1.1rem", lineHeight: "1.6" }}>
+          <p className="mx-auto text-muted" style={{ maxWidth: "600px", fontSize: "1.5rem", lineHeight: "1.6" }}>
             A journey of continuous learning and skill acquisition.
           </p>
             <div style={{ display: "flex", justifyContent: "center", gap: "8px", alignItems: "center" }}>

@@ -20,7 +20,6 @@ export default function HomeSection() {
       smartBackspace: true,
     });
 
-    // Ensure heroRef exists
     if (!heroRef.current) return;
 
     const particles = [];
@@ -42,8 +41,6 @@ export default function HomeSection() {
         colors[Math.floor(Math.random() * colors.length)];
       particle.style.borderRadius = "50%";
       particle.style.filter = "blur(1px)";
-
-      // Position randomly in the hero section
       particle.style.left = `${Math.random() * heroRect.width}px`;
       particle.style.top = `${Math.random() * heroRect.height}px`;
 
@@ -67,7 +64,6 @@ export default function HomeSection() {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
 
-        // Bounce off edges
         if (
           particle.x < particle.radius ||
           particle.x > heroRect.width - particle.radius
@@ -101,182 +97,125 @@ export default function HomeSection() {
     };
   }, []);
 
+  const socials = [
+    {
+      icon: "bi-facebook",
+      url: "https://www.facebook.com/sushim.ch",
+      color: "#0f95fe",
+    },
+    {
+      icon: "bi-github",
+      url: "https://github.com/sushimchaudhary",
+      color: "#fff",
+    },
+    {
+      icon: "bi-linkedin",
+      url: "https://www.linkedin.com/in/sushim-chaudhary-458930349/",
+      color: "#0f95fe",
+    },
+  ];
+
   return (
     <section
       id="home"
-      className="py-5 position-relative overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #0a192f, #172a45)",
-        color: "#e6f1ff",
-      }}
       ref={heroRef}
+      className="relative overflow-hidden text-[#e6f1ff]"
+      style={{ background: "linear-gradient(135deg, #0a192f, #172a45)" }}
     >
       {/* Animated gradient background */}
-      <div className="position-absolute w-100 h-100 top-0 start-0">
+      <div className="absolute inset-0 h-full w-full">
         <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 30%, rgba(88, 160, 200, 0.15) 0%, transparent 40%)",
-            animation: "moveGradient 15s infinite alternate ease-in-out",
-          }}
-        ></div>
+          className="absolute inset-0 h-full w-full"
+          // style={{
+          //   background:
+          //     "radial-gradient(circle at 20% 30%, rgba(88, 160, 200, 0.15) 0%, transparent 40%)",
+          //   animation: "moveGradient 15s infinite alternate ease-in-out",
+          // }}
+        />
         <div
-          className="position-absolute top-0 start-0 w-100 h-100"
+          className="absolute inset-0 h-full w-full"
           style={{
             background:
               "radial-gradient(circle at 80% 70%, rgba(238, 16, 53, 0.1) 0%, transparent 40%)",
             animation: "moveGradient2 18s infinite alternate ease-in-out",
           }}
-        ></div>
+        />
       </div>
 
-      <div className="container py-5 position-relative">
-        <div className="d-flex flex-column-reverse flex-md-row align-items-center">
+      <div className="  mx-auto max-w-7xl px-4 py-8">
+        <div className="flex flex-col-reverse items-center md:flex-row">
           {/* Left Content */}
-          <div className="col-12 col-md-7 text-start mb-4 mb-md-0 px-0 pe-md-4">
-            <div
-              className="text-uppercase fw-semibold mb-3"
-              style={{
-               
-                letterSpacing: "2px",
-                color: "#0f95fe",
-                fontSize: "1.1rem",
-              }}
-            >
-              <span className="d-inline-block animate__animated animate__fadeInDown">
+          <div className="mb-4 w-full text-start md:mb-0 md:w-7/12 md:pe-8">
+            <div className="mb-3 text-[1.1rem] font-semibold uppercase tracking-[2px] text-[#0f95fe]">
+              <span className="animate__animated animate__fadeInDown inline-block">
                 HELLO, I'M
               </span>
             </div>
 
             <h1
-              className="fw-bold mb-3 display-4"
-              style={{
-               
-                color: "#fff",
-                lineHeight: "1.2",
-                textShadow: "0 0 10px rgba(255, 255, 255, 0.2)",
-              }}
+              className="mb-3 text-4xl font-bold leading-[1.2] text-white md:text-5xl"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.2)" }}
             >
-              <span className="d-inline-block animate__animated animate__fadeIn">
+              <span className="animate__animated animate__fadeIn inline-block">
                 Sushim
               </span>{" "}
-              <span
-                className="d-inline-block animate__animated animate__fadeIn"
-                style={{ color: "#0f95fe" }}
-              >
+              <span className="animate__animated animate__fadeIn inline-block text-[#0f95fe]">
                 Chaudhary
               </span>
             </h1>
 
-            <div
-              className="fs-3 fw-medium mb-3"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                minHeight: "60px",
-              }}
-            >
-              <span className="d-inline-block me-2">I'm a</span>
+            <div className="mb-3 min-h-[60px] font-['Poppins',sans-serif] text-3xl font-medium">
+              <span className="me-2 inline-block">I'm a</span>
               <span
-                className="typing-1 text-capitalize fw-semibold"
-                style={{
-                  color: "#ee1035",
-                  textShadow: "0 0 8px rgba(238, 16, 53, 0.6)",
-                }}
                 ref={typing1Ref}
-              ></span>
+                className="typing-1 text-capitalize font-semibold text-[#ee1035]"
+                style={{ textShadow: "0 0 8px rgba(238,16,53,0.6)" }}
+              />
             </div>
 
-            <div
-              className="fs-6 mb-4 fw-light"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                letterSpacing: "0.5px",
-                color: "#ccd6f6",
-                lineHeight: "1.8",
-              }}
-            >
+            <div className="mb-4 font-['Poppins',sans-serif] text-xl font-light leading-[1.8] tracking-[0.5px] text-[#ccd6f6]">
               Passionate developer from Mourighat, Nepal specializing in
               creating high-performance web applications with cutting-edge
               technologies. I combine technical expertise with creative design
               to deliver exceptional digital experiences.
             </div>
 
-            <div className="mt-4 d-flex flex-row flex-wrap align-items-center gap-4">
+            <div className="mt-4 flex flex-row flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="btn btn-primary fw-semibold position-relative overflow-hidden"
+                className="group relative overflow-hidden rounded font-['Poppins',sans-serif] font-semibold tracking-[1px] text-white transition-all duration-[400ms] hover:-translate-y-0.5 !no-underline"
                 style={{
                   background: "#0f95fe",
-                  border: "none",
                   padding: "5px 30px",
                   fontSize: "1.1rem",
-                  borderRadius: "4px",
-                  color: "#fff",
-                  letterSpacing: "1px",
-                  fontFamily: "'Poppins', sans-serif",
-                  zIndex: 1,
-                  transition: "all 0.4s ease",
-                  boxShadow: "0 4px 20px rgba(88, 160, 200, 0.4)",
+                  boxShadow: "0 4px 20px rgba(88,160,200,0.4)",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow =
-                    "0 4px 30px rgba(88, 160, 200, 0.7)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
+                    "0 4px 30px rgba(88,160,200,0.7)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.boxShadow =
-                    "0 4px 20px rgba(88, 160, 200, 0.4)";
-                  e.currentTarget.style.transform = "translateY(0)";
+                    "0 4px 20px rgba(88,160,200,0.4)";
                 }}
               >
-                <span className="position-relative z-index-1">Hire Me</span>
-                <span className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-0 hover-opacity-10 transition-all"></span>
+                <span className="relative z-10">Contact Me</span>
+                <span className="absolute inset-0 h-full w-full bg-white opacity-0 transition-all group-hover:opacity-10" />
               </Link>
 
-              <div className="d-flex gap-3 fs-3 social-icons">
-                {[
-                  {
-                    icon: "bi-facebook",
-                    url: "https://www.facebook.com/sushim.ch",
-                    color: "#0f95fe",
-                  },
-                  {
-                    icon: "bi-github",
-                    url: "https://github.com/sushimchaudhary",
-                    color: "#fff",
-                  },
-                  {
-                    icon: "bi-linkedin",
-                    url: "https://www.linkedin.com/in/sushim-chaudhary-458930349/",
-                    color: "#0f95fe",
-                  },
-                ].map((social, index) => (
+              <div className="social-icons flex gap-3 text-3xl">
+                {socials.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="d-flex align-items-center justify-content-center rounded-circle"
-                    style={{
-                      width: "48px",
-                      height: "48px",
-                      background: "rgba(255, 255, 255, 0.1)",
-                      backdropFilter: "blur(5px)",
-                      color: social.color,
-                      transition: "all 0.3s ease",
-                      border: "1px solid rgba(255, 255, 255, 0.2)",
-                    }}
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-[5px] transition-all duration-300 hover:-translate-y-1 hover:bg-white/20"
+                    style={{ color: social.color }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background =
-                        "rgba(255, 255, 255, 0.2)";
-                      e.currentTarget.style.transform = "translateY(-3px)";
                       e.currentTarget.style.boxShadow = `0 5px 15px ${social.color}80`;
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.background =
-                        "rgba(255, 255, 255, 0.1)";
-                      e.currentTarget.style.transform = "translateY(0)";
                       e.currentTarget.style.boxShadow = "none";
                     }}
                   >
@@ -288,75 +227,45 @@ export default function HomeSection() {
           </div>
 
           {/* Right Image */}
-          <div className="col-12 col-md-5 text-center mb-4 mb-md-0">
-            <div
-              className="position-relative"
-              style={{ maxWidth: "400px", margin: "0 auto" }}
-            >
+          <div className="mb-4 w-full py-7 text-center md:mb-0 md:w-5/12">
+            <div className="relative mx-auto max-w-[430px]">
               <div
-                className="position-absolute top-0 start-0 w-100 h-100 rounded-circle"
+                className="absolute inset-0 h-full w-full rounded-full"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(88, 160, 200, 0.4) 0%, transparent 70%)",
+                    "radial-gradient(circle, rgba(88,160,200,0.4) 0%, transparent 70%)",
                   animation: "pulse 4s infinite ease-in-out",
-                  zIndex: 0,
                 }}
-              ></div>
+              />
               <div
-                className="position-relative z-index-1"
+                className="relative z-10 rounded-full p-2"
                 style={{
-                  padding: "8px",
-                  borderRadius: "50%",
                   background:
-                    "linear-gradient(135deg, rgba(88, 160, 200, 0.5), rgba(238, 16, 53, 0.3))",
-                  boxShadow: "0 0 40px rgba(88, 160, 200, 0.3)",
+                    "linear-gradient(135deg, rgba(88,160,200,0.5), rgba(238,16,53,0.3))",
+                  boxShadow: "0 0 40px rgba(88,160,200,0.3)",
                 }}
               >
-                <div
-                  style={{
-                    padding: "6px",
-                    borderRadius: "50%",
-                    background: "rgba(10, 25, 47, 0.7)",
-                    backdropFilter: "blur(5px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                  }}
-                >
+                <div className="rounded-full border border-white/10 bg-[rgba(10,25,47,0.7)] p-1.5 backdrop-blur-[5px]">
                   <Image
-                    src="/profile.jpg"
+                    src="/main.jpg"
                     alt="Sushim Chaudhary"
-                    width={100}
-                    height={100}
-                    className="img-fluid rounded-circle shadow"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: "400px",
-                      objectFit: "cover",
-                      display: "block",
-                      filter: "grayscale(20%) contrast(110%)",
-                      transition: "filter 0.5s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.filter =
-                        "grayscale(0%) contrast(110%)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.filter =
-                        "grayscale(20%) contrast(110%)";
-                    }}
+                    width={500}
+                    height={500}
+                    quality={100}
+                    priority
+                    sizes="(max-width: 768px) 80vw, 400px"
+                    className="block h-auto lg:max-h-[400px] md:max-h-[250px]  max-h-[300px] w-full rounded-full object-cover shadow transition-[filter] duration-500 [filter:grayscale(20%)_contrast(110%)] hover:[filter:grayscale(0%)_contrast(110%)]"
                   />
                 </div>
               </div>
               <div
-                className="position-absolute bottom-0 end-0 bg-primary rounded-circle"
+                className="absolute bottom-0 end-0 h-[30px] w-[30px] rounded-full bg-[#0f95fe]"
                 style={{
-                  width: "30px",
-                  height: "30px",
                   zIndex: 2,
                   animation: "blink 2s infinite",
                   boxShadow: "0 0 15px #58A0C8",
                 }}
-              ></div>
+              />
             </div>
           </div>
         </div>
@@ -371,7 +280,6 @@ export default function HomeSection() {
             transform: translate(20px, 20px);
           }
         }
-
         @keyframes moveGradient2 {
           0% {
             transform: translate(0, 0);
@@ -380,7 +288,6 @@ export default function HomeSection() {
             transform: translate(-20px, -20px);
           }
         }
-
         @keyframes pulse {
           0% {
             transform: scale(1);
@@ -395,7 +302,6 @@ export default function HomeSection() {
             opacity: 0.7;
           }
         }
-
         @keyframes blink {
           0% {
             opacity: 0.3;
@@ -407,12 +313,10 @@ export default function HomeSection() {
             opacity: 0.3;
           }
         }
-
         .typing-1::after {
           content: "|";
           animation: blink-caret 0.7s infinite;
         }
-
         @keyframes blink-caret {
           from,
           to {

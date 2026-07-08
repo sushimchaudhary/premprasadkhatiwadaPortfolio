@@ -52,7 +52,7 @@ const Footer = () => {
         className="bg-[#212529] text-white pt-5 pb-4"
         style={{ fontFamily: "'Poppins', sans-serif" }}
       >
-        <div className="container px-4 px-lg-5">
+        <div className=" mx-auto max-w-7xl px-3 text-xl">
           <div className="row gy-5">
             <div className="col-lg-6">
               <div className="mb-4 d-flex align-items-center">
@@ -69,7 +69,7 @@ const Footer = () => {
               </div>
               <p
                 className="text-white small mb-4"
-                style={{ maxWidth: "420px", lineHeight: "1.8" }}
+                style={{ maxWidth: "420px", lineHeight: "1.8", fontSize: "22px" }}
               >
                 Join our newsletter for regular updates on full-stack
                 development and modern UI/UX design.
@@ -115,7 +115,7 @@ const Footer = () => {
             </div>
 
             {/* Links Grid Section */}
-            <div className="col-lg-6">
+            <div className="col-lg-5 ">
               <div className="row">
                 <div className="col-6 col-sm-4">
                   <h6

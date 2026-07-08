@@ -57,7 +57,7 @@ useEffect(() => {
           padding: "70px 0",
         }}
       >
-        <div className="container">
+        <div className="mx-auto max-w-7xl px-3">
 
           {/* Section Heading */}
           <div className="text-center mb-5" data-aos="fade-down">
@@ -181,7 +181,7 @@ useEffect(() => {
                 <p
                   style={{
                     color: "#555",
-                    fontSize: "0.96rem",
+                    fontSize: "1.5rem",
                     lineHeight: "1.9",
                     fontWeight: 400,
                     margin: 0,

@@ -1,75 +1,11 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
-
-const projects = [
-  {
-    title: "Sempa Tech",
-    category: "IT Company",
-    description:
-      "A professional software solutions and premium IT services platform.",
-    image: "/project/sempa.png",
-    link: "https://sempatech.com/",
-  },
-  {
-    title: "Edify Nepal",
-    category: "Blog & Portal",
-    description:
-      "An interactive blog portal focused on education and digital insights.",
-    image: "/project/edifynepal.png",
-    link: "https://edifynepal.com/",
-  },
-  {
-    title: "Arya Tara PVT. LTD.",
-    category: "Career",
-    image: "/project/aryatara.png",
-    description:
-      "Aryatara Private Limited is a Japan-based, multi-sector powerhouse delivering innovative technology, business consultancy, and digital solutions to drive global progress and sustainable growth.",
-    link: "https://thearyatara.info/",
-  },
-  {
-    title: "The Mount Curry Point",
-    category: "Restaurant  ",
-    description:
-      "Experience the authentic flavors of India, Nepal, and beyond—scanned, ordered, and served right at your table with our seamless QR-based ordering system.",
-    image: "/project/mountcurry.png",
-    link: "https://mountcurrypoint.com/",
-  },
-  {
-    title: "School Management System",
-    category: "SMS",
-    description:
-      "Optimizes student enrollment workflows and automates daily attendance tracking, ensuring accurate record-keeping and effortless administrative reporting.",
-    image: "/project/sms.png",
-    link: "https://school.edifynepal.com/",
-  },
-  {
-    title: "Nepal Chunab",
-    category: "Election Portal",
-    description: "Real-time election tracking system with data visualization.",
-    image: "/project/nepalchunab.png",
-    link: "http://nepalchunab.vercel.app/",
-  },
-  {
-    title: "ThemeCraft Dashboard",
-    category: "ThemeCraft",
-    description:
-      "An interactive UI customizer for real-time color manipulation and theme styling.",
-    image: "/project/dashboard.png",
-    link: "https://dashboard-red-eight-99.vercel.app/",
-  },
-  {
-    title: "Khetala Job Platform",
-    category: "Job",
-    description:
-      "Khetala connects local workers and employers in a simple and accessible way.It helps people find jobs, hire workers, and grow opportunities in their own language.",
-    image: "/project/khetala.png",
-    link: "https://khetala.vercel.app/",
-  },
-];
+import { ArrowUpRight } from "lucide-react";
+import { projects } from "../../lib/project";
 
 export default function ProjectsPreview() {
   useEffect(() => {
@@ -82,11 +18,11 @@ export default function ProjectsPreview() {
   return (
     <section
       id="Services"
-      className="bg-gradient-to-br from-[#f5f7fa] to-[#f5f7fa] font-[Poppins,sans-serif] py-[70px] px-[10px] lg:px-[50px]"
+      className="bg-gradient-to-br from-[#f5f7fa] to-[#f5f7fa] font-[Poppins,sans-serif] py-[70px]"
     >
-      <div className="container mx-auto px-3">
+      <div className="mx-auto max-w-7xl px-3">
         <div className="text-center mb-5" data-aos="fade-down">
-          <h2 className="!text-[2.6rem]  !font-bold !text-[#0f95ff] uppercase tracking-[1.5px] mb-4">
+          <h2 className="!text-[2.6rem] !font-bold !text-[#0f95ff] uppercase tracking-[1.5px] mb-4">
             Pro <span className="text-[#ee1035]">ject</span>
           </h2>
 
@@ -98,16 +34,11 @@ export default function ProjectsPreview() {
           </div>
 
           {/* Short & Sweet Description */}
-          <p className="text-[#6c757d] mx-auto max-w-[600px] text-[1.1rem] leading-[1.6] font-normal">
+          <p className="text-[#6c757d] mx-auto max-w-[800px] text-[1.5rem] leading-[1.6] font-normal">
             A showcase of my recent works, blending{" "}
-            <span className="text-[#0f95ff] font-semibold">
-              creative design
-            </span>{" "}
+            <span className="text-[#0f95ff] font-semibold">creative design</span>{" "}
             with
-            <span className="text-[#ee1035] font-semibold">
-              {" "}
-              modern technology
-            </span>{" "}
+            <span className="text-[#ee1035] font-semibold"> modern technology</span>{" "}
             to build impactful digital experiences.
           </p>
         </div>
@@ -116,7 +47,7 @@ export default function ProjectsPreview() {
           {featuredProjects.map((project, index) => (
             <div
               className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)]"
-              key={index}
+              key={project.slug}
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
@@ -131,25 +62,38 @@ export default function ProjectsPreview() {
 
                 <div className="p-3 flex flex-col flex-1 border-t border-[#dee2e6]">
                   <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold m-0 text-gray-900 text-[1.2rem]">
+                    <h4 className="font-bold m-0 text-gray-900 text-[1.5rem]">
                       {project.title}
                     </h4>
                     <span className="bg-[#f8f9fa] text-[#6c757d] px-[10px] py-[3px] text-[0.6rem] font-bold rounded-[4px] uppercase border border-[#dee2e6] whitespace-nowrap">
                       {project.category}
                     </span>
                   </div>
-                  <p className="text-[#6c757d] text-sm flex-grow mb-3 text-start leading-[1.6]">
+
+                  {/* Description clamped to 2 lines */}
+                  <p className="text-[#6c757d] text-lg flex-grow mb-3 text-start leading-[1.6] line-clamp-2">
                     {project.description}
                   </p>
-                  <Link
-                    href={project.link}
-                    className="inline-block !no-underline text-center bg-[#0f95fe] text-white! font-semibold rounded-[4px] py-[6px] w-full transition-all duration-300 hover:bg-[#1380d4] hover:brightness-110"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit the website for ${project.title}`}
-                  >
-                    Visit Website
-                  </Link>
+
+                  {/* Two buttons: See More (internal) + Visit Website (external) */}
+                  <div className="flex gap-2">
+                    <Link
+                      href={`/project/${project.slug}`}
+                      className="flex-1 inline-flex items-center justify-center !no-underline text-center bg-[#0f95fe] text-white! font-semibold rounded-[4px] py-[6px] text-sm transition-all duration-300 hover:bg-[#1380d4] hover:brightness-110"
+                      aria-label={`See more about ${project.title}`}
+                    >
+                      See More
+                    </Link>
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1 !no-underline text-center border-2 border-[#0f95fe] text-[#0f95fe]! font-semibold rounded-[4px] px-3 py-[6px] text-sm transition-all duration-300 hover:bg-[#0f95fe] hover:!text-white"
+                      aria-label={`Visit the website for ${project.title}`}
+                    >
+                      <ArrowUpRight size={15} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -160,7 +104,7 @@ export default function ProjectsPreview() {
         <div className="text-center mt-5" data-aos="fade-up">
           <Link
             href="/project"
-            className="inline-block py-1.5 px-4 !no-underline bg-transparent text-[#0f95fe]! font-bold text-base border-2 border-[#0f95fe] rounded-[4px]  uppercase tracking-[0.5px] transition-all duration-300 hover:bg-[#0f95fe]  hover:shadow-[0_8px_20px_rgba(14,150,254,0.3)]"
+            className="inline-block py-1.5 px-4 !no-underline bg-transparent text-[#0f95fe]! font-bold text-base border-2 border-[#0f95fe] rounded-[4px] uppercase tracking-[0.5px] transition-all duration-300 hover:bg-[#0f95fe] hover:shadow-[0_8px_20px_rgba(14,150,254,0.3)]"
           >
             View All Projects
           </Link>

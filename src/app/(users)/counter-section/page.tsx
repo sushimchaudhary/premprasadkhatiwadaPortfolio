@@ -6,26 +6,26 @@ const countersData = [
   {
     id: 1,
     title: "Projects Completed",
-    count: 5,
+    count: 10,
     icon: "bi-check2-circle",
   },
   {
     id: 2,
     title: "YEARS OF EXPERIENCE",
-    count: 1,
+    count: 2,
     icon: "bi-clock-history",
   },
   {
     id: 3,
     title: "TOTAL REPOSITORIES",
-    count: 15,
+    count: 25,
     icon: "bi-github",
   },
   {
     id: 4,
-    title: "Hours Worked",
-    count: 1500,
-    icon: "bi-hourglass-split",
+    title: "Happy Clients",
+    count: 10,
+    icon: "bi-emoji-smile",
   },
 ];
 

@@ -50,7 +50,7 @@ const Contact = () => {
           backgroundColor: "#f9fbfd",
         }}
       >
-        <div className="container">
+        <div className="mx-auto max-w-7xl px-3">
           <div className="text-center mb-5" data-aos="fade-down">
             
             <h2
@@ -83,7 +83,7 @@ const Contact = () => {
                 }}
               >
                 <h3
-                  className="fw-semibold fs-4 text-dark mb-4"
+                  className="fw-semibold fs-2 text-dark mb-4"
                   style={{
                     textTransform: "capitalize",
                     letterSpacing: "0.05em",
@@ -92,9 +92,9 @@ const Contact = () => {
                   Let's Get In Touch
                 </h3>
                 <p
-                  className="mb-5 text-secondary"
+                  className="mb-4 text-secondary"
                   style={{
-                    fontSize: "1.1rem",
+                    fontSize: "1.3rem",
                     fontWeight: "400",
                     lineHeight: "1.6",
                   }}
@@ -260,7 +260,7 @@ const Contact = () => {
                 }}
               >
                 <h3
-                  className="fw-bold fs-4 text-dark mb-0 text-capitalize"
+                  className="fw-bold fs-3 text-dark mb-0 text-capitalize"
                   style={{ letterSpacing: "0.03em" }}
                 >
                   Message <span style={{ color: "#ee1035ff" }}>Me!</span>
