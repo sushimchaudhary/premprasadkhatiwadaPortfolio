@@ -150,8 +150,17 @@ export default function AboutMeSection() {
                 ></span>
               </p>
 
-                       <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
- at <strong>Sempa Tech</strong>, where I build fast and reliable web applications. I work mainly with <strong>MongoDB</strong>, <strong>Express.js</strong>, <strong>React.js</strong>, and <strong>Node.js</strong>, along with tools like <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, and <strong>Bootstrap</strong>. I also build backend APIs using <strong>Python</strong> with <strong>FastAPI</strong> and <strong>Django</strong>, and stay organized with <strong>Git/GitHub</strong>. I learn quickly, work well in teams, and always aim to write clean, easy-to-maintain code.
+              <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
+  At <strong>Sempa Tech</strong>, I build fast and reliable web applications. 
+  My core expertise lies in the MERN stack (<strong>MongoDB</strong>, 
+  <strong> Express.js</strong>, <strong>React.js</strong>, <strong>Node.js</strong>) 
+  and modern tools like <strong>Next.js</strong> and <strong>Tailwind CSS</strong>. 
+  Beyond frontend development, I specialize in integrating and consuming 
+  <strong> REST APIs</strong>, specifically leveraging <strong>Django REST Framework </strong> 
+   to build seamless data-driven connections. I stay organized with 
+  <strong> Git/GitHub</strong>, adapt quickly to new workflows, 
+  thrive in team environments, and am committed to writing clean, 
+  easy-to-maintain code.
 </div>
 
               <motion.a

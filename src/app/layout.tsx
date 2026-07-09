@@ -6,6 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "./Component/Footer";
 import { ThemeProvider } from "./Component/ThemeProvider";
 import GoogleTranslate from "./Component/languageTranslate";
+import Script from "next/script";
 
 // Mukta font configuration
 const mukta = Mukta({
@@ -34,7 +35,7 @@ export const metadata = {
   authors: [{ name: "Sushim Chaudhary" }],
   openGraph: {
     title: "Sushim Chaudhary | Full Stack Developer",
-description: "I'm Sushim Chaudhary, a passionate MERN STACK Developer and Graphic Designer from Nepal. Explore my portfolio to see my projects and technical skills.",    url: "https://sushimchaudhary.com.np/",
+    description: "I'm Sushim Chaudhary, a passionate MERN STACK Developer and Graphic Designer from Nepal. Explore my portfolio to see my projects and technical skills.",    url: "https://sushimchaudhary.com.np/",
     siteName: "Sushim Chaudhary Portfolio",
     type: "website",
     locale: "en_US",
@@ -51,6 +52,24 @@ description: "I'm Sushim Chaudhary, a passionate MERN STACK Developer and Graphi
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-SZQXE52XTE"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-SZQXE52XTE');
+          `}
+        </Script>
+      </head>
+
       <body 
         className={`${mukta.variable} ${geistMono.variable} antialiased`}
         style={{ fontFamily: "var(--font-mukta), sans-serif" }} // Default font Mukta banayeko
