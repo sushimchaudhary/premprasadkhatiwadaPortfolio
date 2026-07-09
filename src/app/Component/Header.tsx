@@ -113,14 +113,18 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile toggle */}
-            <button
-              type="button"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
-              className="rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100 lg:hidden"
-            >
-              <Menu size={24} />
-            </button>
+          <div className="flex items-center gap-2 lg:hidden">
+              <LanguageSwitcher variant="mobile" />
+
+              <button
+                type="button"
+                onClick={() => setMobileOpen(true)}
+                aria-label="Open menu"
+                className="rounded-md p-2 text-gray-700 transition-colors hover:bg-gray-100"
+              >
+                <Menu size={24} />
+              </button>
+            </div>
           </div>
         </header>
       </div>

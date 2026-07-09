@@ -150,19 +150,9 @@ export default function AboutMeSection() {
                 ></span>
               </p>
 
-                        <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
-
-                I'm a passionate <strong>MERN Stack Developer</strong> driven by
-                a mission to build sleek, high-performance web applications. I
-                specialize in crafting interactive, scalable user experiences
-                using <strong>MongoDB</strong>, <strong>Express.js</strong>,{" "}
-                <strong>React.js</strong>, and <strong>Node.js</strong>.
-                Proficient in modern tools like <strong>Next.js</strong>,{" "}
-                <strong>Tailwind CSS</strong>, <strong>Bootstrap</strong>, and{" "}
-                <strong>Git/GitHub</strong>. I’m a fast learner, collaborative
-                team player, and deeply focused on writing clean, maintainable
-                code.
-              </div>
+                       <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
+  I'm a <strong>MERN Stack Developer</strong> at <strong>Sempa Tech</strong>, where I build fast and reliable web applications. I work mainly with <strong>MongoDB</strong>, <strong>Express.js</strong>, <strong>React.js</strong>, and <strong>Node.js</strong>, along with tools like <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, and <strong>Bootstrap</strong>. I also build backend APIs using <strong>Python</strong> with <strong>FastAPI</strong> and <strong>Django</strong>, and stay organized with <strong>Git/GitHub</strong>. I learn quickly, work well in teams, and always aim to write clean, easy-to-maintain code.
+</div>
 
               <motion.a
                 href="/certificates/sushim.cv.pdf"

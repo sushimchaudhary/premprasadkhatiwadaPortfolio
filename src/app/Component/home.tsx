@@ -172,10 +172,8 @@ export default function HomeSection() {
                 style={{ textShadow: "0 0 8px rgba(238,16,53,0.6)" }}
               />
             </div>
-
-           <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#ccd6f6]">
-  Passionate developer from Mourighat, Nepal, specializing in creating high-performance web applications with cutting-edge technologies. I combine technical expertise with creative design to deliver exceptional digital experiences.
-</div>
+<div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#ccd6f6]">
+Hi, I'm a Web Developer based in Mourighat, Nepal. I craft high-performance, visually stunning websites at Sempa Tech. My goal is simple: to help your business stand out by building digital experiences that are not just fast and clean, but designed to convert and grow.</div>
 
             <div className="mt-4 flex flex-row flex-wrap items-center gap-4">
               <Link
