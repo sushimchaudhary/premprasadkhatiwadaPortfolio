@@ -12,7 +12,7 @@ export default function HomeSection() {
 
   useEffect(() => {
     const typed1 = new Typed(typing1Ref.current, {
-      strings: ["MERN-Stack Developer"],
+      strings: ["Full-Stack Developer"],
       typeSpeed: 80,
       backSpeed: 50,
       loop: true,

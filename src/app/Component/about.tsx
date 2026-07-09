@@ -9,7 +9,7 @@ export default function AboutMeSection() {
 
   useEffect(() => {
     const typed1 = new Typed(typing1Ref.current!, {
-      strings: ["MERN-STACK Developer"],
+      strings: ["Full-STACK Developer"],
       typeSpeed: 90,
       backSpeed: 50,
       loop: true,
@@ -151,7 +151,7 @@ export default function AboutMeSection() {
               </p>
 
                        <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
-  I'm a <strong>MERN Stack Developer</strong> at <strong>Sempa Tech</strong>, where I build fast and reliable web applications. I work mainly with <strong>MongoDB</strong>, <strong>Express.js</strong>, <strong>React.js</strong>, and <strong>Node.js</strong>, along with tools like <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, and <strong>Bootstrap</strong>. I also build backend APIs using <strong>Python</strong> with <strong>FastAPI</strong> and <strong>Django</strong>, and stay organized with <strong>Git/GitHub</strong>. I learn quickly, work well in teams, and always aim to write clean, easy-to-maintain code.
+ at <strong>Sempa Tech</strong>, where I build fast and reliable web applications. I work mainly with <strong>MongoDB</strong>, <strong>Express.js</strong>, <strong>React.js</strong>, and <strong>Node.js</strong>, along with tools like <strong>Next.js</strong>, <strong>Tailwind CSS</strong>, and <strong>Bootstrap</strong>. I also build backend APIs using <strong>Python</strong> with <strong>FastAPI</strong> and <strong>Django</strong>, and stay organized with <strong>Git/GitHub</strong>. I learn quickly, work well in teams, and always aim to write clean, easy-to-maintain code.
 </div>
 
               <motion.a
