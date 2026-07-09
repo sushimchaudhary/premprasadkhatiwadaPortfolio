@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sushim Chaudhary | Full Stack Developer & Portfolio",
+  title: "Sushim Chaudhary | Full Stack Developer & Portfolio | sushim | Web Development | sushimchaudhary" ,
   description: "Personal portfolio of Sushim Chaudhary. Explore my projects, technical skills, and professional experience in web development.",
   keywords: [
     "Sushim Chaudhary", 
@@ -34,8 +34,7 @@ export const metadata = {
   authors: [{ name: "Sushim Chaudhary" }],
   openGraph: {
     title: "Sushim Chaudhary | Full Stack Developer",
-    description: "Professional portfolio showcasing web development projects and technical expertise.",
-    url: "https://sushimchaudhary.com.np/",
+description: "I'm Sushim Chaudhary, a passionate MERN STACK Developer and Graphic Designer from Nepal. Explore my portfolio to see my projects and technical skills.",    url: "https://sushimchaudhary.com.np/",
     siteName: "Sushim Chaudhary Portfolio",
     type: "website",
     locale: "en_US",

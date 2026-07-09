@@ -22,6 +22,7 @@ import {
   Send,
   Triangle,
   type LucideIcon,
+  CatIcon,
 } from "lucide-react";
 
 type Skill = { name: string; icon: LucideIcon; color: string };
@@ -70,6 +71,7 @@ const skillsData: Category[] = [
     accent: "#ee1035",
     skills: [
       { name: "Git", icon: GitBranch, color: "#f1502f" },
+      {name: "GitHub", icon: CatIcon, color: "#181717" },
       { name: "Figma", icon: Figma, color: "#a259ff" },
       { name: "Postman", icon: Send, color: "#ff6c37" },
       { name: "Thunder Client", icon: Zap, color: "#f5a623" },

@@ -251,7 +251,7 @@ export default function HomeSection() {
                     quality={100}
                     priority
                     sizes="(max-width: 768px) 80vw, 400px"
-                    className="block h-auto lg:max-h-[400px] md:max-h-[250px]  max-h-[300px] w-full rounded-full object-cover shadow transition-[filter] duration-500 [filter:grayscale(20%)_contrast(110%)] hover:[filter:grayscale(0%)_contrast(110%)]"
+                    className="block h-auto lg:max-h-[400px] md:max-h-[250px]  max-h-[330px] w-full rounded-full object-cover shadow transition-[filter] duration-500 [filter:grayscale(20%)_contrast(110%)] hover:[filter:grayscale(0%)_contrast(110%)]"
                   />
                 </div>
               </div>
