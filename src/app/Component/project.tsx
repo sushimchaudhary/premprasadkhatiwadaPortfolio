@@ -63,9 +63,9 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Description clamped to 3 lines */}
-                  <p className="text-[#6c757d] text-lg flex-grow mb-3 text-start leading-[1.6] line-clamp-2">
+           <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f] line-clamp-2">
                     {project.description}
-                  </p>
+                  </div>
 
                   {/* Two buttons: See More (internal) + Visit Website (external) */}
                   <div className="flex gap-2">

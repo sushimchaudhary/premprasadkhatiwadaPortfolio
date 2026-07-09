@@ -150,13 +150,8 @@ export default function AboutMeSection() {
                 ></span>
               </p>
 
-              <p
-                style={{
-                  marginBottom: "30px",
-                  fontSize: "1.5rem",
-                  lineHeight: "1.7",
-                }}
-              >
+                        <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
+
                 I'm a passionate <strong>MERN Stack Developer</strong> driven by
                 a mission to build sleek, high-performance web applications. I
                 specialize in crafting interactive, scalable user experiences
@@ -167,7 +162,7 @@ export default function AboutMeSection() {
                 <strong>Git/GitHub</strong>. I’m a fast learner, collaborative
                 team player, and deeply focused on writing clean, maintainable
                 code.
-              </p>
+              </div>
 
               <motion.a
                 href="/certificates/sushim.cv.pdf"

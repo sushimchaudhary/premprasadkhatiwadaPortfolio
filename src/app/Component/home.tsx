@@ -173,12 +173,9 @@ export default function HomeSection() {
               />
             </div>
 
-            <div className="mb-4 font-['Poppins',sans-serif] text-xl font-light leading-[1.8] tracking-[0.5px] text-[#ccd6f6]">
-              Passionate developer from Mourighat, Nepal specializing in
-              creating high-performance web applications with cutting-edge
-              technologies. I combine technical expertise with creative design
-              to deliver exceptional digital experiences.
-            </div>
+           <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#ccd6f6]">
+  Passionate developer from Mourighat, Nepal, specializing in creating high-performance web applications with cutting-edge technologies. I combine technical expertise with creative design to deliver exceptional digital experiences.
+</div>
 
             <div className="mt-4 flex flex-row flex-wrap items-center gap-4">
               <Link

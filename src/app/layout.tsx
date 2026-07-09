@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "./Component/Footer";
 import { ThemeProvider } from "./Component/ThemeProvider";
+import GoogleTranslate from "./Component/languageTranslate";
 
 // Mukta font configuration
 const mukta = Mukta({
@@ -42,6 +43,10 @@ export const metadata = {
   alternates: {
     canonical: "https://sushimchaudhary.com.np/",
   },
+  icons: {
+    icon: "/favicon.ico", 
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -51,6 +56,8 @@ export default function RootLayout({ children }) {
         className={`${mukta.variable} ${geistMono.variable} antialiased`}
         style={{ fontFamily: "var(--font-mukta), sans-serif" }} // Default font Mukta banayeko
       >
+        <GoogleTranslate /> 
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main>{children}</main>

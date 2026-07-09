@@ -26,7 +26,7 @@ const certificates = [
     duration: "1 Aug, 2023 - 28 Apr, 2024",
     icon: "bi bi-laptop",
     color: "#0f95ff",
-    image: "/certificates/basic.pdf",
+    image: "/certificates/computer.pdf",
   },
 ];
 

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getProjectBySlug, projects } from "../../../../lib/project";
+import ProjectDetails from "../../../Component/projectDeatils";
+import NextProjectCard from "../../../Component/NextProjectcard";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -30,62 +33,84 @@ export default async function ProjectDetailPage({ params }: Props) {
     notFound();
   }
 
+  const currentIndex = projects.findIndex((p) => p.slug === project.slug);
+  const nextProject =
+    projects.length > 1
+      ? projects[(currentIndex + 1) % projects.length]
+      : null;
+  const prevProject =
+    projects.length > 1
+      ? projects[(currentIndex - 1 + projects.length) % projects.length]
+      : null;
+
   return (
-    <section className="bg-[#f5f7fa] py-16 font-[Poppins,sans-serif]">
+    <section className="bg-[#f5f7fa] py-8 font-sans">
       <div className="mx-auto max-w-7xl px-3">
-        {/* Back link */}
-        <Link
-          href="/project"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-semibold !no-underline text-[#0f95fe] transition-colors hover:gap-3 hover:text-[#0c449a]"
-        >
-          <ArrowLeft size={16} />
-          Back to all projects
-        </Link>
-
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
-          {/* Left — image */}
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="overflow-hidden rounded-xl border border-[#f0f0f0] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-[280px] w-full object-con sm:h-[380px] lg:h-[460px]"
-              />
-            </div>
-          </div>
-
-          {/* Right — content */}
-          <div className="flex flex-col justify-center">
-            <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-[#dee2e6] bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#0f95fe]">
-              <Tag size={12} strokeWidth={2.5} />
-              {project.category}
-            </span>
-
-            <h1 className="mb-1 text-3xl font-bold text-gray-900 sm:text-4xl">
-              {project.title}
-            </h1>
-
-           
-
-            <p className="mb-10 text-[1.5rem] leading-relaxed text-[#6c757d]">
-              {project.description}
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-[4px] bg-[#0f95fe] px-6 py-2 text-sm font-semibold !text-white !no-underline shadow-[0_8px_20px_rgba(15,149,254,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1380d4] hover:shadow-[0_10px_24px_rgba(15,149,254,0.35)]"
-              >
-                Visit Website
-                <ExternalLink size={16} />
-              </Link>
-
-             
-            </div>
-          </div>
+        {/* Header row: back link */}
+        <div className="mb-4 flex items-center justify-between">
+          <Link
+            href="/project"
+            className="inline-flex items-center gap-2 text-sm font-semibold !no-underline text-[#0f95fe] transition-colors hover:gap-3 hover:text-[#0c449a]"
+          >
+            <ArrowLeft size={16} />
+            Back to all projects
+          </Link>
         </div>
+
+        {/* Grid container मा grid-cols-[1.5fr_1fr] प्रयोग गर्नुहोस् */}
+<div className="grid grid-cols-1 gap-7 lg:grid-cols-[1.4fr_1fr] ">
+  
+  {/* Left — image */}
+ <div className="lg:sticky lg:top-24 lg:self-start">
+  {/* aspect-video ले राम्रो रेसियो दिन्छ */}
+  <div className="relative w-full overflow-hidden rounded-xl border border-[#f0f0f0] bg-gray-50 shadow-[0_8px_30px_rgba(0,0,0,0.06)] aspect-video">
+    <Image
+      src={project.image}
+      alt={project.title}
+      fill
+      sizes="(min-width: 1024px) 60vw, 100vw"
+      // object-contain ले इमेजलाई काट्दैन, पुरा देखाउँछ
+      className="object-center" 
+      priority
+    />
+  </div>
+</div>
+
+  {/* Right — content */}
+  <ProjectDetails project={project} />
+  
+</div>
+        {/* Previous & Next Buttons - Moved outside the grid and centered */}
+        {(prevProject || nextProject) && (
+          <div className="mt-1 flex items-center justify-center gap-4">
+            {prevProject && (
+              <Link
+                href={`/project/${prevProject.slug}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[#dee2e6] bg-white px-4 py-2.5 text-sm font-semibold !text-[#1b1c1f] !no-underline shadow-sm transition-all duration-300 hover:gap-3 hover:border-[#0f95fe] hover:text-[#0f95fe]"
+              >
+                <ArrowLeft size={16} />
+                Previous
+              </Link>
+            )}
+
+            {nextProject && (
+              <Link
+                href={`/project/${nextProject.slug}`}
+                className="inline-flex items-center gap-2 rounded-full border border-[#dee2e6] bg-white px-4 py-2.5 text-sm font-semibold !text-[#1b1c1f] !no-underline shadow-sm transition-all duration-300 hover:gap-3 hover:border-[#0f95fe] hover:text-[#0f95fe]"
+              >
+                Next Project
+                <ArrowRight size={16} />
+              </Link>
+            )}
+          </div>
+        )}
+
+        {/* Next project preview card */}
+        {/* {nextProject && (
+          <div className="mt-12">
+            <NextProjectCard project={nextProject} />
+          </div>
+        )} */}
       </div>
     </section>
   );

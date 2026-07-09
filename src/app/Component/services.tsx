@@ -178,17 +178,10 @@ useEffect(() => {
                 />
 
                 {/* Description */}
-                <p
-                  style={{
-                    color: "#555",
-                    fontSize: "1.5rem",
-                    lineHeight: "1.9",
-                    fontWeight: 400,
-                    margin: 0,
-                  }}
-                >
+                          <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
+
                   {service.description}
-                </p>
+                </div>
               </div>
             </div>
           ))}

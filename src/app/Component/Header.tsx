@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import GoogleTranslate from "../Component/languageTranslate";
+import LanguageSwitcher from "../Component/languageSwitcher";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -44,6 +46,10 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Google Translate bootstrap — mounted once, hidden. LanguageSwitcher
+          instances below drive it, so this only needs to render a single time. */}
+      <GoogleTranslate />
+
       {/* Navbar */}
       <div className="mx-auto max-w-7xl">
         <header
@@ -64,7 +70,8 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop links */}
-            <nav className="ml-6 hidden items-center gap-7 lg:flex">
+            <nav className="ml-6 hidden items-center  lg:flex">
+              <div className="mr-6 flex gap-7">
               {mainLinks.map((item) => (
                 <Link
                   key={item.name}
@@ -78,6 +85,11 @@ export default function Navbar() {
                   {item.name}
                 </Link>
               ))}
+              </div>
+
+              <div className="flex items-center gap-3">
+
+              <LanguageSwitcher  variant="desktop" />
 
               <Link
                 href="/certificates/sushim.cv.pdf"
@@ -97,6 +109,7 @@ export default function Navbar() {
               >
                 Contact
               </Link>
+              </div>
             </nav>
 
             {/* Mobile toggle */}
@@ -167,6 +180,13 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+
+            <div className="mt-2 border-t border-black/5 pt-3">
+              <p className="notranslate mb-2 px-1 text-xs font-bold uppercase tracking-wide text-gray-400">
+                Language
+              </p>
+              <LanguageSwitcher variant="mobile" />
+            </div>
           </nav>
 
           <div className="flex flex-col gap-2 border-t border-black/5 px-5 py-5">
