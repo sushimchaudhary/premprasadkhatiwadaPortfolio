@@ -442,7 +442,8 @@ const Contact = () => {
               >
                 <iframe
                   className="w-100 rounded"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d556.6704630128265!2d82.6910100399936!3d27.846242622605537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997a5007cb4c56b%3A0x953d9eef8d9576cd!2sSushim%20Developer!5e1!3m2!1sen!2snp!4v1753958779113!5m2!1sen!2snp"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1765.2237925416507!2d85.33407442400535!3d27.765179838790512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1f0055955b0f%3A0x11fa36dd584f98bf!2sChaudhary%20Niwas!5e0!3m2!1sen!2snp!4v1786423953953!5m2!1sen!2snp"
+                  // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d556.6704630128265!2d82.6910100399936!3d27.846242622605537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997a5007cb4c56b%3A0x953d9eef8d9576cd!2sSushim%20Developer!5e1!3m2!1sen!2snp!4v1753958779113!5m2!1sen!2snp"
                   height="450"
                   style={{
                     border: 0,
