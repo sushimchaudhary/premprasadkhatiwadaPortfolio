@@ -82,7 +82,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 </div>
         {/* Previous & Next Buttons - Moved outside the grid and centered */}
         {(prevProject || nextProject) && (
-          <div className="mt-1 flex items-center justify-center gap-4">
+          <div className="mt-10 flex items-center justify-center gap-4">
             {prevProject && (
               <Link
                 href={`/project/${prevProject.slug}`}
@@ -102,6 +102,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <ArrowRight size={16} />
               </Link>
             )}
+            
           </div>
         )}
 

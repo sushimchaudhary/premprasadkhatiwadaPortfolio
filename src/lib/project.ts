@@ -17,6 +17,30 @@ function slugify(title: string) {
 }
 
 const rawProjects: Omit<Project, "slug">[] = [
+
+  {
+  title: "RMS & Digital Menu System",
+  category: "Web Application / SaaS",
+  description:
+    "A comprehensive restaurant management solution and real-time digital menu system. Enables seamless multi-branch ordering, live order status updates, interactive table management, dynamic QR code menu access, flexible payment gateways, and real-time admin analytics. Features include a 1 month free demo subscription model, real-time order synchronization via Socket.io, multi-tenant restaurant & multi-branch management, role-based access control (Admin, Staff), live kitchen display, and secure subscription status verification.",
+  image: "/project/restaurant.png",
+  link: "https://restaurant-management-systems.vercel.app/",
+  techStack: [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Node.js",
+    "Express.js",
+    "Prisma ORM",
+    "Socket.io",
+    "JWT Authentication",
+    "Multer",
+    "Axios",
+    "Zod",
+    "React Hook Form",
+  ],
+},
   {
     title: "Sempa Tech",
     category: "IT Company",
