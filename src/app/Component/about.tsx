@@ -90,11 +90,12 @@ export default function AboutMeSection() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "40px",
-              alignItems: "center",
+              gap: "20px",
+              alignItems: "start",
             }}
           >
             {/* Left: Image */}
+
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -102,22 +103,23 @@ export default function AboutMeSection() {
               viewport={{ once: true }}
               style={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "center", 
                 alignItems: "center",
-                height: "400px",
-                overflow: "hidden",
+                height: "500px",
+                width: "100%",
               }}
             >
               <img
-                src="/sushim1.jpg"
+                src="/thinking.png"
                 alt="Sushim Chaudhary"
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center center",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  width: "auto",
+                  height: "auto",
+                  objectFit: "contain",
                   borderRadius: "10px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 }}
               />
             </motion.div>
@@ -151,17 +153,20 @@ export default function AboutMeSection() {
               </p>
 
               <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
-  At <strong>Sempa Tech</strong>, I build fast and reliable web applications. 
-  My core expertise lies in the MERN stack (<strong>MongoDB</strong>, 
-  <strong> Express.js</strong>, <strong>React.js</strong>, <strong>Node.js</strong>) 
-  and modern tools like <strong>Next.js</strong> and <strong>Tailwind CSS</strong>. 
-  Beyond frontend development, I specialize in integrating and consuming 
-  <strong> REST APIs</strong>, specifically leveraging <strong>Django REST Framework </strong> 
-   to build seamless data-driven connections. I stay organized with 
-  <strong> Git/GitHub</strong>, adapt quickly to new workflows, 
-  thrive in team environments, and am committed to writing clean, 
-  easy-to-maintain code.
-</div>
+                At <strong>Sempa Tech</strong>, I build fast and reliable web
+                applications. My core expertise lies in the MERN stack (
+                <strong>MongoDB</strong>,<strong> Express.js</strong>,{" "}
+                <strong>React.js</strong>, <strong>Node.js</strong>) and modern
+                tools like <strong>Next.js</strong> and{" "}
+                <strong>Tailwind CSS</strong>. Beyond frontend development, I
+                specialize in integrating and consuming
+                <strong> REST APIs</strong>, specifically leveraging{" "}
+                <strong>Django REST Framework </strong>
+                to build seamless data-driven connections. I stay organized with
+                <strong> Git/GitHub</strong>, adapt quickly to new workflows,
+                thrive in team environments, and am committed to writing clean,
+                easy-to-maintain code.
+              </div>
 
               <motion.a
                 href="/certificates/sushim.cv.pdf"

@@ -172,8 +172,13 @@ export default function HomeSection() {
                 style={{ textShadow: "0 0 8px rgba(238,16,53,0.6)" }}
               />
             </div>
-<div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#ccd6f6]">
-Hi, I'm a Web Developer based in Mourighat, Nepal. I craft high-performance, visually stunning websites at Sempa Tech. My goal is simple: to help your business stand out by building digital experiences that are not just fast and clean, but designed to convert and grow.</div>
+            <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#ccd6f6]">
+              Hi, I'm a Web Developer based in Mourighat, Nepal. I craft
+              high-performance, visually stunning websites at Sempa Tech. My
+              goal is simple: to help your business stand out by building
+              digital experiences that are not just fast and clean, but designed
+              to convert and grow.
+            </div>
 
             <div className="mt-4 flex flex-row flex-wrap items-center gap-4">
               <Link
@@ -222,8 +227,9 @@ Hi, I'm a Web Developer based in Mourighat, Nepal. I craft high-performance, vis
           </div>
 
           {/* Right Image */}
+          {/* Right Image Container */}
           <div className="mb-4 w-full py-7 text-center md:mb-0 md:w-5/12">
-            <div className="relative mx-auto max-w-[430px]">
+            <div className="relative mx-auto aspect-square w-full max-w-[450px]">
               <div
                 className="absolute inset-0 h-full w-full rounded-full"
                 style={{
@@ -233,28 +239,29 @@ Hi, I'm a Web Developer based in Mourighat, Nepal. I craft high-performance, vis
                 }}
               />
               <div
-                className="relative z-10 rounded-full p-2"
+                className="relative z-10 h-full w-full rounded-full p-1"
                 style={{
                   background:
                     "linear-gradient(135deg, rgba(88,160,200,0.5), rgba(238,16,53,0.3))",
                   boxShadow: "0 0 40px rgba(88,160,200,0.3)",
                 }}
               >
-                <div className="rounded-full border border-white/10 bg-[rgba(10,25,47,0.7)] p-1.5 backdrop-blur-[5px]">
+                <div className="flex h-full w-full items-center justify-center rounded-full border border-white/10 bg-[rgba(10,25,47,0.7)] p-1.5 backdrop-blur-[5px]">
                   <Image
-                    src="/main.jpg"
+                    src="/coding.png"
                     alt="Sushim Chaudhary"
                     width={500}
                     height={500}
                     quality={100}
                     priority
                     sizes="(max-width: 768px) 80vw, 400px"
-                    className="block h-auto lg:max-h-[400px] md:max-h-[250px]  max-h-[330px] w-full rounded-full object-cover shadow transition-[filter] duration-500 [filter:grayscale(20%)_contrast(110%)] hover:[filter:grayscale(0%)_contrast(110%)]"
+                    className="block aspect-square w-full rounded-full object-cover shadow transition-[filter] duration-500 [filter:grayscale(20%)_contrast(110%)] hover:[filter:grayscale(0%)_contrast(110%)]"
                   />
                 </div>
               </div>
+              {/* Blue dot indicator */}
               <div
-                className="absolute bottom-0 end-0 h-[30px] w-[30px] rounded-full bg-[#0f95fe]"
+                className="absolute bottom-2 end-2 h-[30px] w-[30px] rounded-full bg-[#0f95fe]"
                 style={{
                   zIndex: 2,
                   animation: "blink 2s infinite",
