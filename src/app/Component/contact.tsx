@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiLogoLinkedinSquare, BiEnvelope } from "react-icons/bi";
-import { BsTelephone } from "react-icons/bs";
+import { BsTelephone, BsTiktok } from "react-icons/bs";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
@@ -126,6 +126,15 @@ const Contact = () => {
                   hoverBg: "#4267B2",
                   hrefBlank: true,
                 },
+                {
+                  icon: <BsTiktok size={20} />,
+                  label: "TikTok",
+                  link: "https://www.tiktok.com/@premkhatiwada_78",
+                  value: "Prem Prasad Khatiwada",
+                  color: "#4267B2",
+                  hoverBg: "#4267B2",
+                  hrefBlank: true,
+                },
               ].map(
                 (
                   { icon, label, link, value, color, hoverBg, hrefBlank },
@@ -179,64 +188,8 @@ const Contact = () => {
                 )
               )}
 
-              {/* Social Icons Row */}
-              <div className="d-flex mt-4 gap-3">
-                {[
-                  {
-                    href: "https://www.facebook.com/prema.khativada.2025",
-                    icon: <FaFacebookF size={16} />,
-                    bgColor: "#b30302",
-                    hoverBg: "#8f0201",
-                    label: "Facebook",
-                  },
-                  {
-                    href: "https://www.linkedin.com/in/prem-prasad-khatiwada-ba16453a7/",
-                    icon: <BiLogoLinkedinSquare size={18} />,
-                    bgColor: "#b30302",
-                    hoverBg: "#8f0201",
-                    label: "LinkedIn",
-                  },
-                  {
-                    href: "https://wa.me/9779745462746",
-                    icon: <FaWhatsapp size={17} />,
-                    bgColor: "#b30302",
-                    hoverBg: "#8f0201",
-                    label: "WhatsApp",
-                  },
-                ].map(({ href, icon, bgColor, hoverBg, label }, idx) => (
-                  <a
-                    key={idx}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="d-flex align-items-center justify-content-center rounded-circle !no-underline"
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      backgroundColor: bgColor,
-                      color: "white",
-                      transition: "all 0.3s ease",
-                      userSelect: "none",
-                      boxShadow: "0 4px 12px rgba(179, 3, 2, 0.25)",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.backgroundColor =
-                        hoverBg;
-                      (e.currentTarget as HTMLElement).style.transform =
-                        "translateY(-2px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.backgroundColor =
-                        bgColor;
-                      (e.currentTarget as HTMLElement).style.transform =
-                        "translateY(0)";
-                    }}
-                    aria-label={label}
-                  >
-                    {icon}
-                  </a>
-                ))}
-              </div>
+            
+            
             </div>
           </div>
 

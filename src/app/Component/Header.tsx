@@ -15,6 +15,7 @@ export default function Navbar() {
   const mainLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about-us" },
+    { name: "Work Experience", href: "/work-experience" },
   ];
 
   // Sticky/scrolled navbar state
@@ -88,7 +89,7 @@ export default function Navbar() {
                 <LanguageSwitcher variant="desktop" />
 
                 <Link
-                  href="/certificates/sushim.cv.pdf"
+                  href="/certificates/...."
                   download
                   style={{ textDecoration: "none" }}
                   className="inline-flex items-center rounded-md border-2 border-[#b30302] bg-white/80 px-4 py-1.5 text-sm font-bold tracking-wide text-black !no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b30302] hover:text-white"
@@ -112,7 +113,7 @@ export default function Navbar() {
 
             {/* Mobile toggle */}
             <div className="flex items-center gap-2 lg:hidden">
-              <LanguageSwitcher variant="mobile" />
+              {/* <LanguageSwitcher variant="mobile" /> */}
 
               <button
                 type="button"
@@ -197,15 +198,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex flex-col gap-2 border-t border-slate-200/80 px-5 py-5">
-            <Link
-              href="/certificates/sushim.cv.pdf"
-              download
-              onClick={() => setMobileOpen(false)}
-              style={{ textDecoration: "none" }}
-              className="inline-flex items-center justify-center rounded-md border-2 border-[#b30302] px-4 py-2.5 text-sm font-bold text-black !no-underline transition-colors hover:bg-[#b30302] hover:text-white"
-            >
-              Download CV
-            </Link>
+            
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}

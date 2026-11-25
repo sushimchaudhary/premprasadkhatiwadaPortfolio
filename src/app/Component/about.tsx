@@ -68,7 +68,7 @@ export default function AboutMeSection() {
               </div>
 
               <motion.a
-                href="http://localhost:3000/certificates/sushim.cv.pdf"
+                href="/certificates/...."
                 download
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.96 }}

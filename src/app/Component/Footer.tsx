@@ -31,21 +31,7 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-
-   
-    if (!email) {
-      setError("Email is required!"); 
-      return;
-    }
-
-    setError("");
-    setStatus("Thank you for subscribing!");
-    setEmail("");
-
-    setTimeout(() => setStatus(""), 3000);
-  };
+ 
 
   return (
     <>
@@ -84,7 +70,7 @@ const Footer = () => {
                     className="fw-bold mb-4 small text-uppercase"
                     style={{ color: textColor }}
                   >
-                    Company
+                    Menu
                   </h6>
                   <ul className="list-unstyled small text-white">
                     <li className="mb-3">
@@ -95,7 +81,14 @@ const Footer = () => {
                         About Me
                       </a>
                     </li>
-                   
+                    <li className="mb-3">
+                      <a
+                        href="/work-experience"
+                        className="text-reset text-decoration-none footer-link"
+                      >
+                        Work Experience
+                      </a>
+                    </li> 
                   </ul>
                 </div>
                <div className="col-12 col-sm-4 mt-4 mt-sm-0">

@@ -100,19 +100,22 @@ export default function HomeSection() {
   const socials = [
     {
       icon: "bi-facebook",
-      url: "https://www.facebook.com/sushim.ch",
+      url: "https://www.facebook.com/prema.khativada.2025",
       color: "#0f95fe",
     },
-    {
-      icon: "bi-github",
-      url: "https://github.com/sushimchaudhary",
-      color: "#1e293b",
-    },
+    
     {
       icon: "bi-linkedin",
-      url: "https://www.linkedin.com/in/sushim-chaudhary-458930349/",
+      url: "https://www.linkedin.com/in/prem-prasad-khatiwada-ba16453a7/",
       color: "#0a66c2",
     },
+   
+    {
+      icon: "bi-whatsapp",  
+    url: "https://wa.me/9779745462746",
+      color: "#25D366",
+    },
+     
   ];
 
   return (
