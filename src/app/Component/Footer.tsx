@@ -1,11 +1,12 @@
 "use client";
 
+import { Linkedin } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import {
   FaFacebookF,
   FaTiktok,
   FaWhatsapp,
-  FaGithub,
+  
   FaArrowUp,
 } from "react-icons/fa";
 
@@ -15,8 +16,8 @@ const Footer = () => {
   const [status, setStatus] = useState("");
   const [error, setError] = useState(""); 
 
-  const logoColor = "#0f95fe";
-  const textColor = "#0e95fe";
+  const logoColor = "#b30302";
+  const textColor = "#b30302";
 
   useEffect(() => {
     const toggleScroll = () => {
@@ -67,90 +68,17 @@ const Footer = () => {
                   }}
                 />
               </div>
-              <p
-                className="text-white small mb-4"
-                style={{ maxWidth: "420px", lineHeight: "1.8", fontSize: "22px" }}
-              >
-                Join our newsletter for regular updates on full-stack
-                development and modern UI/UX design.
-              </p>
+              
 
-             <form onSubmit={handleSubscribe} noValidate className="flex gap-2 max-w-md">
-  <input
-    type="email"
-    value={email}
-    onChange={(e) => {
-      setEmail(e.target.value);
-      if (e.target.value) setError("");
-    }}
-    placeholder="example@email.com"
-    className={`flex-1 min-w-0 bg-[#14171A] text-white text-sm placeholder-gray-500 rounded px-3 py-2 border ${
-      error ? "border-red-500" : "border-transparent"
-    } focus:outline-none focus:ring-1 focus:ring-[#0f95fe] transition-all`}
-  />
-  <button
-    type="submit"
-    className="shrink-0 bg-[#0f95fe] hover:brightness-110 hover:-translate-y-0.5 text-white text-sm font-medium rounded px-4 py-2 transition-all"
-  >
-    Subscribe
-  </button>
-</form>
+  
 
-              {/* Error Message */}
-              {error && (
-                <p className="mt-2 small text-danger fw-bold transition-all">
-                  {error}
-                </p>
-              )}
-
-              {/* Success Message */}
-              {status && (
-                <p
-                  className="mt-2 small transition-all"
-                  style={{ color: logoColor }}
-                >
-                  {status}
-                </p>
-              )}
+              
             </div>
 
             {/* Links Grid Section */}
             <div className="col-lg-5 ">
               <div className="row">
-                <div className="col-6 col-sm-4">
-                  <h6
-                    className="fw-bold mb-4 small text-uppercase"
-                    style={{ color: textColor }}
-                  >
-                    Work
-                  </h6>
-                  <ul className="list-unstyled small text-white">
-                    <li className="mb-3">
-                      <a
-                        href="/services"
-                        className="text-reset text-decoration-none footer-link"
-                      >
-                        Services!
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a
-                        href="/project"
-                        className="text-reset text-decoration-none footer-link"
-                      >
-                        Projects
-                      </a>
-                    </li>
-                    <li className="mb-3">
-                      <a
-                        href="/skills"
-                        className="text-reset text-decoration-none footer-link"
-                      >
-                        Skills
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+               
                 <div className="col-6 col-sm-4">
                   <h6
                     className="fw-bold mb-4 small text-uppercase"
@@ -167,14 +95,7 @@ const Footer = () => {
                         About Me
                       </a>
                     </li>
-                    <li className="mb-3">
-                      <a
-                        href="/gallery"
-                        className="text-reset text-decoration-none footer-link"
-                      >
-                        Gallery
-                      </a>
-                    </li>
+                   
                   </ul>
                 </div>
                <div className="col-12 col-sm-4 mt-4 mt-sm-0">
@@ -196,19 +117,19 @@ const Footer = () => {
                     {/* Email Section */}
                     <li className="mb-3">
                       <a
-                        href="mailto:sushimchaudhary1@gmail.com"
+                        href="mailto:prem.khatiwada2052@gmail.com"
                         className="text-reset text-decoration-none footer-link d-block"
                       >
-                        sushimchaudhary1@gmail.com
+                        prem.khatiwada2052@gmail.com
                       </a>
                     </li>
                     {/* Phone Section */}
                     <li className="mb-3">
                       <a
-                        href="tel:+9779809508957"
+                        href="tel:+9779745462746"
                         className="text-reset text-decoration-none footer-link d-block"
                       >
-                        +977 9809508957
+                        +977 9745462746
                       </a>
                     </li>
                   </ul>
@@ -223,40 +144,50 @@ const Footer = () => {
           <div className="row align-items-center text-center text-md-start gy-4">
             <div className="col-md-6">
               <p className="text-white small mb-0">
-                &copy; {new Date().getFullYear()}{" "}
-                <span className="text-white">Sushim Chaudhary</span>. All rights
-                reserved.
-              </p>
+  &copy; {new Date().getFullYear()}{" "}
+  <span className="text-white">
+    Developed by{" "}
+    <a
+      href="https://sushimchaudhary.com.np/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#b30302]! text-decoration-none fw-semibold"
+    >
+      sushim ch
+    </a>
+  </span>
+    {" "}all rights reserved.
+</p>
             </div>
             <div className="col-md-6 text-md-end">
               <div className="d-flex justify-content-center justify-content-md-end gap-4">
                 <a
-                  href="https://www.facebook.com/sushim.ch"
+                  href="https://www.facebook.com/prema.khativada.2025"
                   target="_blank"
                   className="text-white social-hover"
                 >
                   <FaFacebookF size={18} />
                 </a>
                 <a
-                  href="https://wa.me/9809508957"
+                  href="https://wa.me/9745462746"
                   target="_blank"
                   className="text-white social-hover"
                 >
                   <FaWhatsapp size={18} />
                 </a>
                 <a
-                  href="https://www.tiktok.com/@su___shi__m"
+                  href="https://www.tiktok.com/@premkhatiwada_78"
                   target="_blank"
                   className="text-white social-hover"
                 >
                   <FaTiktok size={18} />
                 </a>
                 <a
-                  href="https://github.com/sushimchaudhary"
+                  href="https://www.linkedin.com/in/prem-prasad-khatiwada-ba16453a7/"
                   target="_blank"
                   className="text-white social-hover"
                 >
-                  <FaGithub size={18} />
+                  <Linkedin size={18} />
                 </a>
               </div>
             </div>

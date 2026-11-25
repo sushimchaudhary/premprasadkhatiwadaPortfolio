@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://sushimchaudhary.com.np";
+  const baseUrl = "https://premprasadkhatiwada.com.np";
 
   return [
     {
@@ -9,17 +9,12 @@ export default function sitemap() {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/project`,
+      url: `${baseUrl}/work-expriences`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+   
     {
       url: `${baseUrl}/about-us`,
       lastModified: new Date(),
@@ -27,7 +22,7 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/skills`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,

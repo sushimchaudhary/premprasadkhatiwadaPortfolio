@@ -1,223 +1,100 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import Typed from "typed.js";
+import React from "react";
 import { motion } from "framer-motion";
 
 export default function AboutMeSection() {
-  const typing1Ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const typed1 = new Typed(typing1Ref.current!, {
-      strings: ["Full-STACK Developer"],
-      typeSpeed: 90,
-      backSpeed: 50,
-      loop: true,
-      cursorChar: "|",
-    });
-
-    return () => {
-      typed1.destroy();
-    };
-  }, []);
-
   return (
     <section
-      className="about-section"
-      style={{
-        background: "#f5f7fa",
-        fontFamily: "Poppins, sans-serif",
-        padding: "60px 0",
-      }}
+      id="about"
+      className="about-section relative overflow-hidden bg-transparent py-16 text-slate-800"
+      style={{ fontFamily: "Poppins, sans-serif" }}
     >
-      <div className="mx-auto max-w-7xl">
-        <div
-          className="container"
-          style={{ maxWidth: "1300px", margin: "0 auto" }}
-        >
+      
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-6">
+        <div className="mx-auto" style={{ maxWidth: "1300px" }}>
           {/* Title */}
-          <div className="text-center mb-5" data-aos="fade-down">
-            <h2
-              style={{
-                fontSize: "2.6rem",
-                fontWeight: 700,
-                color: "#0f95ff",
-                textTransform: "uppercase",
-                letterSpacing: "1.5px",
-                marginBottom: "16px",
-              }}
-            >
-              About <span style={{ color: "#ee1035" }}>Me</span>
+          <div className="mb-12 text-center" data-aos="fade-down">
+            <h2 className="mb-4 text-4xl font-bold uppercase tracking-[1.5px] text-slate-900 md:text-[2.6rem]">
+              About <span className="text-[#b30302]">Me</span>
             </h2>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "8px",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  width: "50px",
-                  height: "3px",
-                  background: "#ee1035",
-                  borderRadius: "2px",
-                }}
-              />
-              <div
-                style={{
-                  width: "10px",
-                  height: "3px",
-                  background: "#0f95ff",
-                  borderRadius: "2px",
-                }}
-              />
-              <div
-                style={{
-                  width: "6px",
-                  height: "3px",
-                  background: "#ee1035",
-                  opacity: 0.35,
-                  borderRadius: "2px",
-                }}
-              />
+
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-[3px] w-[50px] rounded-[2px] bg-[#b30302]" />
+              <div className="h-[3px] w-[12px] rounded-[2px] bg-[#8f0201]" />
+              <div className="h-[3px] w-[6px] rounded-[2px] bg-[#b30302]/35" />
             </div>
           </div>
 
-          <div
-            className="about-grid"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "20px",
-              alignItems: "start",
-            }}
-          >
-            {/* Left: Image */}
-
+          {/* Left Content + Right Image on desktop */}
+          <div className="flex flex-col-reverse items-center gap-8 md:flex-row md:items-center md:gap-10">
+            {/* Left: Text */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-              style={{
-                display: "flex",
-                justifyContent: "center", 
-                alignItems: "center",
-                height: "500px",
-                width: "100%",
-              }}
-            >
-              <img
-                src="/thinking.png"
-                alt="Sushim Chaudhary"
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  width: "auto",
-                  height: "auto",
-                  objectFit: "contain",
-                  borderRadius: "10px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                }}
-              />
-            </motion.div>
-
-            {/* Right: Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 60 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
-              style={{
-                color: "#222",
-                fontSize: "1.125rem",
-                lineHeight: "1.8",
-              }}
+              className="w-full text-start md:w-7/12 md:pe-6"
             >
-              <p
-                className="font-bold uppercase tracking-[1.5px] mb-[15px] text-[#0f95ff] text-xl md:text-[1.75rem]"
-                style={{
-                  lineHeight: "1.2",
-                }}
-              >
-                I'm a{" "}
-                <span
-                  ref={typing1Ref}
-                  className="text-[#ee1035ff] font-[650] text-2xl md:text-[1.85rem]"
-                  style={{
-                    textShadow: "0 1px 2px rgba(238,16,53,0.5)",
-                  }}
-                ></span>
-              </p>
-
-              <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-light leading-[1.8] text-[#1b1c1f]">
-                At <strong>Sempa Tech</strong>, I build fast and reliable web
-                applications. My core expertise lies in the MERN stack (
-                <strong>MongoDB</strong>,<strong> Express.js</strong>,{" "}
-                <strong>React.js</strong>, <strong>Node.js</strong>) and modern
-                tools like <strong>Next.js</strong> and{" "}
-                <strong>Tailwind CSS</strong>. Beyond frontend development, I
-                specialize in integrating and consuming
-                <strong> REST APIs</strong>, specifically leveraging{" "}
-                <strong>Django REST Framework </strong>
-                to build seamless data-driven connections. I stay organized with
-                <strong> Git/GitHub</strong>, adapt quickly to new workflows,
-                thrive in team environments, and am committed to writing clean,
-                easy-to-maintain code.
+              <div className="mb-4 text-justify font-['Poppins',sans-serif] text-xl font-normal leading-[1.85] text-slate-700">
+                As an Operations Manager, I focus on keeping business operations
+                efficient, organized, and productive. My strengths lie in{" "}
+                <strong className="font-semibold text-[#b30302]">
+                  Operations Planning
+                </strong>
+                ,{" "}
+                <strong className="font-semibold text-[#b30302]">
+                  Workflow Management
+                </strong>
+                ,{" "}
+                <strong className="font-semibold text-[#b30302]">
+                  Team Coordination
+                </strong>
+                ,{" "}
+                <strong className="font-semibold text-[#b30302]">
+                  Process Improvement
+                </strong>
+                , and{" "}
+                <strong className="font-semibold text-[#b30302]">
+                  Problem Solving
+                </strong>
+                . I enjoy managing day-to-day activities, coordinating teams,
+                optimizing resources, and finding practical ways to improve
+                performance. I value clear communication, strategic thinking, and
+                teamwork, and I’m always looking for smarter ways to simplify
+                processes, overcome challenges, and contribute to business
+                growth.
               </div>
 
               <motion.a
-                href="/certificates/sushim.cv.pdf"
+                href="http://localhost:3000/certificates/sushim.cv.pdf"
                 download
-                className="btn submit-btn"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  background: "linear-gradient(153deg, #0f95ff, #0f95ff)",
-                  border: "none",
-                  padding: "5px 30px",
-                  fontWeight: "600",
-                  fontSize: "1rem",
-                  borderRadius: "4px",
-                  color: "#fff",
-                  textTransform: "uppercase",
-                  letterSpacing: "1px",
-                  boxShadow: "0 0 6px #0f95ff",
-                  transition: "all 0.4s ease",
-                  display: "inline-block",
-                }}
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="mt-2 inline-flex items-center rounded-[6px] bg-[#b30302] px-7 py-2.5 text-sm font-bold uppercase tracking-[1px] text-white !no-underline shadow-[0_6px_20px_rgba(179,3,2,0.3)] transition-all duration-300 hover:bg-[#960201] hover:shadow-[0_8px_26px_rgba(179,3,2,0.45)]"
               >
                 Download CV
               </motion.a>
             </motion.div>
+
+            {/* Right: Image without double card or box background */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="flex w-full items-center justify-center md:w-5/12"
+            >
+              <img
+                src="/prem2.png"
+                alt="Prem Prasad Khatiwada"
+                className="max-h-[460px] w-auto max-w-full rounded-xl object-contain mix-blend-multiply drop-shadow-[0_14px_28px_rgba(179,3,2,0.16)]"
+              />
+            </motion.div>
           </div>
         </div>
       </div>
-
-      <style jsx>
-        {`
-          .submit-btn {
-            background: #0e96fe;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            border: none;
-            transition:
-              transform 0.3s ease,
-              box-shadow 0.3s ease;
-            box-shadow: 0 0 15px rgba(88, 160, 200, 0.5);
-            animation: pulse 2s infinite ease-in-out;
-            text-transform: uppercase;
-          }
-          .submit-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(17, 63, 103, 0.4);
-          }
-        `}
-      </style>
     </section>
   );
 }

@@ -1,20 +1,22 @@
 import Contact from "../../Component/contact";
 
 export const metadata = {
-  title: "Contact Me | Let's Work Together | Sushim Chaudhary",
-  description: "Get in touch with Sushim Chaudhary for web development projects, collaborations, or inquiries. I'm available for freelance work and professional consultations.",
+  title: "Contact Me | Let's Connect | Prem Prasad Khatiwada",
+  description:
+    "Get in touch with Prem Prasad Khatiwada, an Operations Manager, for operations planning, workflow coordination, logistics discussions, or general inquiries.",
   keywords: [
-    "Contact Sushim Chaudhary",
-    "Hire Web Developer Nepal",
-    "Freelance Developer Nepal",
-    "Work with Sushim Chaudhary",
-    "Full Stack Developer Inquiry"
+    "Contact Prem Prasad Khatiwada",
+    "Operations Manager Nepal",
+    "Logistics and Operations Inquiry",
+    "Workflow and Process Management",
+    "Connect with Prem Prasad Khatiwada",
   ],
   openGraph: {
-    title: "Contact Sushim Chaudhary | Web Developer",
-    description: "Looking for a professional web developer? Let's discuss your project ideas.",
-    url: "https://sushimchaudhary.com.np/contact",
-    siteName: "Sushim Chaudhary Portfolio",
+    title: "Contact Me | Operations Manager | Prem Prasad Khatiwada",
+    description:
+      "Have a question or want to connect regarding operations, logistics, or workflow coordination? Reach out here.",
+    url: "/contact",
+    siteName: "Prem Prasad Khatiwada",
   },
 };
 

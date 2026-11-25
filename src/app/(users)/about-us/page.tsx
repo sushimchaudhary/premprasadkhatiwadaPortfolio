@@ -3,20 +3,24 @@
 import AboutMeSection from "../../Component/about";
 
 export const metadata = {
-  title: "About Me | Full Stack MERN Developer | Sushim Chaudhary",
-  description: "Meet Sushim Chaudhary, a passionate MERN Stack Developer. Experienced in building high-performance web applications using MongoDB, Express.js, React, and Node.js.",
+  title: "About Me | Operations Manager | Prem Prasad Khatiwada",
+  description:
+    "Meet Prem Prasad Khatiwada, an Operations Manager focused on operations planning, workflow management, team coordination, process improvement, and problem solving.",
   keywords: [
-    "About Sushim Chaudhary",
-    "MERN Stack Developer Nepal",
-    "Full Stack Developer Portfolio",
-    "Web Development Professional",
-    "Software Engineer Profile"
+    "About Prem Prasad Khatiwada",
+    "Operations Manager Nepal",
+    "Operations Planning",
+    "Workflow Management",
+    "Team Coordination",
+    "Process Improvement",
+    "Logistics and Operations Professional",
   ],
   openGraph: {
-    title: "About Sushim Chaudhary",
-    description: "Learn more about my professional journey and technical skills as a MERN Stack Developer.",
-    url: "https://sushimchaudhary.com.np/about-us/",
-    siteName: "Sushim Chaudhary Portfolio",
+    title: "About Me | Operations Manager | Prem Prasad Khatiwada",
+    description:
+      "Learn more about my experience in operations planning, workflow management, team coordination, and process improvement.",
+    url: "/about-us",
+    siteName: "Prem Prasad Khatiwada",
   },
 };
 
