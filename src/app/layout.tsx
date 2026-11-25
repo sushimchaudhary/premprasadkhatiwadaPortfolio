@@ -1,7 +1,7 @@
-import { Mukta, Geist_Mono } from "next/font/google"; // Mukta import gareko
+import { Mukta, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Component/Header";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "./Component/Footer";
 import { ThemeProvider } from "./Component/ThemeProvider";
@@ -10,7 +10,7 @@ import Script from "next/script";
 
 // Mukta font configuration
 const mukta = Mukta({
-  subsets: ["latin", "devanagari"], // Nepali ko lagi devanagari thapeko
+  subsets: ["latin", "devanagari"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-mukta",
 });
@@ -21,30 +21,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Sushim Chaudhary | Full Stack Developer & Portfolio | sushim | Web Development | sushimchaudhary" ,
-  description: "Personal portfolio of Sushim Chaudhary. Explore my projects, technical skills, and professional experience in web development.",
+  title:
+    "Prem Prasad Khatiwada | Operations Manager | Operations Planning & Workflow Management",
+  description:
+    "Portfolio of Prem Prasad Khatiwada, an Operations Manager focused on operations planning, workflow management, team coordination, process improvement, and logistics.",
   keywords: [
-    "Sushim Chaudhary", 
-    "Full Stack Developer", 
-    "Web Developer Nepal", 
-    "Portfolio", 
-    "Next.js Developer", 
-    "React Developer", 
-    "Software Engineer"
+    "Prem Prasad Khatiwada",
+    "Operations Manager",
+    "Operations Manager Nepal",
+    "Operations Planning",
+    "Workflow Management",
+    "Team Coordination",
+    "Process Improvement",
+    "Logistics Operations",
   ],
-  authors: [{ name: "Sushim Chaudhary" }],
+  authors: [{ name: "Prem Prasad Khatiwada" }],
   openGraph: {
-    title: "Sushim Chaudhary | Full Stack Developer",
-    description: "I'm Sushim Chaudhary, a passionate MERN STACK Developer and Graphic Designer from Nepal. Explore my portfolio to see my projects and technical skills.",    url: "https://sushimchaudhary.com.np/",
-    siteName: "Sushim Chaudhary Portfolio",
+    title: "Prem Prasad Khatiwada | Operations Manager",
+    description:
+      "Operations Manager experienced in operations planning, workflow management, team coordination, process improvement, and practical problem solving.",
+    url: "/",
+    siteName: "Prem Prasad Khatiwada",
     type: "website",
     locale: "en_US",
   },
   alternates: {
-    canonical: "https://sushimchaudhary.com.np/",
+    canonical: "/",
   },
   icons: {
-    icon: "/favicon.ico", 
+    icon: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
 };
@@ -70,11 +75,11 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
 
-      <body 
+      <body
         className={`${mukta.variable} ${geistMono.variable} antialiased`}
-        style={{ fontFamily: "var(--font-mukta), sans-serif" }} // Default font Mukta banayeko
+        style={{ fontFamily: "var(--font-mukta), sans-serif" }}
       >
-        <GoogleTranslate /> 
+        <GoogleTranslate />
 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
