@@ -36,6 +36,9 @@ export const metadata = {
     "Logistics Operations",
   ],
   authors: [{ name: "Prem Prasad Khatiwada" }],
+  verification: {
+    google: "OPTbh0aUpC6DlipPW4edpakmvipBUVZU6mtAJT2fk9w",
+  },
   openGraph: {
     title: "Prem Prasad Khatiwada | Operations Manager",
     description:
